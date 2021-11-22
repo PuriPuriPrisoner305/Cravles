@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ExerciseView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @State var isLinkActive = false
     var body: some View {
-        Text("Hello, Coder!")
-        Text("Test bruh")
+        NavigationView {
+            VStack {
+                Text("Hi, John")
+                Text("How are you feeling?")
+
+                NavigationLink(destination: Text("SimulationExerciseView"), isActive: $isLinkActive) {
+                    Button(action: {
+                        self.isLinkActive = true
+                    }) {
+                        Text("Next")
+                    }
+                }
+            }
+        }
     }
 }
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView()
+        ExerciseView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

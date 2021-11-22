@@ -13,8 +13,11 @@
 		22D33189274B4E6B005B72FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D33188274B4E6B005B72FF /* Preview Assets.xcassets */; };
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
-		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 		D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48186274B53EF004189CF /* ExerciseView.swift */; };
+		D9E48189274BA04D004189CF /* SimulationExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48188274BA04D004189CF /* SimulationExerciseView.swift */; };
+		D9E4818B274C15A3004189CF /* ambient.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9E4818A274C15A3004189CF /* ambient.m4a */; };
+		D9E4818D274C1AAB004189CF /* Open.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9E4818C274C1AAB004189CF /* Open.m4a */; };
+		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +28,11 @@
 		22D33188274B4E6B005B72FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
-		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 		D9E48186274B53EF004189CF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		D9E48188274BA04D004189CF /* SimulationExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationExerciseView.swift; sourceTree = "<group>"; };
+		D9E4818A274C15A3004189CF /* ambient.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ambient.m4a; sourceTree = "<group>"; };
+		D9E4818C274C1AAB004189CF /* Open.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Open.m4a; sourceTree = "<group>"; };
+		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
 				22D33183274B4E6A005B72FF /* ContentView.swift */,
 				D9E48186274B53EF004189CF /* ExerciseView.swift */,
+				D9E48188274BA04D004189CF /* SimulationExerciseView.swift */,
+				D9E4818A274C15A3004189CF /* ambient.m4a */,
+				D9E4818C274C1AAB004189CF /* Open.m4a */,
 				22D33185274B4E6B005B72FF /* Assets.xcassets */,
 				22D3318A274B4E6B005B72FF /* Persistence.swift */,
 				22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */,
@@ -146,6 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D33189274B4E6B005B72FF /* Preview Assets.xcassets in Resources */,
+				D9E4818B274C15A3004189CF /* ambient.m4a in Resources */,
+				D9E4818D274C1AAB004189CF /* Open.m4a in Resources */,
 				22D33186274B4E6B005B72FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +172,7 @@
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
+				D9E48189274BA04D004189CF /* SimulationExerciseView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
 				D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */,
 			);

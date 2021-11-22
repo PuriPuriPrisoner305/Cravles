@@ -13,7 +13,7 @@ struct CravlesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ExerciseView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
