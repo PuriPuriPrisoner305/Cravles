@@ -13,6 +13,7 @@
 		22D33189274B4E6B005B72FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D33188274B4E6B005B72FF /* Preview Assets.xcassets */; };
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
+		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		22D33188274B4E6B005B72FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
+		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		22D33180274B4E69005B72FF /* Cravles */ = {
 			isa = PBXGroup;
 			children = (
+				E0F73BA2274B583000AE10DC /* Model  */,
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
 				22D33183274B4E6A005B72FF /* ContentView.swift */,
 				22D33185274B4E6B005B72FF /* Assets.xcassets */,
@@ -71,6 +74,14 @@
 				22D33188274B4E6B005B72FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0F73BA2274B583000AE10DC /* Model  */ = {
+			isa = PBXGroup;
+			children = (
+				E0F73BA3274B589900AE10DC /* ContentData.swift */,
+			);
+			path = "Model ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */,
+				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
