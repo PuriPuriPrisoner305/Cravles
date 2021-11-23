@@ -17,7 +17,7 @@ struct ExerciseView: View {
                 Text("Hi, John")
                 Text("How are you feeling?")
 
-                NavigationLink(destination: Text("SimulationExerciseView"), isActive: $isLinkActive) {
+                NavigationLink(destination: SimulationExerciseView(), isActive: $isLinkActive) {
                     Button(action: {
                         self.isLinkActive = true
                     }) {

@@ -18,8 +18,8 @@ struct SimulationExerciseView: View {
     @State private var favoriteVoice = "Female"
     var voiceStyle = ["Female", "Male"]
 
-    @State private var voiceLevel: Double = 100
-    @State private var musicLevel: Double = 100
+    @State private var voiceLevel: Float = 1
+    @State private var musicLevel: Float = 1
 
     var body: some View {
         VStack (alignment: .center, spacing: 40) {
@@ -68,16 +68,16 @@ struct SimulationExerciseView: View {
 
 //                    Text("Value: \(favoriteVoice)")
 
-                    Slider(value: $voiceLevel, in: 0...100)
-//                    Text("\(voice, specifier: "%.f") Voice")
+                    Slider(value: $voiceLevel, in: 0...1)
+                    Text("\(voiceLevel, specifier: "%.1f") Voice")
 
                     HStack {
                         Text("Music")
                         Spacer()
                     }
 
-                    Slider(value: $musicLevel, in: 0...100)
-//                    Text("\(music, specifier: "%.f") Music")
+                    Slider(value: $musicLevel, in: 0...1)
+                    Text("\(musicLevel, specifier: "%.1f") Music")
                 }
                 .border(Color.red, width: 1)
                 .padding(20)

@@ -17,6 +17,9 @@
 		D9E48189274BA04D004189CF /* SimulationExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48188274BA04D004189CF /* SimulationExerciseView.swift */; };
 		D9E4818B274C15A3004189CF /* ambient.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9E4818A274C15A3004189CF /* ambient.m4a */; };
 		D9E4818D274C1AAB004189CF /* Open.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9E4818C274C1AAB004189CF /* Open.m4a */; };
+		D9E4818F274D54AA004189CF /* SimulationExerciseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4818E274D54AA004189CF /* SimulationExerciseVM.swift */; };
+		D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48192274D574D004189CF /* ExercisePlayView.swift */; };
+		D9E48195274D5AE9004189CF /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48194274D5AE9004189CF /* Audio.swift */; };
 		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		D9E48188274BA04D004189CF /* SimulationExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationExerciseView.swift; sourceTree = "<group>"; };
 		D9E4818A274C15A3004189CF /* ambient.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ambient.m4a; sourceTree = "<group>"; };
 		D9E4818C274C1AAB004189CF /* Open.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Open.m4a; sourceTree = "<group>"; };
+		D9E4818E274D54AA004189CF /* SimulationExerciseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationExerciseVM.swift; sourceTree = "<group>"; };
+		D9E48192274D574D004189CF /* ExercisePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePlayView.swift; sourceTree = "<group>"; };
+		D9E48194274D5AE9004189CF /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,11 +71,11 @@
 		22D33180274B4E69005B72FF /* Cravles */ = {
 			isa = PBXGroup;
 			children = (
+				D9E48190274D54B3004189CF /* ViewModel */,
 				E0F73BA2274B583000AE10DC /* Model  */,
+				D9E48191274D54C9004189CF /* View */,
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
 				22D33183274B4E6A005B72FF /* ContentView.swift */,
-				D9E48186274B53EF004189CF /* ExerciseView.swift */,
-				D9E48188274BA04D004189CF /* SimulationExerciseView.swift */,
 				D9E4818A274C15A3004189CF /* ambient.m4a */,
 				D9E4818C274C1AAB004189CF /* Open.m4a */,
 				22D33185274B4E6B005B72FF /* Assets.xcassets */,
@@ -88,10 +94,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D9E48190274D54B3004189CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9E4818E274D54AA004189CF /* SimulationExerciseVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D9E48191274D54C9004189CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9E48186274B53EF004189CF /* ExerciseView.swift */,
+				D9E48188274BA04D004189CF /* SimulationExerciseView.swift */,
+				D9E48192274D574D004189CF /* ExercisePlayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E0F73BA2274B583000AE10DC /* Model  */ = {
 			isa = PBXGroup;
 			children = (
 				E0F73BA3274B589900AE10DC /* ContentData.swift */,
+				D9E48194274D5AE9004189CF /* Audio.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -172,7 +197,10 @@
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
+				D9E48195274D5AE9004189CF /* Audio.swift in Sources */,
 				D9E48189274BA04D004189CF /* SimulationExerciseView.swift in Sources */,
+				D9E4818F274D54AA004189CF /* SimulationExerciseVM.swift in Sources */,
+				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
 				D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */,
 			);
