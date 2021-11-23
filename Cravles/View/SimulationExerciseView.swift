@@ -40,13 +40,6 @@ struct SimulationExerciseView: View {
                         .aspectRatio(contentMode: .fit)
                 }
             }
-            .onAppear {
-                let voiceSound = Bundle.main.path(forResource: "ambient", ofType: "m4a")
-                self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: voiceSound!))
-
-                let musicSound = Bundle.main.path(forResource: "Open", ofType: "m4a")
-                self.musicPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: musicSound!))
-            }
 //            ZStack {
 //                Text("Play")
 //            }
@@ -77,7 +70,7 @@ struct SimulationExerciseView: View {
                     }
 
                     Slider(value: $musicLevel, in: 0...1)
-                    Text("\(musicLevel, specifier: "%.1f") Music")
+//                    Text("\(music, specifier: "%.f") Music")
                 }
                 .border(Color.red, width: 1)
                 .padding(20)
@@ -86,6 +79,13 @@ struct SimulationExerciseView: View {
 //            }
         }
         .frame(alignment: .center)
+        .onAppear {
+            let voiceSound = Bundle.main.path(forResource: "ambient", ofType: "m4a")
+            self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: voiceSound!))
+
+            let musicSound = Bundle.main.path(forResource: "Open", ofType: "m4a")
+            self.musicPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: musicSound!))
+        }
     }
 
 //    func playSounds(_ soundFileName: String) {

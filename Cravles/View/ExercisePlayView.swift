@@ -21,25 +21,47 @@ struct ExercisePlayView: View {
 
             //Topview
 
-            HStack {
-                Button(action: {}) {
-                    Image(systemName: "chevron.left")
-                        .font(.title)
-                        .foregroundColor(.black)
-                }
-
-                Spacer(minLength: 0)
-
-                Button(action: {}) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.title2)
-                        .foregroundColor(.black)
-                }
-            }
-            .padding()
+//            HStack {
+//                Button(action: {}) {
+//                    Image(systemName: "chevron.left")
+//                        .font(.title)
+//                        .foregroundColor(.black)
+//                }
+//
+//                Spacer(minLength: 0)
+//
+//                Button(action: {}) {
+//                    Image(systemName: "magnifyingglass")
+//                        .font(.title2)
+//                        .foregroundColor(.black)
+//                }
+//            }
+//            .padding()
 
             VStack {
                 Spacer(minLength: 0)
+
+                Text(audioData.voice.title)
+                    .font(.title2)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.black)
+                    .padding(.top, 25)
+                    .padding(.horizontal)
+                    .lineLimit(1)
+
+//                Text(audioData.voice.artist)
+//                    .foregroundColor(.black)
+//                    .padding(.top, 5)
+
+//                Text(audioData.voice.type)
+//                    .font(.caption)
+//                    .fontWeight(.bold)
+//                    .foregroundColor(.black)
+//                    .padding(.vertical, 6)
+//                    .padding(.horizontal)
+//                    .background(Color.black.opacity(0.07))
+//                    .cornerRadius(5)
+//                    .padding(.top)
 
                 ZStack{
 
@@ -51,6 +73,15 @@ struct ExercisePlayView: View {
                         .clipShape(Circle())
 
                     ZStack {
+
+                        Button(action: audioData.play) {
+                            Image(systemName: audioData.isPlaying ? "pause.fill" : "play.fill")
+                                .font(.title)
+                                .foregroundColor(.gray)
+                                .padding(20)
+                                .background(Color.orange)
+                                .clipShape(Circle())
+                        }
 
                         //Slider
                         Circle()
@@ -77,7 +108,7 @@ struct ExercisePlayView: View {
                     //Rotating View For Bottom Facing
                     //Mid 90 deg + 0.1 * 360 = 36
                     //Total 126
-                    .rotationEffect(.init(degrees: 126))
+                    .rotationEffect(.init(degrees: 0))
 
                     //Time text
 
@@ -93,58 +124,38 @@ struct ExercisePlayView: View {
 
                 }
 
-                Text(audioData.voice.title)
-                    .font(.title2)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.black)
-                    .padding(.top, 25)
-                    .padding(.horizontal)
-                    .lineLimit(1)
 
-                Text(audioData.voice.artist)
-                    .foregroundColor(.gray)
-                    .padding(.top, 5)
 
-                Text(audioData.voice.type)
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                    .padding(.vertical, 6)
-                    .padding(.horizontal)
-                    .background(Color.black.opacity(0.07))
-                    .cornerRadius(5)
-                    .padding(.top)
+//                HStack(spacing: 55) {
 
-                HStack(spacing: 55) {
+//                    Button(action: {}) {
+//                        Image(systemName: "backward.fill")
+//                            .font(.title)
+//                            .foregroundColor(.blue)
+//                    }
 
-                    Button(action: {}) {
-                        Image(systemName: "backward.fill")
-                            .font(.title)
-                            .foregroundColor(.blue)
-                    }
+//                    Button(action: audioData.play) {
+//                        Image(systemName: audioData.isPlaying ? "pause.fill" : "play.fill")
+//                            .font(.title)
+//                            .foregroundColor(.gray)
+//                            .padding(20)
+//                            .background(Color.orange)
+//                            .clipShape(Circle())
+//                    }
 
-                    Button(action: audioData.play) {
-                        Image(systemName: audioData.isPlaying ? "pause.fill" : "play.fill")
-                            .font(.title)
-                            .foregroundColor(.gray)
-                            .padding(20)
-                            .background(Color.orange)
-                            .clipShape(Circle())
-                    }
-
-                    Button(action: {}) {
-                        Image(systemName: "forward.fill")
-                            .font(.title)
-                            .foregroundColor(.blue)
-                    }
-                }
-                .padding(.top, 25)
+//                    Button(action: {}) {
+//                        Image(systemName: "forward.fill")
+//                            .font(.title)
+//                            .foregroundColor(.blue)
+//                    }
+//                }
+//                .padding(.top, 25)
 
                 //Volume control
 
                 HStack(spacing: 15) {
-                    Image(systemName: "minus")
-                        .foregroundColor(.black)
+//                    Image(systemName: "minus")
+//                        .foregroundColor(.black)
 
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
 
@@ -167,8 +178,8 @@ struct ExercisePlayView: View {
                     //default frame
                     .frame(width: UIScreen.main.bounds.width - 160)
 
-                    Image(systemName: "plus")
-                        .foregroundColor(.black)
+//                    Image(systemName: "plus")
+//                        .foregroundColor(.black)
                 }
                 .padding(.top, 25)
 
@@ -178,20 +189,20 @@ struct ExercisePlayView: View {
             .background(Color.gray)
             .cornerRadius(35)
 
-            HStack(spacing: 0) {
-                ForEach(buttons, id: \.self){ name in
-                    Button(action: {}) {
-                        Image(systemName: name)
-                            .font(.title2)
-                            .foregroundColor(.white)
-                    }
-
-                    if name != buttons.last{Spacer(minLength: 0)}
-                }
-                .padding(.horizontal, 35)
-                .padding(.top, 25)
-                .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom != 0 ? 5 : 15)
-            }
+//            HStack(spacing: 0) {
+//                ForEach(buttons, id: \.self){ name in
+//                    Button(action: {}) {
+//                        Image(systemName: name)
+//                            .font(.title2)
+//                            .foregroundColor(.white)
+//                    }
+//
+//                    if name != buttons.last{Spacer(minLength: 0)}
+//                }
+//                .padding(.horizontal, 35)
+//                .padding(.top, 25)
+//                .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom != 0 ? 5 : 15)
+//            }
         }
         .background(
             VStack {

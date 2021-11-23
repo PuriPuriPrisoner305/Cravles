@@ -24,18 +24,18 @@ class SimulationExerciseVM: ObservableObject {
 
     func fetchVoice() {
 
-        let asset = AVAsset(url: voicePlayer.url!)
+        let fetchasset = AVAsset(url: voicePlayer.url!)
 
-        asset.metadata.forEach { meta in
-            switch(meta.commonKey?.rawValue) {
-            case "title": voice.title = meta.value as? String ?? ""
-            case "artist": voice.artist = meta.value as? String ?? ""
-            case "type": voice.type = meta.value as? String ?? ""
-            case "artwork": if meta.value != nil{voice.artwork = UIImage(data: meta.value as! Data)!}
-
-            default: ()
-            }
-        }
+//        asset.metadata.forEach { meta in
+//            switch(meta.commonKey?.rawValue) {
+//            case "title": voice.title = meta.value as? String ?? ""
+//            case "artist": voice.artist = meta.value as? String ?? ""
+//            case "type": voice.type = meta.value as? String ?? ""
+//            case "artwork": if meta.value != nil{voice.artwork = UIImage(data: meta.value as! Data)!}
+//
+//            default: ()
+//            }
+//        }
 
         //fetching audio volume level
         volume = CGFloat(voicePlayer.volume) * (UIScreen.main.bounds.width - 180)

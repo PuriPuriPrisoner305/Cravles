@@ -9,7 +9,5 @@ import SwiftUI
 
 struct Audio {
     var title : String = "Title"
-    var artist : String = "Artist"
-    var type : String = "Type"
     var artwork : UIImage = UIImage(named: "test")!
 }
