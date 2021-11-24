@@ -15,53 +15,26 @@ struct ExercisePlayView: View {
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.3, on: .current, in: .default).autoconnect()
 
+    @State private var showingAlert = true
+
     var body: some View {
 
         VStack {
 
-            //Topview
-
-//            HStack {
-//                Button(action: {}) {
-//                    Image(systemName: "chevron.left")
-//                        .font(.title)
-//                        .foregroundColor(.black)
-//                }
-//
-//                Spacer(minLength: 0)
-//
-//                Button(action: {}) {
-//                    Image(systemName: "magnifyingglass")
-//                        .font(.title2)
-//                        .foregroundColor(.black)
-//                }
-//            }
-//            .padding()
-
             VStack {
-                Spacer(minLength: 0)
+//                Spacer(minLength: 0)
 
                 Text(audioData.voice.title)
-                    .font(.title2)
+                    .font(Font.system(.title, design: .rounded))
                     .fontWeight(.heavy)
-                    .foregroundColor(.black)
-                    .padding(.top, 25)
+                    .padding()
+//                    .lineLimit(1)
+
+                Text(audioData.getCurrentTime(value: audioData.voicePlayer.duration - audioData.voicePlayer.currentTime))
+                    .font(Font.system(.title3, design: .rounded))
+                    .fontWeight(.medium)
+                    .padding(.bottom, 40)
                     .padding(.horizontal)
-                    .lineLimit(1)
-
-//                Text(audioData.voice.artist)
-//                    .foregroundColor(.black)
-//                    .padding(.top, 5)
-
-//                Text(audioData.voice.type)
-//                    .font(.caption)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.black)
-//                    .padding(.vertical, 6)
-//                    .padding(.horizontal)
-//                    .background(Color.black.opacity(0.07))
-//                    .cornerRadius(5)
-//                    .padding(.top)
 
                 ZStack{
 
@@ -112,50 +85,16 @@ struct ExercisePlayView: View {
 
                     //Time text
 
-                    Text(audioData.getCurrentTime(value: audioData.voicePlayer.currentTime))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                        .offset(x: UIScreen.main.bounds.height < 750 ? -65 : -85, y: (width + 60) / 2)
-
-                    Text(audioData.getCurrentTime(value: audioData.voicePlayer.duration))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                        .offset(x: UIScreen.main.bounds.height < 750 ? 65 : 85, y: (width + 60) / 2)
+//                    Text(audioData.getCurrentTime(value: audioData.voicePlayer.currentTime))
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(.black)
+//                        .offset(x: UIScreen.main.bounds.height < 750 ? -65 : -85, y: (width + 60) / 2)
 
                 }
-
-
-
-//                HStack(spacing: 55) {
-
-//                    Button(action: {}) {
-//                        Image(systemName: "backward.fill")
-//                            .font(.title)
-//                            .foregroundColor(.blue)
-//                    }
-
-//                    Button(action: audioData.play) {
-//                        Image(systemName: audioData.isPlaying ? "pause.fill" : "play.fill")
-//                            .font(.title)
-//                            .foregroundColor(.gray)
-//                            .padding(20)
-//                            .background(Color.orange)
-//                            .clipShape(Circle())
-//                    }
-
-//                    Button(action: {}) {
-//                        Image(systemName: "forward.fill")
-//                            .font(.title)
-//                            .foregroundColor(.blue)
-//                    }
-//                }
-//                .padding(.top, 25)
 
                 //Volume control
 
                 HStack(spacing: 15) {
-//                    Image(systemName: "minus")
-//                        .foregroundColor(.black)
 
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
 
@@ -178,39 +117,17 @@ struct ExercisePlayView: View {
                     //default frame
                     .frame(width: UIScreen.main.bounds.width - 160)
 
-//                    Image(systemName: "plus")
-//                        .foregroundColor(.black)
                 }
                 .padding(.top, 25)
 
                 Spacer(minLength: 0)
             }
-            .frame(maxWidth: .infinity)
-            .background(Color.gray)
-            .cornerRadius(35)
 
-//            HStack(spacing: 0) {
-//                ForEach(buttons, id: \.self){ name in
-//                    Button(action: {}) {
-//                        Image(systemName: name)
-//                            .font(.title2)
-//                            .foregroundColor(.white)
-//                    }
-//
-//                    if name != buttons.last{Spacer(minLength: 0)}
-//                }
-//                .padding(.horizontal, 35)
-//                .padding(.top, 25)
-//                .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom != 0 ? 5 : 15)
-//            }
         }
-        .background(
-            VStack {
-                Color.blue
-                Color.yellow
-            }
-                .ignoresSafeArea(.all, edges: .all)
-        )
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Tips"), message: Text("Use earphone for better experience"), dismissButton: .default(Text("Close")))
+        }
+
         //fetching voice
         .onAppear(perform: audioData.fetchVoice)
         .onReceive(timer) { _ in
@@ -218,8 +135,6 @@ struct ExercisePlayView: View {
         }
     }
 
-    //Button
-    var buttons = ["suit.heart.fill", "star.fill", "eye.fill", "square.and.arrow.up.fill"]
 }
 
 struct ExercisePlayView_Previews: PreviewProvider {

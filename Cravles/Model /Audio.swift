@@ -8,6 +8,6 @@
 import SwiftUI
 
 struct Audio {
-    var title : String = "Title"
+    var title : String = "Take a deep breath"
     var artwork : UIImage = UIImage(named: "test")!
 }

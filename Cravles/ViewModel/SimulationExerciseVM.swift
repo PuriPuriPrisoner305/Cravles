@@ -85,7 +85,7 @@ class SimulationExerciseVM: ObservableObject {
 
     func getCurrentTime(value: TimeInterval) -> String {
 
-        return "\(Int(value / 60)):\(Int(value.truncatingRemainder(dividingBy: 60)) < 9 ? "0" : "")\(Int(value.truncatingRemainder(dividingBy: 60)))"
+        return "\(Int(value / 60)):\(Int(value.truncatingRemainder(dividingBy: 60)) < 10 ? "0" : "")\(Int(value.truncatingRemainder(dividingBy: 60)))"
     }
 
     func updateVolume(value: DragGesture.Value) {
