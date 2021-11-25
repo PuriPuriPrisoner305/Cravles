@@ -30,51 +30,88 @@ struct MainScreen: View {
                     .frame(width: geo.size.width, height: geo.size.height * (1/3), alignment: .leading)
                     
                     //Bagian Putih
-                    VStack(alignment: .center){
+                    VStack(alignment: .leading){
                         Text("Exercise for you")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding(.leading, 22)
                             .frame(width: geo.size.width, alignment: .leading)
-                            .padding(.leading, 90)
+                            
                         
                         // Exercise
-                        HStack(spacing: 10){
-                            Image("breathee")
-                                .resizable()
-                                .frame(width: 90, height: 120)
-                            
-                            VStack(alignment: .leading){
-                                Text("Breathing")
-                                    .fontWeight(.medium)
+                        VStack{
+                            ZStack{
+                                HStack(spacing: 10){
+                                    Image("breathee")
+                                        .resizable()
+                                        .frame(width: 90, height: 100)
+                                    
+                                    VStack(alignment: .leading){
+                                        Text("Breathing")
+                                            .fontWeight(.medium)
 
-                                Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
-                                    .foregroundColor(.gray)
+                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
+                                            .font(.footnote)
+                                            .foregroundColor(.gray)
+                                    }
+                                    
+                                }
+                                .padding(20)
+                                .frame(width: geo.size.width - 50)
+                                .background(Color.white)
+                                .shadow(radius: 10)
+                                
+                                HStack{
+                                    Image(systemName: "clock.fill")
+                                    Text("03.00")
+
+                                }
+                                .font(.caption)
+                                .frame(alignment:.bottomTrailing)
+                                .offset(x: 130, y: 55)
                             }
-                        }
-                        .padding(20)
-                        .frame(width: geo.size.width - 50)
-                        .background(Color.white)
-                        .shadow(radius: 10)
-
-                        HStack(spacing: 10){
-                            Image("breathee")
-                                .resizable()
-                                .frame(width: 90, height: 120)
                             
-                            VStack(alignment: .leading){
-                                Text("Breathing")
-                                    .fontWeight(.medium)
+                            ZStack{
+                                HStack(spacing: 10){
+                                    Image("breathee")
+                                        .resizable()
+                                        .frame(width: 90, height: 100)
+                                    
+                                    VStack(alignment: .leading){
+                                        Text("Sitting Mindfulness")
+                                            .fontWeight(.medium)
 
-                                Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
-                                    .foregroundColor(.gray)
+                                        Text("Sitting in a relaxed but erect posture and cultivating awareness of each breath you take")
+                                            .font(.footnote)
+                                            .foregroundColor(.gray)
+                                    }
+                                    
+                                }
+                                .padding(20)
+                                .frame(width: geo.size.width - 50)
+                                .background(Color.white)
+                                .shadow(radius: 10)
+                                
+                                HStack{
+                                    Image(systemName: "clock.fill")
+                                    Text("03.00")
+
+                                }
+                                .font(.caption)
+                                .frame(alignment:.bottomTrailing)
+                                .offset(x: 130, y: 55)
                             }
+                           
+
                         }
-                        .padding(20)
-                        .frame(width: geo.size.width - 50)
-                        .background(Color.white)
-                        .shadow(radius: 10)
+                        .frame(width: geo.size.width)
+                        
+                        
 
                         
                         
                     }
+                    .padding(.bottom, 120)
                     .frame(width: geo.size.width, height: geo.size.height * (2/3), alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(radius:20, corners: [.topLeft, .topRight])
