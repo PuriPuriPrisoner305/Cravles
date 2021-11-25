@@ -13,10 +13,8 @@
 		22D33189274B4E6B005B72FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D33188274B4E6B005B72FF /* Preview Assets.xcassets */; };
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
-		E096CD7B274E60F90074CC60 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E096CD7A274E60F90074CC60 /* SpeechManager.swift */; };
-		E096CD7D274E67ED0074CC60 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E096CD7C274E67ED0074CC60 /* Extension.swift */; };
-		E096CD7F274E68110074CC60 /* MicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E096CD7E274E68110074CC60 /* MicManager.swift */; };
-		E096CD81274E68580074CC60 /* ReflectioScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E096CD80274E68580074CC60 /* ReflectioScreen.swift */; };
+		E095D99C274F1BDE001762DF /* Rain1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99B274F1BDE001762DF /* Rain1View.swift */; };
+		E0A5E10C274EB68C00E29FD2 /* Screen1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */; };
 		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +26,8 @@
 		22D33188274B4E6B005B72FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
-		E096CD7A274E60F90074CC60 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
-		E096CD7C274E67ED0074CC60 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		E096CD7E274E68110074CC60 /* MicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicManager.swift; sourceTree = "<group>"; };
-		E096CD80274E68580074CC60 /* ReflectioScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectioScreen.swift; sourceTree = "<group>"; };
+		E095D99B274F1BDE001762DF /* Rain1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain1View.swift; sourceTree = "<group>"; };
+		E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1View.swift; sourceTree = "<group>"; };
 		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +61,7 @@
 		22D33180274B4E69005B72FF /* Cravles */ = {
 			isa = PBXGroup;
 			children = (
-				E096CD77274E5CE20074CC60 /* Speech */,
+				E0A5E10A274EB66A00E29FD2 /* ReflectionHifid */,
 				E0F73BA2274B583000AE10DC /* Model  */,
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
 				22D33183274B4E6A005B72FF /* ContentView.swift */,
@@ -85,15 +81,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E096CD77274E5CE20074CC60 /* Speech */ = {
+		E0A5E10A274EB66A00E29FD2 /* ReflectionHifid */ = {
 			isa = PBXGroup;
 			children = (
-				E096CD80274E68580074CC60 /* ReflectioScreen.swift */,
-				E096CD7C274E67ED0074CC60 /* Extension.swift */,
-				E096CD7A274E60F90074CC60 /* SpeechManager.swift */,
-				E096CD7E274E68110074CC60 /* MicManager.swift */,
+				E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */,
+				E095D99B274F1BDE001762DF /* Rain1View.swift */,
 			);
-			path = Speech;
+			path = ReflectionHifid;
 			sourceTree = "<group>";
 		};
 		E0F73BA2274B583000AE10DC /* Model  */ = {
@@ -174,15 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E096CD81274E68580074CC60 /* ReflectioScreen.swift in Sources */,
 				22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
+				E095D99C274F1BDE001762DF /* Rain1View.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
-				E096CD7F274E68110074CC60 /* MicManager.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
-				E096CD7B274E60F90074CC60 /* SpeechManager.swift in Sources */,
-				E096CD7D274E67ED0074CC60 /* Extension.swift in Sources */,
+				E0A5E10C274EB68C00E29FD2 /* Screen1View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +308,8 @@
 				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need mic access for Speech to Text";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Need mic access for Speech to Text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,6 +339,8 @@
 				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need mic access for Speech to Text";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Need mic access for Speech to Text";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
