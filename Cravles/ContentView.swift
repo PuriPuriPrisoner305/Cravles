@@ -22,10 +22,10 @@ struct ContentView: View {
             TabView {
                 MainScreen()
                     .tabItem {
-                        Image(systemName: "gamecontroller.fill")
+                        Image(systemName: "leaf")
                         Text("Games")
                 }
-                    .frame(width: .infinity, height: .infinity)
+//                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
                 
                 MainScreen()
@@ -33,7 +33,7 @@ struct ContentView: View {
                         Image(systemName: "gamecontroller.fill")
                         Text("Games")
                 }
-                    .frame(width: .infinity, height: .infinity)
+//                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
 
             }

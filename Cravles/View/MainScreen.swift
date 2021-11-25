@@ -39,7 +39,7 @@ struct MainScreen: View {
                             
                         
                         // Exercise
-                        VStack{
+                        VStack(spacing: 20){
                             ZStack{
                                 HStack(spacing: 10){
                                     Image("breathee")
@@ -70,6 +70,7 @@ struct MainScreen: View {
                                 .frame(alignment:.bottomTrailing)
                                 .offset(x: 130, y: 55)
                             }
+                            
                             
                             ZStack{
                                 HStack(spacing: 10){
