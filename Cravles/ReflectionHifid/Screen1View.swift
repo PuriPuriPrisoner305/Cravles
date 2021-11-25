@@ -8,28 +8,32 @@
 import SwiftUI
 
 struct Screen1View: View {
-    @State var yOffset: CGFloat = 40
-    let range: ClosedRange<CGFloat> = -120 ... 140
+    var colors: [Color] = [Color.pulsatingColor]
+    @State var yOffset: CGFloat = 38.75
+    let range: ClosedRange<CGFloat> = -120 ... 120
     
     var body: some View {
         ZStack{
-//            Color.green
-//                .ignoresSafeArea()
+            Color.pulsatingColor
+                .ignoresSafeArea()
             
             VStack{
                 Text("How are you feeling?")
                     .font(.system(size: 24,weight: .bold))
                 
                 Smiley(yOffset: yOffset)
-                    .stroke(Color.black, lineWidth: 5)
+                    .stroke(Color.black, lineWidth: 20)
                     .frame(height: 500)
+                    .cornerRadius(10)
+                    
                 
                 Slider(value: $yOffset, in:range )
-                Button(action: {}){
+                Button(action:{}){
                     Text("Continue")
+                        .foregroundColor(Color.pulsatingColor)
                         
                 }.padding()
-                    .background(Color.blue)
+                    .background(Color.white)
                     .cornerRadius(16)
                     .padding(.top,16)
             }
@@ -43,33 +47,33 @@ struct Smiley : Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let spacing: CGFloat = 180
+        let spacing: CGFloat = 150
         //matakiri
         path.addPath(getEye(_path: path, rect: rect))
         path = path.applying(.init(scaleX: -1, y: 1))
         path = path.applying(.init(translationX: rect.maxX - spacing, y: 0))
+        
         //matakanan
         path.addPath(getEye(_path: path, rect: rect))
         path = path.applying(.init(translationX: spacing / 2, y: 0))
+           
         //anim mata
         path = path.applying(.init(translationX:0, y: -150))
-
         path.addPath(getMouth(_path: path, rect: rect))
         
         return path
     }
     func getMouth(_path: Path, rect: CGRect) -> Path {
         var path = _path
-        let startPoint = CGPoint(x: rect.minX, y: rect.midY)
-        let endPoint = CGPoint(x:rect.maxX, y: rect.midY)
+        let startPoint = CGPoint(x: rect.minX+20, y: rect.midY)
+        let endPoint = CGPoint(x:rect.maxX-10, y: rect.midY)
         
-        let controlPtn1 = CGPoint(x: startPoint.x + 10, y: rect.midY + yOffset)
-        let controlPtn2 = CGPoint(x: endPoint.x + 10, y: rect.midY + yOffset)
+        let controlPtn1 = CGPoint(x: startPoint.x + 8, y: rect.midY + yOffset)
+        let controlPtn2 = CGPoint(x: endPoint.x + 8, y: rect.midY + yOffset)
         
         path.move(to: startPoint)
         
         path.addCurve(to: endPoint, control1: controlPtn1, control2: controlPtn2)
-        
         return path
     }
     
@@ -90,6 +94,8 @@ struct Smiley : Shape {
         let controlPtn4 = CGPoint(x: startPoint.x+5, y: rightPtn.y-offset)
 
         path.addCurve(to: startPoint, control1: controlPtn3, control2: controlPtn4)
+        
+            
         return path
     }
     

@@ -14,7 +14,11 @@
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
 		E095D99C274F1BDE001762DF /* Rain1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99B274F1BDE001762DF /* Rain1View.swift */; };
+		E095D99E274F2547001762DF /* Extencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99D274F2547001762DF /* Extencion.swift */; };
+		E095D9A0274F5516001762DF /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99F274F5516001762DF /* FeelingView.swift */; };
 		E0A5E10C274EB68C00E29FD2 /* Screen1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */; };
+		E0E7DC71274FABFE00857A8C /* Reflection1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E7DC70274FABFE00857A8C /* Reflection1View.swift */; };
+		E0E7DC73274FAC3100857A8C /* Reflection2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E7DC72274FAC3100857A8C /* Reflection2View.swift */; };
 		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +31,11 @@
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
 		E095D99B274F1BDE001762DF /* Rain1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain1View.swift; sourceTree = "<group>"; };
+		E095D99D274F2547001762DF /* Extencion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extencion.swift; sourceTree = "<group>"; };
+		E095D99F274F5516001762DF /* FeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
 		E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1View.swift; sourceTree = "<group>"; };
+		E0E7DC70274FABFE00857A8C /* Reflection1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection1View.swift; sourceTree = "<group>"; };
+		E0E7DC72274FAC3100857A8C /* Reflection2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection2View.swift; sourceTree = "<group>"; };
 		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +94,10 @@
 			children = (
 				E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */,
 				E095D99B274F1BDE001762DF /* Rain1View.swift */,
+				E095D99D274F2547001762DF /* Extencion.swift */,
+				E095D99F274F5516001762DF /* FeelingView.swift */,
+				E0E7DC70274FABFE00857A8C /* Reflection1View.swift */,
+				E0E7DC72274FAC3100857A8C /* Reflection2View.swift */,
 			);
 			path = ReflectionHifid;
 			sourceTree = "<group>";
@@ -171,10 +183,14 @@
 				22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
+				E0E7DC73274FAC3100857A8C /* Reflection2View.swift in Sources */,
+				E0E7DC71274FABFE00857A8C /* Reflection1View.swift in Sources */,
 				E095D99C274F1BDE001762DF /* Rain1View.swift in Sources */,
+				E095D9A0274F5516001762DF /* FeelingView.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
 				E0A5E10C274EB68C00E29FD2 /* Screen1View.swift in Sources */,
+				E095D99E274F2547001762DF /* Extencion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
