@@ -5,12 +5,14 @@
 //  Created by Yani . on 24/11/21.
 //
 
+/* --------------INI CONTOH PROJECT------------- */
+
 import SwiftUI
 
 struct ExercisePlayView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @StateObject var audioData = SimulationExerciseVM()
+    @StateObject var audioData = ExerciseVM()
     // Far Smaller Size Phones
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.3, on: .current, in: .default).autoconnect()
@@ -85,10 +87,10 @@ struct ExercisePlayView: View {
 
                     //Time text
 
-//                    Text(audioData.getCurrentTime(value: audioData.voicePlayer.currentTime))
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(.black)
-//                        .offset(x: UIScreen.main.bounds.height < 750 ? -65 : -85, y: (width + 60) / 2)
+                    Text(audioData.getCurrentTime(value: audioData.voicePlayer.currentTime))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
+                        .offset(x: UIScreen.main.bounds.height < 750 ? -65 : -85, y: (width + 60) / 2)
 
                 }
 

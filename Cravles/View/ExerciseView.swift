@@ -14,82 +14,51 @@ struct ExerciseView: View {
     
     @State var isLinkActive = false
 
+    @State var moodSlider : Float = 2
+
+    var data : Mood
+
     var body: some View {
         NavigationView {
-            VStack (spacing: 20) {
-                Text("Hi, John")
-                    .font(Font.system(.title, design: .rounded))
-                    .fontWeight(.medium)
+            GeometryReader { geo in
+                VStack (spacing: 20) {
+                    Text("Hi, John")
+                        .font(Font.system(.title, design: .rounded))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color.white)
 
-                Text("How are you feeling?")
-                    .font(Font.system(.title3, design: .rounded))
-                    .fontWeight(.regular)
+                    Text("How are you feeling?")
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color.white)
 
-//                Spacer(minLength: 0)
+                    Image(uiImage: data.moodImg)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: width, height: width)
 
-                NavigationLink(destination: ExercisePlayView(), isActive: $isLinkActive) {
-                    Button(action: {
-                        self.isLinkActive = true
-                    }) {
-                        Text("Happy")
-                            .font(Font.system(.body, design: .rounded))
-                            .fontWeight(.regular)
-                            .frame(width: UIScreen.main.bounds.width - 120 , alignment: .center)
+                    Text("\(moodSlider, specifier: "%.f")")
+
+                    Slider(value: $moodSlider, in: 0...2, step: 1)
+                        .padding(40)
+                        .tint(Color.white)
+
+                    NavigationLink(destination: ExercisePreView(), isActive: $isLinkActive) {
+                        Button(action: {
+                            self.isLinkActive = true
+                        }) {
+                            Text("Continue")
+                                .font(Font.system(.title3, design: .rounded))
+                                .fontWeight(.medium)
+                                .frame(width: width - 20 , alignment: .center)
+                        }
+                        .buttonStyle(BlueButton())
                     }
-                    .buttonStyle(BlueButton())
-                    
+                    .frame(height: geo.size.height * 0.05)
+
+                    Spacer(minLength: 0)
                 }
-
-                NavigationLink(destination: ExercisePlayView(), isActive: $isLinkActive) {
-                    Button(action: {
-                        self.isLinkActive = true
-                    }) {
-                        Text("Feeling Good")
-                            .font(Font.system(.body, design: .rounded))
-                            .fontWeight(.regular)
-                            .frame(width: UIScreen.main.bounds.width - 120 , alignment: .center)
-                    }
-                    .buttonStyle(BlueButton())
-                }
-
-                NavigationLink(destination: ExercisePlayView(), isActive: $isLinkActive) {
-                    Button(action: {
-                        self.isLinkActive = true
-                    }) {
-                        Text("Neutral")
-                            .font(Font.system(.body, design: .rounded))
-                            .fontWeight(.regular)
-                            .frame(width: UIScreen.main.bounds.width - 120 , alignment: .center)
-                    }
-                    .buttonStyle(BlueButton())
-                }
-
-                NavigationLink(destination: ExercisePlayView(), isActive: $isLinkActive) {
-                    Button(action: {
-                        self.isLinkActive = true
-                    }) {
-                        Text("Anxious")
-                            .font(Font.system(.body, design: .rounded))
-                            .fontWeight(.regular)
-                            .frame(width: UIScreen.main.bounds.width - 120 , alignment: .center)
-                    }
-                    .buttonStyle(BlueButton())
-                }
-
-                NavigationLink(destination: ExercisePlayView(), isActive: $isLinkActive) {
-                    Button(action: {
-                        self.isLinkActive = true
-                    }) {
-                        Text("Stress")
-                            .font(Font.system(.body, design: .rounded))
-                            .fontWeight(.regular)
-                            .frame(width: UIScreen.main.bounds.width - 120 , alignment: .center)
-                    }
-                    .buttonStyle(BlueButton())
-
-                }
-
-                Spacer(minLength: 0)
+                .background(Color(red: 253/255, green: 153/255, blue: 140/255))
             }
         }
     }
@@ -99,14 +68,15 @@ struct BlueButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color(red: 0, green: 0, blue: 0.5))
-            .foregroundColor(.white)
-            .cornerRadius(15)
+            .background(Color.white)
+            .foregroundColor(Color(red: 253/255, green: 153/255, blue: 140/255))
+            .cornerRadius(25)
+            .shadow(radius: 5)
     }
 }
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ExerciseView(data: Mood.moods.first!).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

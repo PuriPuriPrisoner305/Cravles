@@ -5,12 +5,14 @@
 //  Created by Yani . on 23/11/21.
 //
 
+/* --------------INI CONTOH PROJECT------------- */
+
 import SwiftUI
 import AVFoundation
 
 let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ambient", ofType: "m4a")!)
 
-class SimulationExerciseVM: ObservableObject {
+class ExerciseVM: ObservableObject {
 
     @Published var voicePlayer = try! AVAudioPlayer(contentsOf: url)
 
@@ -62,7 +64,7 @@ class SimulationExerciseVM: ObservableObject {
         let angle = tempAngle < 0 ? 360 + tempAngle : tempAngle
 
         //Since maximum slide is 0.8
-        //0.8 * 36 = 288
+        //0.8 * 360 = 288
 
         if angle <= 288 {
 
