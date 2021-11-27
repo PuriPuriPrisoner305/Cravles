@@ -19,7 +19,7 @@ struct Reflection1View: View {
                 ForEach(reflections, id:\.self) {
                     reflection in
                     HStack{
-                        
+                     ///list
                     }
                 }
             }
