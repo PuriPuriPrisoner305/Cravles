@@ -13,7 +13,7 @@ struct EmotionVIew: View {
     @State private var emotionStatus = "Happy"
     var body: some View {
         ZStack{
-            Color.cyan
+            Color.pulsatingColor
                 .ignoresSafeArea()
             
             VStack{
@@ -44,7 +44,7 @@ struct EmotionVIew: View {
                 Button("Continue"){
                     
                 }
-                .foregroundColor(Color.cyan)
+                .foregroundColor(Color.pulsatingColor)
                 .frame(width: 200, height: 50)
                 .background(Color.white)
                 .clipShape(Capsule())
@@ -56,6 +56,15 @@ struct EmotionVIew: View {
         }
     }
 }
+
+extension Color {
+    static func rgb(r: Double,g:Double, b:Double)-> Color {
+        return Color(red: r / 255, green: g / 255, blue: b / 255)
+    }
+    
+    static let pulsatingColor = Color.rgb(r: 235, g: 153, b: 140).opacity(1)
+}
+
 
 struct EmotionVIew_Previews: PreviewProvider {
     static var previews: some View {
