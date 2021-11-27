@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SummaryView: View {
+    @State private var textField = "Test"
     var body: some View {
         VStack{
             HStack{
@@ -16,9 +17,11 @@ struct SummaryView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.bottom,1)
+                    
                     Text("How are you feeling?")
                         .font(.title3)
                 }
+                Spacer()
                 
                 Image("breathee")
                     .resizable()
@@ -28,13 +31,29 @@ struct SummaryView: View {
                 
                 
             }
+            .frame(width: .infinity)
+            .padding(.init(top: 0, leading: 35, bottom: 0, trailing: 35))
             
+            //BAR PINK
             HStack{
-                Text("text")
-                    .frame(width: 100, height: 90)
-                    .background(Color.pulsatingColor)
-                    .cornerRadius(12)
+                ForEach(0..<3) {
+                    Text("text \($0)")
+                        .frame(width: 100, height: 90)
+                        .background(Color.pulsatingColor)
+                        .cornerRadius(12)
+                }
             }
+            
+            //Title Subtitle
+            VStack(alignment:.leading){
+                Text("Title")
+                Text("Subtitle")
+                    .font(.footnote)
+                TextField("Test", text:$textField)
+            }
+            .padding(.leading, 35)
+            
+            
         }
     }
 }
