@@ -20,7 +20,7 @@ struct ExerciseGuideView: View {
     var voiceStyle = ["Female", "Male"]
 
     @State private var voiceLevel: Float = 1
-    @State private var musicLevel: Float = 1
+    @State private var musicLevel: Float = 0.5
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
@@ -33,7 +33,7 @@ struct ExerciseGuideView: View {
                     showingSheet.toggle()
                 }
                 .sheet(isPresented: $showingSheet) {
-                    SheetView()
+                    SheetView(voiceLevel: $voiceLevel, musicLevel: $musicLevel)
                 }
 
                 ZStack{
@@ -240,14 +240,15 @@ struct SheetView: View {
     @State private var favoriteVoice = "Female"
     var voiceStyle = ["Female", "Male"]
 
-    @State private var voiceLevel: Float = 1
-    @State private var musicLevel: Float = 1
+    @Binding var voiceLevel: Float
+    @Binding var musicLevel: Float
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
 
 
     var body: some View {
+        
         GeometryReader { geo in
             VStack {
                 Button("play.circle.fill") {
@@ -287,8 +288,7 @@ struct SheetView: View {
 
     //                    Text("Value: \(favoriteVoice)")
 
-                        Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
-                            guideData.audioPlayer.volume = voiceLevel
+                        Slider(value: $voiceLevel, in: 0...1)
                         }
     //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
 
@@ -298,9 +298,8 @@ struct SheetView: View {
                             Spacer()
                         }
 
-                        Slider(value: $musicLevel, in: 0...1).onChange(of: musicLevel) { n in
-                            guideData.musicPlayer.volume = musicLevel
-                        }
+                        Slider(value: $musicLevel, in: 0...1)
+                        
     //                    Text("\(musicLevel, specifier: "%.1f") Music")
                     }
                     .padding(.leading, 10)
