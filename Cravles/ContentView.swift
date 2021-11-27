@@ -15,16 +15,17 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
     var body: some View {
         NavigationView {
             
             TabView {
                 MainScreen()
                     .tabItem {
-                        Image(systemName: "leaf")
-                        Text("Games")
+                        Image(systemName: "leaf.circle")
+                        Text("Exercise")
                 }
+                    .accentColor(.gray)
 //                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
                 
@@ -37,6 +38,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
 
             }
+            .accentColor(Color.pulsatingColor)
         }
 
     }

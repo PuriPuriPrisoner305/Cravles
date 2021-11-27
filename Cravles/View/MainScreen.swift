@@ -40,7 +40,7 @@ struct MainScreen: View {
                         
                         // Exercise
                         VStack(spacing: 20){
-                            ZStack{
+                            
                                 HStack(spacing: 10){
                                     Image("breathee")
                                         .resizable()
@@ -53,6 +53,16 @@ struct MainScreen: View {
                                         Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
                                             .font(.footnote)
                                             .foregroundColor(.gray)
+                                        
+                                        VStack(alignment: .leading){
+                                            Text("Estimated time")
+                                            Text("03.00 min")
+                                        }
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
+                                        .padding(.top, 5)
+                                
+
                                     }
                                     
                                 }
@@ -60,16 +70,7 @@ struct MainScreen: View {
                                 .frame(width: geo.size.width - 50)
                                 .background(Color.white)
                                 .shadow(radius: 10)
-                                
-                                HStack{
-                                    Image(systemName: "clock.fill")
-                                    Text("03.00")
-
-                                }
-                                .font(.caption)
-                                .frame(alignment:.bottomTrailing)
-                                .offset(x: 130, y: 55)
-                            }
+                            
                             
                             
                             ZStack{
