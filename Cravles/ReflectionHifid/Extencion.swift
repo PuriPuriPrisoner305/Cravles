@@ -14,4 +14,5 @@ extension Color {
     }
     
     static let pulsatingColor = Color.rgb(r: 235, g: 153, b: 140).opacity(1)
+    static let textFieldColor = Color.rgb(r: 220, g: 138, b: 124).opacity(1)
 }

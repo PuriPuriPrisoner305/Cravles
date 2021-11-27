@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Reflection1View: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Reflection.entity(), sortDescriptors:
+                    [NSSortDescriptor(keyPath: \Reflection.dateReflection, ascending: false)]) var reflections: FetchedResults<Reflection>
+    @State private var showingAdd = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            List{
+                ForEach(reflections, id:\.self) {
+                    reflection in
+                    HStack{
+                        
+                    }
+                }
+            }
+        }
     }
 }
 

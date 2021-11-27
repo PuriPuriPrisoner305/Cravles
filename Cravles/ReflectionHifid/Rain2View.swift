@@ -1,5 +1,5 @@
 //
-//  Rain1View.swift
+//  Rain2View.swift
 //  Cravles
 //
 //  Created by Indah Nurindo on 25/11/2564 BE.
@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct Rain1View: View {
+struct Rain2View: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
     @StateObject private var reflectionVM = ReflectionViewModel()
-    
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
     var body: some View {
 //        ZStack {
@@ -33,25 +32,28 @@ struct Rain1View: View {
                             .frame(width: h.size.width/11, height: h.size.width/11, alignment: .leading)
                             .padding(.leading,h.size.width/11)
                     }
-                    Text("What's on your mind?")
+                    Text("What's does your body feel?")
                         .font(Font.system(.title2, design: .rounded))
                 }
                 VStack{
                     ZStack{
                        
-                        TextEditor(text: $reflectionVM.rain1)
+                        TextEditor(text: $reflectionVM.rain2)
                             .frame(width:h.size.width/1.15, height: h.size.width)
+                            .background(Color.black.opacity(0.5))
                             .background(Color.textFieldColor)
                             .cornerRadius(20)
                             .padding(EdgeInsets(top: h.size.width/5, leading:h.size.width/15, bottom: 0, trailing:h.size.width/15))
+                            
                            
-                        if  reflectionVM.rain1.isEmpty {
+                        if reflectionVM.rain2.isEmpty {
                             Text("Type here")
                                 .padding(.top,h.size.width/8)
                                 .padding()
                                 .opacity(0.25)
                                 .frame(width:h.size.width/1.15, height: h.size.width, alignment: .topLeading)
                                 .cornerRadius(20)
+                               
                         }
                     }
                     .padding(.bottom,h.size.width/3)
@@ -59,7 +61,7 @@ struct Rain1View: View {
                         reflectionVM.save()
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    .disabled(reflectionVM.rain1.isEmpty)
+                    .disabled(reflectionVM.rain2.isEmpty)
                     .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
                         .font(Font.system(.title2, design: .rounded))
                         .background(Color.white)
@@ -73,8 +75,8 @@ struct Rain1View: View {
     }
 }
 
-struct Rain1View_Previews: PreviewProvider {
+struct Rain2View_Previews: PreviewProvider {
     static var previews: some View {
-        Rain1View()
+        Rain2View()
     }
 }
