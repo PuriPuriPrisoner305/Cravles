@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CF2382752561D00BF8F9E /* EmotionVIew.swift */; };
 		22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D33181274B4E6A005B72FF /* CravlesApp.swift */; };
 		22D33184274B4E6A005B72FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D33183274B4E6A005B72FF /* ContentView.swift */; };
 		22D33186274B4E6B005B72FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D33185274B4E6B005B72FF /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		227CF2382752561D00BF8F9E /* EmotionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionVIew.swift; sourceTree = "<group>"; };
 		22D3317E274B4E69005B72FF /* Cravles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cravles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D33181274B4E6A005B72FF /* CravlesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravlesApp.swift; sourceTree = "<group>"; };
 		22D33183274B4E6A005B72FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				D9E4819A27501009004189CF /* ExercisePreView.swift */,
 				D9E48188274BA04D004189CF /* ExerciseGuideView.swift */,
 				D9E48192274D574D004189CF /* ExercisePlayView.swift */,
+				227CF2382752561D00BF8F9E /* EmotionVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
 				D9E48195274D5AE9004189CF /* Audio.swift in Sources */,
 				D9E48189274BA04D004189CF /* ExerciseGuideView.swift in Sources */,
+				227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */,
 				D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */,
 				D9E4818F274D54AA004189CF /* ExerciseVM.swift in Sources */,
 				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,
