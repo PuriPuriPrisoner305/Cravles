@@ -11,7 +11,7 @@ struct Screen1View: View {
     var colors: [Color] = [Color.pulsatingColor]
     @State var yOffset: CGFloat = 38.75
     let range: ClosedRange<CGFloat> = -120 ... 120
-    
+    //lol
     var body: some View {
         ZStack{
             Color.pulsatingColor
