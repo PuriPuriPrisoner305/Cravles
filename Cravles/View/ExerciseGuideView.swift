@@ -20,7 +20,7 @@ struct ExerciseGuideView: View {
     var voiceStyle = ["Female", "Male"]
 
     @State private var voiceLevel: Float = 1
-    @State private var musicLevel: Float = 0.5
+    @State private var musicLevel: Float = 1
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
@@ -33,7 +33,7 @@ struct ExerciseGuideView: View {
                     showingSheet.toggle()
                 }
                 .sheet(isPresented: $showingSheet) {
-                    SheetView(voiceLevel: $voiceLevel, musicLevel: $musicLevel)
+                    SheetView(favoriteVoice: $favoriteVoice, voiceLevel: $voiceLevel, musicLevel: $musicLevel)
                 }
 
                 ZStack{
@@ -237,7 +237,7 @@ struct SheetView: View {
 
     @StateObject var guideData = ExerciseGuideVM()
 
-    @State private var favoriteVoice = "Female"
+    @Binding var favoriteVoice: String
     var voiceStyle = ["Female", "Male"]
 
     @Binding var voiceLevel: Float
@@ -289,7 +289,7 @@ struct SheetView: View {
     //                    Text("Value: \(favoriteVoice)")
 
                         Slider(value: $voiceLevel, in: 0...1)
-                        }
+                        
     //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
 
                         HStack {
