@@ -68,41 +68,43 @@ struct MainScreen: View {
                                 }
                                 .padding(20)
                                 .frame(width: geo.size.width - 50)
-                                .background(Color.white)
-                                .shadow(radius: 10)
+                                .background(Color.white
+                                    .shadow(radius: 10)
+
+                                )
                             
                             
-                            
-                            ZStack{
-                                HStack(spacing: 10){
-                                    Image("breathee")
-                                        .resizable()
-                                        .frame(width: 90, height: 100)
+                            HStack(spacing: 10){
+                                Image("breathee")
+                                    .resizable()
+                                    .frame(width: 90, height: 100)
+                                
+                                VStack(alignment: .leading){
+                                    Text("Breathing")
+                                        .fontWeight(.medium)
+
+                                    Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
                                     
                                     VStack(alignment: .leading){
-                                        Text("Sitting Mindfulness")
-                                            .fontWeight(.medium)
-
-                                        Text("Sitting in a relaxed but erect posture and cultivating awareness of each breath you take")
-                                            .font(.footnote)
-                                            .foregroundColor(.gray)
+                                        Text("Estimated time")
+                                        Text("03.00 min")
                                     }
-                                    
-                                }
-                                .padding(20)
-                                .frame(width: geo.size.width - 50)
-                                .background(Color.white)
-                                .shadow(radius: 10)
-                                
-                                HStack{
-                                    Image(systemName: "clock.fill")
-                                    Text("03.00")
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                                    .padding(.top, 5)
+                            
 
                                 }
-                                .font(.caption)
-                                .frame(alignment:.bottomTrailing)
-                                .offset(x: 130, y: 55)
+                                
                             }
+                            .padding(20)
+                            .frame(width: geo.size.width - 50)
+                            .background(Color.white
+                                .shadow(radius: 10)
+
+                            )
                            
 
                         }

@@ -31,8 +31,16 @@ struct ContentView: View {
                 
                 MainScreen()
                     .tabItem {
-                        Image(systemName: "gamecontroller.fill")
-                        Text("Games")
+                        Image(systemName: "book")
+                        Text("Journaling")
+                }
+//                    .frame(width: .infinity, height: .infinity)
+                    .ignoresSafeArea()
+                
+                MainScreen()
+                    .tabItem {
+                        Image(systemName: "person")
+                        Text("Profile")
                 }
 //                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
