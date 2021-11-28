@@ -13,6 +13,7 @@
 		22D33189274B4E6B005B72FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D33188274B4E6B005B72FF /* Preview Assets.xcassets */; };
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
+		E050A7CD2753E23D00FCF4F3 /* RainCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E050A7CC2753E23D00FCF4F3 /* RainCoreData.swift */; };
 		E095D99C274F1BDE001762DF /* Rain1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99B274F1BDE001762DF /* Rain1View.swift */; };
 		E095D99E274F2547001762DF /* Extencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99D274F2547001762DF /* Extencion.swift */; };
 		E095D9A0274F5516001762DF /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095D99F274F5516001762DF /* FeelingView.swift */; };
@@ -33,6 +34,7 @@
 		22D33188274B4E6B005B72FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
+		E050A7CC2753E23D00FCF4F3 /* RainCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainCoreData.swift; sourceTree = "<group>"; };
 		E095D99B274F1BDE001762DF /* Rain1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain1View.swift; sourceTree = "<group>"; };
 		E095D99D274F2547001762DF /* Extencion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extencion.swift; sourceTree = "<group>"; };
 		E095D99F274F5516001762DF /* FeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
@@ -96,16 +98,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E050A79F27535DD100FCF4F3 /* Hi fi Lama */ = {
+			isa = PBXGroup;
+			children = (
+				E0E7DC70274FABFE00857A8C /* Reflection1View.swift */,
+				E095D99F274F5516001762DF /* FeelingView.swift */,
+				E095D99B274F1BDE001762DF /* Rain1View.swift */,
+				E0E7DC74274FC88600857A8C /* Rain2View.swift */,
+				E0E7DC72274FAC3100857A8C /* Reflection2View.swift */,
+			);
+			path = "Hi fi Lama";
+			sourceTree = "<group>";
+		};
 		E0A5E10A274EB66A00E29FD2 /* ReflectionHifid */ = {
 			isa = PBXGroup;
 			children = (
+				E050A79F27535DD100FCF4F3 /* Hi fi Lama */,
 				E0A5E10B274EB68C00E29FD2 /* Screen1View.swift */,
-				E095D99B274F1BDE001762DF /* Rain1View.swift */,
-				E0E7DC74274FC88600857A8C /* Rain2View.swift */,
 				E095D99D274F2547001762DF /* Extencion.swift */,
-				E095D99F274F5516001762DF /* FeelingView.swift */,
-				E0E7DC70274FABFE00857A8C /* Reflection1View.swift */,
-				E0E7DC72274FAC3100857A8C /* Reflection2View.swift */,
 			);
 			path = ReflectionHifid;
 			sourceTree = "<group>";
@@ -115,6 +125,7 @@
 			children = (
 				E0D6C9422750E48E008B0AA4 /* ReflectionViewModel.swift */,
 				E0D6C9442750EC55008B0AA4 /* CoreDataManager.swift */,
+				E050A7CC2753E23D00FCF4F3 /* RainCoreData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				E0E7DC73274FAC3100857A8C /* Reflection2View.swift in Sources */,
 				E0E7DC71274FABFE00857A8C /* Reflection1View.swift in Sources */,
+				E050A7CD2753E23D00FCF4F3 /* RainCoreData.swift in Sources */,
 				E095D99C274F1BDE001762DF /* Rain1View.swift in Sources */,
 				E095D9A0274F5516001762DF /* FeelingView.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,

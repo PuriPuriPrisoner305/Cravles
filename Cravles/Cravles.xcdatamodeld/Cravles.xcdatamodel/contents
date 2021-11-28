@@ -4,15 +4,16 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="Reflection" representedClassName="Reflection" syncable="YES" codeGenerationType="class">
-        <attribute name="dateReflection" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dayReflection" optional="YES" attributeType="String"/>
         <attribute name="feeling" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="monthReflection" optional="YES" attributeType="String"/>
         <attribute name="reflection1" optional="YES" attributeType="String"/>
         <attribute name="reflection2" optional="YES" attributeType="String"/>
         <attribute name="reflection3" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="Reflection" positionX="-63" positionY="-9" width="128" height="119"/>
+        <element name="Reflection" positionX="-63" positionY="-9" width="128" height="134"/>
     </elements>
 </model>
