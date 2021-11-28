@@ -14,6 +14,11 @@ class RainCoreData: ObservableObject {
     @Published var savedEntities: [Reflection] = []
 
     @Published var reflection1: String?
+    @Published var reflection2: String?
+    @Published var reflection3: String?
+    @Published var feeling: String?
+    @Published var monthReflection: String?
+    @Published var dayReflection: String?
 //    @Published var senId: String?
 
     init() {
@@ -35,6 +40,13 @@ class RainCoreData: ObservableObject {
             savedEntities = try container.viewContext.fetch(request)
                 for data in savedEntities {
                     self.reflection1 = data.value(forKey: "reflection1") as? String
+                    self.reflection2 = data.value(forKey: "reflection2") as? String
+                    self.reflection3 = data.value(forKey: "reflection3") as? String
+                    self.dayReflection = data.value(forKey: "dayReflection") as? String
+                    self.monthReflection = data.value(forKey: "monthReflection") as? String
+                    self.feeling = data.value(forKey: "feeling") as? String
+                    
+                    
 //                    self.senId = data.value(forKey: "sensorId") as? String
 //                    print(data.value(forKey: "userId") as! String)
 //                    print(data.value(forKey: "sensorId") as! String)
@@ -75,6 +87,10 @@ class RainCoreData: ObservableObject {
 //        newIoT.userId = text
         newRain.reflection1 = text
         newRain.dayReflection = text
+        newRain.feeling = text
+        newRain.reflection2 = text
+        newRain.monthReflection = text
+        newRain.reflection3 = text
 //        newIoT.sensorId = text2
         saveData()
     }

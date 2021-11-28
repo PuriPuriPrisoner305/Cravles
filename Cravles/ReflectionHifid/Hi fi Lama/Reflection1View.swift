@@ -18,6 +18,37 @@ struct Reflection1View: View {
     @State var showingAdd = false
     var body: some View {
         VStack{
+            HStack{
+                Spacer()
+                NavigationLink(destination: Reflection2View(), isActive: $showingAdd)
+                {
+                        Button(action:{
+                            self.showingAdd = true
+                        }){
+                            ZStack{
+                                Image(systemName: "plus.square")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(Color.black)
+                                    .padding()
+                                    
+                            }
+                        }
+                }
+
+                
+//                Button{
+//                    showingAdd.toggle()
+//                }label: {
+//                    ZStack{
+//                        Image(systemName: "plus")
+//                    }
+//
+//            }.fullScreenCover(isPresented: $showingAdd, content: Reflection2View.init)
+//                    .padding(.trailing)
+                
+                
+            }
             ScrollView{
                 ForEach(rains, id:\.self){ rain in
                     VStack{
@@ -37,18 +68,18 @@ struct Reflection1View: View {
                                     .foregroundColor(Color.textFieldColor)
                                     .padding(.leading,0)
                                 VStack(alignment:.center){
-                                    Text(rain.reflection1 ?? "14")
+                                    Text(rain.dayReflection ?? "14")
                                         .foregroundColor(Color.white)
-                                    Text(rain.reflection1 ?? "Nov")
+                                    Text(rain.monthReflection ?? "Nov")
                                         .foregroundColor(Color.white)
                                 } .padding(.leading,4)
                                     
                             }
                            
                             VStack(alignment: .leading){
-                                Text(rain.reflection1 ?? "Suspended")
+                                Text("Suspended")
                                 
-                                Text(rain.reflection1 ?? "you just completed i 0f 3 stages lest's finish it")
+                                Text(rain.reflection3 ?? "you just completed i 0f 3 stages lest's finish it")
                                     .font(.system(size: 9))
                             }
                             .padding()
