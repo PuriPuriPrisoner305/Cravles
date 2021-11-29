@@ -14,6 +14,7 @@ struct CravlesApp: App {
     var body: some Scene {
         WindowGroup {
             Reflection1View()
+            ExerciseView(data: Mood.moods.first!)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
