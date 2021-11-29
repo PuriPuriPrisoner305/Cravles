@@ -60,8 +60,8 @@ struct Reflection1View: View {
                                         .font(.system(size: 9))
                                 }
                                 .padding()
-                               
-                                Image(systemName: "minus.circle")
+//                                Image(systemName: rains.isEmpty ? "checkmark.circle.fill":"minus.circle")
+                                
                             
                             }
                             }

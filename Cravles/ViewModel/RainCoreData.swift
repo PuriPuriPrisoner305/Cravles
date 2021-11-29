@@ -104,5 +104,16 @@ class RainCoreData: ObservableObject {
         }
 
     }
+//    var isKosong: Bool {
+//        let newRain = Reflection(context: container.viewContext)
+//        newRain.reflection3 = self.reflection3 ?? ""
+//        newRain.reflection1 = self.reflection1 ?? ""
+//        newRain.reflection2 = self.reflection2 ?? ""
+//        if (!reflection3?.isEmpty && !reflection1?.isEmpty){
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
 
 }
