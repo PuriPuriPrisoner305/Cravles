@@ -145,14 +145,6 @@ struct MainScreen_Previews: PreviewProvider {
     }
 }
 
-extension Color {
-    static func rgb(r: Double,g:Double, b:Double)-> Color {
-        return Color(red: r / 255, green: g / 255, blue: b / 255)
-    }
-    
-    static let pulsatingColor = Color.rgb(r: 235, g: 153, b: 140).opacity(1)
-}
-
 
 //step 1 -- Create a shape view which can give shape
 struct CornerRadiusShape: Shape {
