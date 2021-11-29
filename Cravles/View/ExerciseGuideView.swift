@@ -10,11 +10,14 @@ import AVFoundation
 //import MediaPlayer
 
 struct ExerciseGuideView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.managedObjectContext) private var viewContext
 
     @StateObject var guideData = ExerciseGuideVM()
 
     @State private var showingSheet = false
+
+    @State var isLinkActive = false
 
     @State private var favoriteVoice = "Female"
     var voiceStyle = ["Female", "Male"]
@@ -33,7 +36,7 @@ struct ExerciseGuideView: View {
                     showingSheet.toggle()
                 }
                 .sheet(isPresented: $showingSheet) {
-                    SheetView(favoriteVoice: $favoriteVoice, voiceLevel: $voiceLevel, musicLevel: $musicLevel)
+                    SheetView()
                 }
 
                 ZStack{
@@ -98,6 +101,7 @@ struct ExerciseGuideView: View {
                 HStack {
                     Button(action: {
                         guideData.audioPlayer.currentTime -= 10
+                        guideData.musicPlayer.currentTime -= 10
                     }) {
                         Image(systemName: "gobackward.10")
                             .font(.title)
@@ -117,8 +121,10 @@ struct ExerciseGuideView: View {
 
                     Button(action: {
                         let increase = guideData.audioPlayer.currentTime + 10
+//                        let inc = guideData.musicPlayer.currentTime + 10
                         if increase < guideData.audioPlayer.duration {
                             guideData.audioPlayer.currentTime = increase
+                            guideData.musicPlayer.currentTime = guideData.musicPlayer.currentTime
                         }
                     }) {
                         Image(systemName: "goforward.10")
@@ -140,15 +146,15 @@ struct ExerciseGuideView: View {
                         Capsule()
                             .fill(Color.red)
                             .frame(width: guideData.line, height: 4)
-//                            .gesture(DragGesture().onChanged({ value in
-//                                let x = value.location.x
-//                                guideData.line = x
-//                            }).onEnded({ value in
-//                                let x = value.location.x
-//                                let screen = UIScreen.main.bounds.width - 30
-//                                let percent = x / screen
-//                                guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
-//                            }))
+                            .gesture(DragGesture().onChanged({ value in
+                                let x = value.location.x
+                                guideData.line = x
+                            }).onEnded({ value in
+                                let x = value.location.x
+                                let screen = UIScreen.main.bounds.width - 30
+                                let percent = x / screen
+                                guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
+                            }))
 //
 //                            //Slider circle
 //                            Circle()
@@ -173,49 +179,49 @@ struct ExerciseGuideView: View {
                 }
                 .padding(.horizontal, 20)
 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .frame(height: geo.size.height * 0.27)
-                        .shadow(radius: 10)
-
-                    VStack {
-
-                        HStack {
-                            Text("Voice")
-                                .padding(.horizontal)
-                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
-                                ForEach(voiceStyle, id: \.self) {
-                                    Text($0)
-                                }
-                            }
-                            .pickerStyle(SegmentedPickerStyle())
-                            .padding(.horizontal)
-                        }
-
-    //                    Text("Value: \(favoriteVoice)")
-
-                        Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
-                            guideData.audioPlayer.volume = voiceLevel
-                        }
-    //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
-
-                        HStack {
-                            Text("Music")
-                                .padding(.horizontal)
-                            Spacer()
-                        }
-
-                        Slider(value: $musicLevel, in: 0...1).onChange(of: musicLevel) { n in
-                            guideData.musicPlayer.volume = musicLevel
-                        }
-    //                    Text("\(musicLevel, specifier: "%.1f") Music")
-                    }
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                }
-//                .frame(width: geo.size.width*0.80)
-                .padding(20)
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .fill(Color.white)
+//                        .frame(height: geo.size.height * 0.27)
+//                        .shadow(radius: 10)
+//
+//                    VStack {
+//
+//                        HStack {
+//                            Text("Voice")
+//                                .padding(.horizontal)
+//                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
+//                                ForEach(voiceStyle, id: \.self) {
+//                                    Text($0)
+//                                }
+//                            }
+//                            .pickerStyle(SegmentedPickerStyle())
+//                            .padding(.horizontal)
+//                        }
+//
+//    //                    Text("Value: \(favoriteVoice)")
+//
+//                        Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
+//                            guideData.audioPlayer.volume = voiceLevel
+//                        }
+//    //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
+//
+//                        HStack {
+//                            Text("Music")
+//                                .padding(.horizontal)
+//                            Spacer()
+//                        }
+//
+//                        Slider(value: $musicLevel, in: 0...1).onChange(of: musicLevel) { n in
+//                            guideData.musicPlayer.volume = musicLevel
+//                        }
+//    //                    Text("\(musicLevel, specifier: "%.1f") Music")
+//                    }
+//                    .padding(.leading, 10)
+//                    .padding(.trailing, 10)
+//                }
+////                .frame(width: geo.size.width*0.80)
+//                .padding(20)
 
             }
             .frame(alignment: .top)
@@ -224,95 +230,29 @@ struct ExerciseGuideView: View {
         .background(Color(red: 253/255, green: 153/255, blue: 140/255))
         .onAppear(perform: guideData.fetch)
         .onReceive(timer) { _ in
-            guideData.updateTimer()
+//            guideData.updateTimer()
             guideData.updateSliderTimer()
-            
-        }
-    }
 
-}
-
-struct SheetView: View {
-    @Environment(\.dismiss) var dismiss
-
-    @StateObject var guideData = ExerciseGuideVM()
-
-    @Binding var favoriteVoice: String
-    var voiceStyle = ["Female", "Male"]
-
-    @Binding var voiceLevel: Float
-    @Binding var musicLevel: Float
-
-    @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
-    @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
-
-
-    var body: some View {
-        
-        GeometryReader { geo in
-            VStack {
-                Button("play.circle.fill") {
-                    dismiss()
+            if guideData.audioPlayer.currentTime >= 45 {
+                print("selesai")
+                NavigationLink(destination: Text("Second View"), isActive: $isLinkActive) { EmptyView() }
+                Button("Tap to show detail") {
+                    self.isLinkActive = true
                 }
-                .font(.title)
-
-                Text("Adjust the volume here,")
-                    .font(Font.system(.title, design: .rounded))
-                    .fontWeight(.heavy)
-                    .padding(.horizontal)
-
-                Text("to make you more comfortable")
-                    .font(Font.system(.title2, design: .rounded))
-                    .fontWeight(.medium)
-                    .padding(.horizontal)
-
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .frame(height: geo.size.height * 0.27)
-                        .shadow(radius: 10)
-
-                    VStack {
-
-                        HStack {
-                            Text("Voice")
-                                .padding(.horizontal)
-                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
-                                ForEach(voiceStyle, id: \.self) {
-                                    Text($0)
-                                }
-                            }
-                            .pickerStyle(SegmentedPickerStyle())
-                            .padding(.horizontal)
-                        }
-
-    //                    Text("Value: \(favoriteVoice)")
-
-                        Slider(value: $voiceLevel, in: 0...1)
-                        
-    //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
-
-                        HStack {
-                            Text("Music")
-                                .padding(.horizontal)
-                            Spacer()
-                        }
-
-                        Slider(value: $musicLevel, in: 0...1)
-                        
-    //                    Text("\(musicLevel, specifier: "%.1f") Music")
-                    }
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                }
-    //                .frame(width: geo.size.width*0.80)
-                .padding(20)
-            }
-            .onReceive(timer) { _ in
-                guideData.updateTimer()
             }
         }
+
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action : {
+            self.presentationMode.wrappedValue.dismiss()
+        }){
+            Image(systemName: "chevron.backward.square.fill")
+                .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                .tint(Color.white)
+        })
+
     }
+
 }
 
 struct ExerciseGuideView_Previews: PreviewProvider {

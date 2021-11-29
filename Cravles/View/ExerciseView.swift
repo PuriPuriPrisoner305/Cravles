@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ExerciseView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.managedObjectContext) private var viewContext
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     
@@ -22,6 +23,35 @@ struct ExerciseView: View {
         NavigationView {
             GeometryReader { geo in
                 VStack (spacing: 20) {
+
+//                    HStack {
+//                            Image(systemName: "arrow.left")
+//                                .frame(width: 30)
+//                            .onTapGesture(count: 1, perform: {
+////                                self.mode.wrappedValue.dismiss()
+//                            })
+//                        Spacer()
+//                        Image(systemName: "command")
+//                            .frame(width: 30)
+//                        Spacer()
+//                        Image(systemName: "arrow.right")
+//                            .frame(width: 30)
+//                            .onTapGesture(count: 1, perform: {
+//                                self.isLinkActive = true
+//                            })
+//
+//                        NavigationLink(
+//                            destination: ExercisePreView()
+//                                .navigationBarHidden(true),
+//                            isActive: $isLinkActive,
+//                            label: {
+//                                //no label
+//                            })
+//                    }
+//                    .padding([.leading,.trailing], 8)
+//                    .frame(width: geo.size.width)
+//                    .font(.system(size: 22))
+
                     Text("Hi, John")
                         .font(Font.system(.title, design: .rounded))
                         .fontWeight(.medium)
@@ -55,10 +85,21 @@ struct ExerciseView: View {
                         .buttonStyle(BlueButton())
                     }
                     .frame(height: geo.size.height * 0.05)
+                    .navigationBarHidden(true)
 
                     Spacer(minLength: 0)
                 }
                 .background(Color(red: 253/255, green: 153/255, blue: 140/255))
+
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: Button(action : {
+                    self.presentationMode.wrappedValue.dismiss()
+                }){
+                    Image(systemName: "chevron.backward.square.fill")
+                        .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                        .tint(Color.white)
+                })
+
             }
         }
     }

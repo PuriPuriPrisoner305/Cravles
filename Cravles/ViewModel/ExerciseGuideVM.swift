@@ -62,6 +62,8 @@ class ExerciseGuideVM: ObservableObject {
             audioPlayer.currentTime = time
             audioPlayer.play()
 
+            musicPlayer.play()
+
             withAnimation(Animation.linear(duration: 0.1)){ self.angle = Double(angle)}
         }
     }

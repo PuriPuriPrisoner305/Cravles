@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ExercisePreView: View {
-
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.managedObjectContext) private var viewContext
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
 
@@ -43,6 +43,15 @@ struct ExercisePreView: View {
                 .frame(height: geo.size.height * 0.25)
 //                Spacer(minLength: 0)
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action : {
+                self.presentationMode.wrappedValue.dismiss()
+            }){
+                Image(systemName: "chevron.backward.square.fill")
+                    .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                    .tint(Color.white)
+            })
+
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
         }
         .background(Color(red: 253/255, green: 153/255, blue: 140/255))
