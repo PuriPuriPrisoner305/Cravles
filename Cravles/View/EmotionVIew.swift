@@ -57,13 +57,6 @@ struct EmotionVIew: View {
     }
 }
 
-extension Color {
-    static func rgb(r: Double,g:Double, b:Double)-> Color {
-        return Color(red: r / 255, green: g / 255, blue: b / 255)
-    }
-    
-    static let pulsatingColor = Color.rgb(r: 235, g: 153, b: 140).opacity(1)
-}
 
 
 struct EmotionVIew_Previews: PreviewProvider {

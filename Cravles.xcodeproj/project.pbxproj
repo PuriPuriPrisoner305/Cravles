@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
+		224B58372754DA130082088C /* RainCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58342754DA130082088C /* RainCoreData.swift */; };
+		224B58382754DA130082088C /* ReflectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58352754DA130082088C /* ReflectionViewModel.swift */; };
+		224B58392754DA130082088C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58362754DA130082088C /* CoreDataManager.swift */; };
+		224B584E2754DA610082088C /* Screen1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B584C2754DA610082088C /* Screen1View.swift */; };
+		224B584F2754DA610082088C /* Extencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B584D2754DA610082088C /* Extencion.swift */; };
+		224B58562754DA800082088C /* Rain2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58512754DA800082088C /* Rain2View.swift */; };
+		224B58572754DA810082088C /* Rain1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58522754DA800082088C /* Rain1View.swift */; };
+		224B58582754DA810082088C /* Reflection1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58532754DA800082088C /* Reflection1View.swift */; };
+		224B58592754DA810082088C /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58542754DA800082088C /* FeelingView.swift */; };
+		224B585A2754DA810082088C /* Reflection2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58552754DA800082088C /* Reflection2View.swift */; };
 		227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CF2382752561D00BF8F9E /* EmotionVIew.swift */; };
 		22A0D3BD274DF03800F77050 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0D3BC274DF03800F77050 /* MainScreen.swift */; };
 		22B2CA532752026800710E78 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2CA522752026800710E78 /* SummaryView.swift */; };
@@ -28,12 +37,20 @@
 		D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */; };
 		D9E48199274FFC70004189CF /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48198274FFC70004189CF /* Mood.swift */; };
 		D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4819A27501009004189CF /* ExercisePreView.swift */; };
-		D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48186274B53EF004189CF /* ExerciseView.swift */; };
 		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
+		224B58342754DA130082088C /* RainCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainCoreData.swift; sourceTree = "<group>"; };
+		224B58352754DA130082088C /* ReflectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectionViewModel.swift; sourceTree = "<group>"; };
+		224B58362754DA130082088C /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		224B584C2754DA610082088C /* Screen1View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen1View.swift; sourceTree = "<group>"; };
+		224B584D2754DA610082088C /* Extencion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extencion.swift; sourceTree = "<group>"; };
+		224B58512754DA800082088C /* Rain2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rain2View.swift; sourceTree = "<group>"; };
+		224B58522754DA800082088C /* Rain1View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rain1View.swift; sourceTree = "<group>"; };
+		224B58532754DA800082088C /* Reflection1View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection1View.swift; sourceTree = "<group>"; };
+		224B58542754DA800082088C /* FeelingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
+		224B58552754DA800082088C /* Reflection2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection2View.swift; sourceTree = "<group>"; };
 		227CF2382752561D00BF8F9E /* EmotionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionVIew.swift; sourceTree = "<group>"; };
 		22A0D3BC274DF03800F77050 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		22B2CA522752026800710E78 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
@@ -55,7 +72,6 @@
 		D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideVM.swift; sourceTree = "<group>"; };
 		D9E48198274FFC70004189CF /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		D9E4819A27501009004189CF /* ExercisePreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreView.swift; sourceTree = "<group>"; };
-		D9E48186274B53EF004189CF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +86,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		224B584B2754DA480082088C /* ReflectionHifid */ = {
+			isa = PBXGroup;
+			children = (
+				224B58502754DA6B0082088C /* Hi fi Lama */,
+				224B584D2754DA610082088C /* Extencion.swift */,
+				224B584C2754DA610082088C /* Screen1View.swift */,
+			);
+			path = ReflectionHifid;
+			sourceTree = "<group>";
+		};
+		224B58502754DA6B0082088C /* Hi fi Lama */ = {
+			isa = PBXGroup;
+			children = (
+				224B58542754DA800082088C /* FeelingView.swift */,
+				224B58522754DA800082088C /* Rain1View.swift */,
+				224B58512754DA800082088C /* Rain2View.swift */,
+				224B58532754DA800082088C /* Reflection1View.swift */,
+				224B58552754DA800082088C /* Reflection2View.swift */,
+			);
+			path = "Hi fi Lama";
+			sourceTree = "<group>";
+		};
 		22A0D3BE274DF04800F77050 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +136,7 @@
 		22D33180274B4E69005B72FF /* Cravles */ = {
 			isa = PBXGroup;
 			children = (
+				224B584B2754DA480082088C /* ReflectionHifid */,
 				D9E48190274D54B3004189CF /* ViewModel */,
 				22A0D3BE274DF04800F77050 /* View */,
 				E0F73BA2274B583000AE10DC /* Model  */,
@@ -125,6 +164,9 @@
 		D9E48190274D54B3004189CF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				224B58362754DA130082088C /* CoreDataManager.swift */,
+				224B58342754DA130082088C /* RainCoreData.swift */,
+				224B58352754DA130082088C /* ReflectionViewModel.swift */,
 				D9E4818E274D54AA004189CF /* ExerciseVM.swift */,
 				D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */,
 			);
@@ -227,19 +269,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */,
+				224B58582754DA810082088C /* Reflection1View.swift in Sources */,
+				224B58382754DA130082088C /* ReflectionViewModel.swift in Sources */,
+				224B58572754DA810082088C /* Rain1View.swift in Sources */,
 				D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */,
+				224B584E2754DA610082088C /* Screen1View.swift in Sources */,
 				22A0D3BD274DF03800F77050 /* MainScreen.swift in Sources */,
+				224B58592754DA810082088C /* FeelingView.swift in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
+				224B58372754DA130082088C /* RainCoreData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				D9E48199274FFC70004189CF /* Mood.swift in Sources */,
+				224B584F2754DA610082088C /* Extencion.swift in Sources */,
 				22D33184274B4E6A005B72FF /* ContentView.swift in Sources */,
 				D9E48195274D5AE9004189CF /* Audio.swift in Sources */,
 				D918900D2753B550002E65F5 /* SheetView.swift in Sources */,
 				D9E48189274BA04D004189CF /* ExerciseGuideView.swift in Sources */,
 				227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */,
+				224B58392754DA130082088C /* CoreDataManager.swift in Sources */,
+				224B58562754DA800082088C /* Rain2View.swift in Sources */,
 				D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */,
 				D9E4818F274D54AA004189CF /* ExerciseVM.swift in Sources */,
 				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,
+				224B585A2754DA810082088C /* Reflection2View.swift in Sources */,
 				22B2CA532752026800710E78 /* SummaryView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
 				D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */,
