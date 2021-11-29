@@ -36,7 +36,7 @@ struct ExerciseGuideView: View {
                     showingSheet.toggle()
                 }
                 .sheet(isPresented: $showingSheet) {
-                    SheetView()
+                    SheetView(guideData: guideData)
                 }
 
                 ZStack{

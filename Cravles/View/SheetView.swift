@@ -10,7 +10,7 @@ import SwiftUI
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
 
-    @StateObject var guideData = ExerciseGuideVM()
+    @StateObject var guideData: ExerciseGuideVM
 
     @State var favoriteVoice: String = "Female"
     var voiceStyle = ["Female", "Male"]
@@ -93,6 +93,6 @@ struct SheetView: View {
 
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
-        SheetView()
+        SheetView(guideData: ExerciseGuideVM())
     }
 }
