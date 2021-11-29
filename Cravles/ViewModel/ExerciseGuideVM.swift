@@ -8,6 +8,8 @@
 import SwiftUI
 import AVFoundation
 
+let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ambient", ofType: "m4a")!)
+
 class ExerciseGuideVM: ObservableObject {
 
     @Published var audioPlayer = try! AVAudioPlayer(contentsOf: url)
