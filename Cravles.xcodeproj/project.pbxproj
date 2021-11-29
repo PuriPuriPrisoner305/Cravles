@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CF2382752561D00BF8F9E /* EmotionVIew.swift */; };
+		22A0D3BD274DF03800F77050 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0D3BC274DF03800F77050 /* MainScreen.swift */; };
+		22B2CA532752026800710E78 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2CA522752026800710E78 /* SummaryView.swift */; };
 		22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D33181274B4E6A005B72FF /* CravlesApp.swift */; };
 		22D33184274B4E6A005B72FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D33183274B4E6A005B72FF /* ContentView.swift */; };
 		22D33186274B4E6B005B72FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D33185274B4E6B005B72FF /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		227CF2382752561D00BF8F9E /* EmotionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionVIew.swift; sourceTree = "<group>"; };
+		22A0D3BC274DF03800F77050 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		22B2CA522752026800710E78 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		22D3317E274B4E69005B72FF /* Cravles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cravles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D33181274B4E6A005B72FF /* CravlesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CravlesApp.swift; sourceTree = "<group>"; };
 		22D33183274B4E6A005B72FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22A0D3BE274DF04800F77050 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				22A0D3BC274DF03800F77050 /* MainScreen.swift */,
+				22B2CA522752026800710E78 /* SummaryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		22D33175274B4E69005B72FF = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D9E48190274D54B3004189CF /* ViewModel */,
+				22A0D3BE274DF04800F77050 /* View */,
 				E0F73BA2274B583000AE10DC /* Model  */,
 				D9E48191274D54C9004189CF /* View */,
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
@@ -210,6 +224,7 @@
 			files = (
 				22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */,
 				D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */,
+				22A0D3BD274DF03800F77050 /* MainScreen.swift in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				D9E48199274FFC70004189CF /* Mood.swift in Sources */,
@@ -221,6 +236,7 @@
 				D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */,
 				D9E4818F274D54AA004189CF /* ExerciseVM.swift in Sources */,
 				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,
+				22B2CA532752026800710E78 /* SummaryView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
 				D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */,
 			);
