@@ -90,7 +90,7 @@ class RainCoreData: ObservableObject {
         newRain.feeling = text
         newRain.reflection2 = text
         newRain.monthReflection = text
-        newRain.reflection3 = text
+        newRain.reflection2 = text
 //        newIoT.sensorId = text2
         saveData()
     }

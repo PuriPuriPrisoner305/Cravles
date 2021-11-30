@@ -56,7 +56,7 @@ struct Reflection1View: View {
                                 VStack(alignment: .leading){
                                     Text("Suspended")
                                     
-                                    Text(rain.reflection3 ?? "you just completed i 0f 3 stages lest's finish it")
+                                    Text(rain.reflection2 ?? "you just completed i 0f 3 stages lest's finish it")
                                         .font(.system(size: 9))
                                 }
                                 .padding()
