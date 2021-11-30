@@ -20,7 +20,7 @@ struct ExerciseView: View {
     var data = Mood.moods
 
     var body: some View {
-        NavigationView {
+//        NavigationView {
             GeometryReader { geo in
                 VStack (spacing: 20) {
 
@@ -120,7 +120,7 @@ struct ExerciseView: View {
 //                })
 
             }
-        }
+        
     }
 }
 

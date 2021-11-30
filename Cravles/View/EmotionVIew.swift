@@ -8,51 +8,96 @@
 import SwiftUI
 
 struct EmotionVIew: View {
-    @State private var emotionLevel: Double = 2
-    @State private var emotionIcon = "😊"
-    @State private var emotionStatus = "Happy"
-    var body: some View {
-        ZStack{
-            Color.pulsatingColor
-                .ignoresSafeArea()
-            
-            VStack{
-                Text("Hi John")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 1)
-                Text("How are you feeling?")
-                    .font(.title3)
-                
-                Spacer()
-                
-                Text(emotionIcon)
-                    .font(.largeTitle)
-                
-                Text(emotionStatus.uppercased())
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .tracking(3)
-                    
-                    .padding()
-                
-                Slider(value: $emotionLevel, in: 0...5)
-                    .padding(.init(top: 0, leading: 40, bottom: 0, trailing: 40))
-                    .accentColor(Color.white)
-                
-                Spacer()
-                Button("Continue"){
-                    
-                }
-                .foregroundColor(Color.pulsatingColor)
-                .frame(width: 200, height: 50)
-                .background(Color.white)
-                .clipShape(Capsule())
-                
-            }
-            .foregroundColor(Color.white)
-            .padding(.init(top: 40, leading: 0, bottom: 60, trailing: 0))
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.managedObjectContext) private var viewContext
 
+    @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
+    
+    @State var isLinkActive = false
+
+    @State var moodSlider : Double = 2.0
+
+    var data = Mood.moods
+
+    var body: some View {
+        NavigationView {
+            GeometryReader { geo in
+                VStack (spacing: 20) {
+
+                    HStack {
+                    }
+                    .padding([.leading,.trailing], 8)
+                    .frame(width: geo.size.width)
+                    .font(.system(size: 22))
+
+                    HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
+
+                            Button(action : {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }){
+                                Image(systemName: "chevron.left")
+                                    .tint(Color.white)
+                            }
+                        }
+                        .frame(width: 30, height: 30)
+
+                        Spacer()
+                    }
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+
+                    Text("Hi, John")
+                        .font(Font.system(.title, design: .rounded))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color.white)
+
+                    Text("How are you feeling?")
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color.white)
+
+                    Image(uiImage: data[Int(moodSlider)].moodImg)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: width, height: width)
+
+                    Text("\(data[Int(moodSlider)].mood)")
+
+                    Slider(value: $moodSlider, in: 0...7, step: 1)
+                        .padding(40)
+                        .tint(Color.white)
+
+                    NavigationLink(destination: ExercisePreView(), isActive: $isLinkActive) {
+                        Button(action: {
+                            self.isLinkActive = true
+                        }) {
+                            Text("Continue")
+                                .font(Font.system(.title3, design: .rounded))
+                                .fontWeight(.medium)
+                                .frame(width: width - 20 , alignment: .center)
+                        }
+                        .buttonStyle(BlueButton())
+                    }
+                    .frame(height: geo.size.height * 0.05)
+                    .navigationBarHidden(true)
+
+                    Spacer(minLength: 0)
+                }
+                .background(Color(red: 253/255, green: 153/255, blue: 140/255))
+
+                .navigationBarHidden(true)
+//                .navigationBarItems(leading: Button(action : {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }){
+//                    Image(systemName: "chevron.backward.square.fill")
+//                        .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+//                        .tint(Color.white)
+//                })
+
+            }
         }
     }
 }

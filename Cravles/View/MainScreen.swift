@@ -41,7 +41,7 @@ struct MainScreen: View {
                         // Exercise
                         VStack(spacing: 20){
                             
-                            NavigationLink(destination: EmotionVIew()) {
+                            NavigationLink(destination: ExerciseView()) {
                                 HStack(spacing: 10){
                                     Image("breathee")
                                         .resizable()
