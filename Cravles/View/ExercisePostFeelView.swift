@@ -74,7 +74,7 @@ struct ExercisePostFeelView: View {
                 }
                 .background(Color(red: 253/255, green: 153/255, blue: 140/255))
 
-                .navigationBarBackButtonHidden(true)
+                .navigationBarHidden(true)
 
             }
         }

@@ -62,7 +62,7 @@ struct ExercisePreView: View {
                 .frame(height: geo.size.height * 0.25)
 //                Spacer(minLength: 0)
             }
-            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
 //            .navigationBarItems(leading: Button(action : {
 //                self.presentationMode.wrappedValue.dismiss()
 //            }){
@@ -71,7 +71,7 @@ struct ExercisePreView: View {
 //                    .tint(Color.white)
 //            })
 
-            .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+//            .frame(width: geo.size.width, height: geo.size.height)
         }
         .background(Color(red: 253/255, green: 153/255, blue: 140/255))
     }

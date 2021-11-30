@@ -22,8 +22,8 @@ struct ExerciseGuideView: View {
     @State private var favoriteVoice = "Female"
     var voiceStyle = ["Female", "Male"]
 
-    @State private var voiceLevel: Float = 1
-    @State private var musicLevel: Float = 1
+//    @State private var voiceLevel: Float = 1
+//    @State private var musicLevel: Float = 1
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
@@ -75,6 +75,8 @@ struct ExerciseGuideView: View {
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
+
+                Spacer()
 
                 ZStack{
 
@@ -186,6 +188,7 @@ struct ExerciseGuideView: View {
                             .clipShape(Circle())
                     }
                 }
+                .padding(.bottom, 20)
 
                 ZStack (alignment: .leading) {
 
@@ -238,6 +241,8 @@ struct ExerciseGuideView: View {
                 .foregroundColor(Color.white)
                 .padding(.horizontal, 20)
 
+                Spacer()
+
             }
 
         }
@@ -254,7 +259,8 @@ struct ExerciseGuideView: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
+        
 //        .navigationBarItems(leading: Button(action : {
 //            self.presentationMode.wrappedValue.dismiss()
 //        }){
