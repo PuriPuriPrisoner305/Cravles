@@ -32,12 +32,47 @@ struct ExerciseGuideView: View {
         GeometryReader { geo in
             VStack {
 
-                Button("show sheet") {
-                    showingSheet.toggle()
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+
+                        Button(action : {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }){
+                            Image(systemName: "chevron.left")
+                                .tint(Color.white)
+    //                            .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                        }
+                    }
+                    .frame(width: 30, height: 30)
+
+                    Spacer()
+
+                    Text("Breathing Mindfulness")
+                        .foregroundColor(Color.white)
+
+                    Spacer()
+
+                    ZStack {
+
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+
+                        Button{
+                            showingSheet.toggle()
+                        } label: {
+                            Image(systemName: "gear")
+                                .foregroundColor(Color.white)
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                            SheetView(guideData: guideData)
+                        }
+                    }
+                    .frame(width: 30, height: 30)
                 }
-                .sheet(isPresented: $showingSheet) {
-                    SheetView(guideData: guideData)
-                }
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
 
                 ZStack{
 
@@ -241,15 +276,14 @@ struct ExerciseGuideView: View {
                 }
             }
         }
-
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action : {
-            self.presentationMode.wrappedValue.dismiss()
-        }){
-            Image(systemName: "chevron.backward.square.fill")
-                .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
-                .tint(Color.white)
-        })
+//        .navigationBarItems(leading: Button(action : {
+//            self.presentationMode.wrappedValue.dismiss()
+//        }){
+//            Image(systemName: "chevron.backward.square.fill")
+//                .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+//                .tint(Color.white)
+//        })
 
     }
 

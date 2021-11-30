@@ -20,6 +20,26 @@ struct ExercisePreView: View {
             VStack {
 //                Spacer(minLength: 0)
 
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+
+                        Button(action : {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }){
+                            Image(systemName: "chevron.left")
+                                .tint(Color.white)
+    //                            .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                        }
+                    }
+                    .frame(width: 30, height: 30)
+
+                    Spacer()
+                }
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+
                 Text("It's ok! \n Let's do some breathing exercise with me to help calm your mind")
                     .font(Font.system(.title, design: .rounded))
                     .fontWeight(.medium)
@@ -44,13 +64,13 @@ struct ExercisePreView: View {
 //                Spacer(minLength: 0)
             }
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action : {
-                self.presentationMode.wrappedValue.dismiss()
-            }){
-                Image(systemName: "chevron.backward.square.fill")
-                    .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
-                    .tint(Color.white)
-            })
+//            .navigationBarItems(leading: Button(action : {
+//                self.presentationMode.wrappedValue.dismiss()
+//            }){
+//                Image(systemName: "chevron.backward.square.fill")
+//                    .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+//                    .tint(Color.white)
+//            })
 
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
         }
