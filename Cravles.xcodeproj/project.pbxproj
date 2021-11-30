@@ -37,6 +37,7 @@
 		D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */; };
 		D9E48199274FFC70004189CF /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48198274FFC70004189CF /* Mood.swift */; };
 		D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4819A27501009004189CF /* ExercisePreView.swift */; };
+		E030C0B927561CC7000A2109 /* JournalQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C0B827561CC7000A2109 /* JournalQuotesView.swift */; };
 		E0A31BEF2755DFBD004114C6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A31BEE2755DFBD004114C6 /* JournalingView.swift */; };
 		E0A31BF12755DFE2004114C6 /* AddJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A31BF02755DFE2004114C6 /* AddJournalView.swift */; };
 		E0A31BF32755E007004114C6 /* JournalFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A31BF22755E007004114C6 /* JournalFeelingView.swift */; };
@@ -77,6 +78,7 @@
 		D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideVM.swift; sourceTree = "<group>"; };
 		D9E48198274FFC70004189CF /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		D9E4819A27501009004189CF /* ExercisePreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreView.swift; sourceTree = "<group>"; };
+		E030C0B827561CC7000A2109 /* JournalQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalQuotesView.swift; sourceTree = "<group>"; };
 		E0A31BEE2755DFBD004114C6 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
 		E0A31BF02755DFE2004114C6 /* AddJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalView.swift; sourceTree = "<group>"; };
 		E0A31BF22755E007004114C6 /* JournalFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFeelingView.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				E0A31BF22755E007004114C6 /* JournalFeelingView.swift */,
 				E0A31BF42755E019004114C6 /* JournalBodyView.swift */,
 				E0A31BF62755E048004114C6 /* JournalThoughtView.swift */,
+				E030C0B827561CC7000A2109 /* JournalQuotesView.swift */,
 			);
 			path = "Hi fi New";
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				224B585A2754DA810082088C /* Reflection2View.swift in Sources */,
 				22B2CA532752026800710E78 /* SummaryView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
+				E030C0B927561CC7000A2109 /* JournalQuotesView.swift in Sources */,
 				D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ struct JournalThoughtView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var reflection = ""
     @Environment(\.managedObjectContext) var moc
+    @State private var showingQuotes = false
     var body: some View {
         ZStack{
             Color.pulsatingColor
@@ -45,7 +46,9 @@ struct JournalThoughtView: View {
                             let rain = Reflection(context: moc)
                             rain.reflection2 = self.reflection
 //                            try? self.moc.save()
-                            self.presentationMode.wrappedValue.dismiss()
+                            showingQuotes.toggle()
+                        }.sheet(isPresented: $showingQuotes) {
+                            JournalQuotesView()
                         }
                         .disabled(reflection.isEmpty)
                         .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)

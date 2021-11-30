@@ -16,12 +16,7 @@ struct JournalingView: View {
     let tes = [1,2,3,4,]
     var body: some View {
         NavigationView{
-//            VStack(alignment:.leading) {
-//                Text("Recent Journaling")
-//                    .font(Font.system(size:18, design: .rounded))
-//                    Rectangle()
-//                    .frame(width: 100, height: 3)
-//            }
+
             ScrollView{
                 ForEach(tes, id:\.self){ rain in
                     VStack{
