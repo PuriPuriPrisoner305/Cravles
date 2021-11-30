@@ -32,15 +32,15 @@ struct EmotionVIew: View {
 
                     HStack {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
-
-                            Button(action : {
-                                self.presentationMode.wrappedValue.dismiss()
-                            }){
-                                Image(systemName: "chevron.left")
-                                    .tint(Color.white)
-                            }
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
+//
+//                            Button(action : {
+//                                self.presentationMode.wrappedValue.dismiss()
+//                            }){
+//                                Image(systemName: "chevron.left")
+//                                    .tint(Color.white)
+//                            }
                         }
                         .frame(width: 30, height: 30)
 
@@ -70,7 +70,7 @@ struct EmotionVIew: View {
                         .padding(40)
                         .tint(Color.white)
 
-                    NavigationLink(destination: ExercisePreView(), isActive: $isLinkActive) {
+                    NavigationLink(destination: ContentView(), isActive: $isLinkActive) {
                         Button(action: {
                             self.isLinkActive = true
                         }) {

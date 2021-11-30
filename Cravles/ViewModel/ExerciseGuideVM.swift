@@ -10,7 +10,7 @@ import AVFoundation
 
 let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ambient", ofType: "m4a")!)
 
-class ExerciseGuideVM: ObservableObject {
+class ExerciseGuideVM: NSObject, ObservableObject {
 
     @Published var audioPlayer = try! AVAudioPlayer(contentsOf: url)
     @Published var musicPlayer: AVAudioPlayer!
@@ -20,6 +20,8 @@ class ExerciseGuideVM: ObservableObject {
     @Published var angle : Double = 0
 
     @Published var line : Double = 0
+
+    @Published var activated = false
 
     func fetch() {
 
@@ -37,6 +39,7 @@ class ExerciseGuideVM: ObservableObject {
             audioPlayer.pause()
             musicPlayer.pause()
         } else {
+            audioPlayer.delegate = self
             audioPlayer.play()
             musicPlayer.play()
         }
@@ -95,3 +98,12 @@ class ExerciseGuideVM: ObservableObject {
     }
 }
 
+extension ExerciseGuideVM: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag {
+        isPlaying = false
+            print(isPlaying)
+        activated = true
+        }
+    }
+}

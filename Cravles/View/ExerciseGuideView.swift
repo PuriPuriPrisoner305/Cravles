@@ -17,7 +17,7 @@ struct ExerciseGuideView: View {
 
     @State private var showingSheet = false
 
-    @State var isLinkActive = false
+//    @State var activate = false
 
     @State private var favoriteVoice = "Female"
     var voiceStyle = ["Female", "Male"]
@@ -250,16 +250,11 @@ struct ExerciseGuideView: View {
         .onAppear(perform: guideData.fetch)
         .onReceive(timer) { _ in
             guideData.updateSliderTimer()
-
-            if guideData.audioPlayer.currentTime >= 45 {
-                print("selesai")
-                NavigationLink(destination: Text("Second View"), isActive: $isLinkActive) { EmptyView() }
-                Button("Tap to show detail") {
-                    self.isLinkActive = true
-                }
-            }
         }
         .navigationBarHidden(true)
+        .fullScreenCover(isPresented: $guideData.activated) {
+            EmotionVIew()
+        }
         
 //        .navigationBarItems(leading: Button(action : {
 //            self.presentationMode.wrappedValue.dismiss()
