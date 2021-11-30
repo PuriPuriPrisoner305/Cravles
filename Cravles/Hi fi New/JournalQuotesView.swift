@@ -20,17 +20,17 @@ struct JournalQuotesView: View {
             ZStack{
                 Color.pulsatingColor
                     .ignoresSafeArea()
-                
-               
                 VStack{
-                    Button {
-                        self.presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "")
+                    ZStack{
+                        Button {
+                            self.presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Image(systemName: "multiply.square.fill")
+                                .resizable()
+                                .frame(width: h.size.width/10, height: h.size.width/10)
+                                
+                        }
                     }
-
-
-                           
                     
                     //                Text("\(randomQuotes)")
                                     Text("quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller")
