@@ -15,9 +15,9 @@ struct ExerciseView: View {
     
     @State var isLinkActive = false
 
-    @State var moodSlider : Float = 2
+    @State var moodSlider : Double = 2.0
 
-    var data : Mood
+    var data = Mood.moods
 
     var body: some View {
         NavigationView {
@@ -52,6 +52,25 @@ struct ExerciseView: View {
 //                    .frame(width: geo.size.width)
 //                    .font(.system(size: 22))
 
+                    HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
+
+                            Button(action : {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }){
+                                Image(systemName: "chevron.left")
+                                    .tint(Color.white)
+                            }
+                        }
+                        .frame(width: 30, height: 30)
+
+                        Spacer()
+                    }
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+
                     Text("Hi, John")
                         .font(Font.system(.title, design: .rounded))
                         .fontWeight(.medium)
@@ -62,14 +81,14 @@ struct ExerciseView: View {
                         .fontWeight(.regular)
                         .foregroundColor(Color.white)
 
-                    Image(uiImage: data.moodImg)
+                    Image(uiImage: data[Int(moodSlider)].moodImg)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: width, height: width)
 
-                    Text("\(moodSlider, specifier: "%.f")")
+                    Text("\(data[Int(moodSlider)].mood)")
 
-                    Slider(value: $moodSlider, in: 0...2, step: 1)
+                    Slider(value: $moodSlider, in: 0...7, step: 1)
                         .padding(40)
                         .tint(Color.white)
 
@@ -92,13 +111,13 @@ struct ExerciseView: View {
                 .background(Color(red: 253/255, green: 153/255, blue: 140/255))
 
                 .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: Button(action : {
-                    self.presentationMode.wrappedValue.dismiss()
-                }){
-                    Image(systemName: "chevron.backward.square.fill")
-                        .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
-                        .tint(Color.white)
-                })
+//                .navigationBarItems(leading: Button(action : {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }){
+//                    Image(systemName: "chevron.backward.square.fill")
+//                        .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+//                        .tint(Color.white)
+//                })
 
             }
         }
@@ -118,6 +137,6 @@ struct BlueButton: ButtonStyle {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(data: Mood.moods.first!).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ExerciseView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

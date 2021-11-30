@@ -51,6 +51,8 @@ struct ExerciseGuideView: View {
 
                     Text("Breathing Mindfulness")
                         .foregroundColor(Color.white)
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
 
                     Spacer()
 
@@ -75,6 +77,19 @@ struct ExerciseGuideView: View {
                 .padding(.trailing, 20)
 
                 ZStack{
+
+                    Circle()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: width * 1.3, height: width * 1.3)
+                        .clipShape(Circle())
+                        .foregroundColor(Color.white.opacity(0.4))
+
+
+                    Circle()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: width * 1.15, height: width * 1.15)
+                        .clipShape(Circle())
+                        .foregroundColor(Color.white.opacity(0.7))
 
                     Circle()
                         .aspectRatio(contentMode: .fill)
@@ -130,8 +145,10 @@ struct ExerciseGuideView: View {
                 Text("Take a deep breath")
                     .font(Font.system(.title, design: .default))
                     .fontWeight(.bold)
-                    .padding()
+//                    .padding(.bottom, 20)
                     .foregroundColor(Color.white)
+                    .padding(.top, 20)
+                    .padding(.bottom, 60)
 
                 HStack {
                     Button(action: {
@@ -173,99 +190,60 @@ struct ExerciseGuideView: View {
                 ZStack (alignment: .leading) {
 
                     Capsule()
-                        .fill(Color.white.opacity(0.8))
+                        .fill(Color.white.opacity(0.5))
                         .frame(height: 4)
 
                     ZStack {
 
+                        //Slider circle
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 15, height: 15)
+                            .offset(x: guideData.line / 2)
+
                         Capsule()
-                            .fill(Color.red)
+                            .fill(Color.white)
                             .frame(width: guideData.line, height: 4)
                             .gesture(DragGesture().onChanged({ value in
                                 let x = value.location.x
-                                guideData.line = x
-                            }).onEnded({ value in
-                                let x = value.location.x
-                                let screen = UIScreen.main.bounds.width - 30
+//                                guideData.line = x
+                                let screen = UIScreen.main.bounds.width
                                 let percent = x / screen
                                 guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
+//                            }).onEnded({ value in
+//                                let x = value.location.x
+//                                let screen = UIScreen.main.bounds.width
+//                                let percent = x / screen
+//                                guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
                             }))
-//
-//                            //Slider circle
-//                            Circle()
-//                                .fill(Color.white)
-//                                .frame(width: 10, height: 10)
+
 
 
                     }
                 }
-                .padding(20)
+                .padding(.trailing, 20)
+                .padding(.leading, 20)
 
                 HStack {
                     Text(guideData.getCurrentTime(value: guideData.audioPlayer.currentTime))
-                        .font(Font.system(.title3, design: .rounded))
-                        .fontWeight(.medium)
+                        .font(Font.system(.body, design: .rounded))
+//                        .fontWeight(.medium)
 
                     Spacer()
 
                     Text(guideData.getCurrentTime(value: guideData.audioPlayer.duration))
-                        .font(Font.system(.title3, design: .rounded))
-                        .fontWeight(.medium)
+                        .font(Font.system(.body, design: .rounded))
+//                        .fontWeight(.medium)
                 }
+                .foregroundColor(Color.white)
                 .padding(.horizontal, 20)
 
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .fill(Color.white)
-//                        .frame(height: geo.size.height * 0.27)
-//                        .shadow(radius: 10)
-//
-//                    VStack {
-//
-//                        HStack {
-//                            Text("Voice")
-//                                .padding(.horizontal)
-//                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
-//                                ForEach(voiceStyle, id: \.self) {
-//                                    Text($0)
-//                                }
-//                            }
-//                            .pickerStyle(SegmentedPickerStyle())
-//                            .padding(.horizontal)
-//                        }
-//
-//    //                    Text("Value: \(favoriteVoice)")
-//
-//                        Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
-//                            guideData.audioPlayer.volume = voiceLevel
-//                        }
-//    //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
-//
-//                        HStack {
-//                            Text("Music")
-//                                .padding(.horizontal)
-//                            Spacer()
-//                        }
-//
-//                        Slider(value: $musicLevel, in: 0...1).onChange(of: musicLevel) { n in
-//                            guideData.musicPlayer.volume = musicLevel
-//                        }
-//    //                    Text("\(musicLevel, specifier: "%.1f") Music")
-//                    }
-//                    .padding(.leading, 10)
-//                    .padding(.trailing, 10)
-//                }
-////                .frame(width: geo.size.width*0.80)
-//                .padding(20)
-
             }
-            .frame(alignment: .top)
 
         }
         .background(Color(red: 253/255, green: 153/255, blue: 140/255))
         .onAppear(perform: guideData.fetch)
         .onReceive(timer) { _ in
-//            guideData.updateTimer()
             guideData.updateSliderTimer()
 
             if guideData.audioPlayer.currentTime >= 45 {

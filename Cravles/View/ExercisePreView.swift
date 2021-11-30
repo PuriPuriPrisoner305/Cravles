@@ -30,7 +30,6 @@ struct ExercisePreView: View {
                         }){
                             Image(systemName: "chevron.left")
                                 .tint(Color.white)
-    //                            .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
                         }
                     }
                     .frame(width: 30, height: 30)

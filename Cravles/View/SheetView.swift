@@ -25,52 +25,91 @@ struct SheetView: View {
 
         GeometryReader { geo in
             VStack {
-                Button("play.circle.fill") {
-                    dismiss()
+                HStack {
+                    Spacer()
+
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+
+                        Button(action : {
+                            dismiss()
+                        }){
+                            Image(systemName: "xmark")
+                                .tint(Color.white)
+    //                            .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                        }
+                    }
+                    .frame(width: 30, height: 30)
                 }
-                .font(.title)
+                .padding(.trailing, 20)
+                .padding(.top, 20)
 
-                Text("Adjust the volume here,")
-                    .font(Font.system(.title, design: .rounded))
-                    .fontWeight(.heavy)
-                    .padding(.horizontal)
+                VStack(alignment: .leading) {
+                    Text("Adjust the volume here,")
+                        .font(Font.system(.title, design: .default))
+                        .fontWeight(.bold)
+//                        .padding(.horizontal)
+                        .multilineTextAlignment(.leading)
 
-                Text("to make you more comfortable")
-                    .font(Font.system(.title2, design: .rounded))
-                    .fontWeight(.medium)
-                    .padding(.horizontal)
+                    Text("to make you more comfortable")
+                        .font(Font.system(.body, design: .default))
+                        .fontWeight(.medium)
+//                        .padding(.horizontal)
+    //                    .padding(.leading)
+                }
+                .foregroundColor(Color.white)
+                .frame(width: geo.size.width - 20, height: geo.size.height * 0.12, alignment: .leading)
+                .padding(.leading, 20)
 
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                        .frame(height: geo.size.height * 0.27)
-                        .shadow(radius: 10)
+                        .fill(Color(red: 1, green: 0.7, blue: 0.64))
+                        .frame(height: geo.size.height * 0.28)
+//                        .shadow(radius: 10)
+
 
                     VStack {
 
                         HStack {
+
+                            Image(systemName: "mic.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 25)
+                                .padding(.leading, 10)
+
                             Text("Voice")
-                                .padding(.horizontal)
-                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
-                                ForEach(voiceStyle, id: \.self) {
-                                    Text($0)
-                                }
+
+                            Spacer()
+
                             }
-                            .pickerStyle(SegmentedPickerStyle())
-                            .padding(.horizontal)
-                        }
+//
+//                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
+//                                ForEach(voiceStyle, id: \.self) {
+//                                    Text($0)
+//                                }
+//                            }
+//                            .pickerStyle(SegmentedPickerStyle())
+//                            .padding(.horizontal)
+//                        }
 
     //                    Text("Value: \(favoriteVoice)")
+//                        Text("\(voiceLevel, specifier: "%.1f") Voice")
 
                         Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
                             guideData.audioPlayer.volume = voiceLevel
                         }
 
-    //                    Text("\(voiceLevel, specifier: "%.1f") Voice")
-
                         HStack {
+
+                            Image(systemName: "music.note")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 25)
+                                .padding(.leading, 10)
+
                             Text("Music")
-                                .padding(.horizontal)
                             Spacer()
                         }
 
@@ -78,8 +117,9 @@ struct SheetView: View {
                             guideData.musicPlayer.volume = musicLevel
                         }
 
-    //                    Text("\(musicLevel, specifier: "%.1f") Music")
                     }
+                    .foregroundColor(Color.white)
+                    .tint(Color.white)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
                 }
@@ -88,11 +128,13 @@ struct SheetView: View {
 
             }
         }
+        .background(Color(red: 253/255, green: 153/255, blue: 140/255))
     }
 }
 
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
         SheetView(guideData: ExerciseGuideVM())
+            .previewDevice("iPhone 12")
     }
 }
