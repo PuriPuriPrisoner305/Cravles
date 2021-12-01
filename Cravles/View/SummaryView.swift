@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SummaryView: View {
     @State private var textField = "Test"
+    var deviceName: DeviceName
     var body: some View {
         VStack{
             HStack{
                 VStack(alignment: .leading){
-                    Text("John Smith")
+                    Text("\(deviceName.deviceName)")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.bottom,1)
@@ -60,6 +61,6 @@ struct SummaryView: View {
 
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryView()
+        SummaryView(deviceName: DeviceName())
     }
 }

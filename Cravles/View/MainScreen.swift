@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainScreen: View {
+    var deviceName = DeviceName()
 //    var colors: [Color] = [Color.pulsatingColor]
     var body: some View {
         VStack{
@@ -20,7 +21,7 @@ struct MainScreen: View {
                             .padding(.leading, 25)
                             .frame(width: geo.size.width, alignment: .leading)
                             
-                        Text("John Smith")
+                        Text("\(deviceName.deviceName)")
                             .foregroundColor(Color.white)
                             .font(.title)
                             .fontWeight(.black)

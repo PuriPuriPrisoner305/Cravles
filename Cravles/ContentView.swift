@@ -47,6 +47,10 @@ struct ContentView: View {
 
             }
             .accentColor(Color.pulsatingColor)
+            .onAppear{
+                print("TEST")
+                print(UIDevice.current.name)
+            }
         }
 
     }

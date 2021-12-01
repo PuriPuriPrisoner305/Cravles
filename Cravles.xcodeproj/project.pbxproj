@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220FC6E127573A0A006CD934 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FC6E027573A0A006CD934 /* DeviceName.swift */; };
 		224B58372754DA130082088C /* RainCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58342754DA130082088C /* RainCoreData.swift */; };
 		224B58382754DA130082088C /* ReflectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58352754DA130082088C /* ReflectionViewModel.swift */; };
 		224B58392754DA130082088C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B58362754DA130082088C /* CoreDataManager.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220FC6E027573A0A006CD934 /* DeviceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
 		224B58342754DA130082088C /* RainCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainCoreData.swift; sourceTree = "<group>"; };
 		224B58352754DA130082088C /* ReflectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectionViewModel.swift; sourceTree = "<group>"; };
 		224B58362754DA130082088C /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				224B58352754DA130082088C /* ReflectionViewModel.swift */,
 				D9E4818E274D54AA004189CF /* ExerciseVM.swift */,
 				D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */,
+				220FC6E027573A0A006CD934 /* DeviceName.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				224B584E2754DA610082088C /* Screen1View.swift in Sources */,
 				22A0D3BD274DF03800F77050 /* MainScreen.swift in Sources */,
 				224B58592754DA810082088C /* FeelingView.swift in Sources */,
+				220FC6E127573A0A006CD934 /* DeviceName.swift in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				224B58372754DA130082088C /* RainCoreData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
@@ -425,7 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cravles/Preview Content\"";
-				DEVELOPMENT_TEAM = Y6X9S45TDJ;
+				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -454,7 +458,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cravles/Preview Content\"";
-				DEVELOPMENT_TEAM = Y6X9S45TDJ;
+				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
