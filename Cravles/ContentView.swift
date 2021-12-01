@@ -52,6 +52,8 @@ struct ContentView: View {
                 print(UIDevice.current.name)
             }
         }
+        .navigationBarHidden(true)
+
 
     }
 
