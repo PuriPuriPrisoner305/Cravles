@@ -45,11 +45,11 @@ extension Date {
 
 struct CustomCell: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Reflection.entity(), sortDescriptors:
-                    [NSSortDescriptor(keyPath: \Reflection.monthReflection, ascending: false)]) var rains: FetchedResults<Reflection>
+//    @FetchRequest(entity: Reflection.entity(), sortDescriptors:
+//                    [NSSortDescriptor(keyPath: \Reflection.monthReflection, ascending: false)]) var rains: FetchedResults<Reflection>
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
-    @StateObject var vm = RainCoreData()
+//    @StateObject var vm = RainCoreData()
 //    @StateObject var vm = ReflectionViewModel()
     var body: some View {
         GeometryReader{ h in
@@ -70,18 +70,18 @@ struct CustomCell: View {
                                 .foregroundColor(Color.textFieldColor)
                                 .padding(.leading,0)
                             VStack(alignment:.center){
-                                Text(vm.reflection1 ?? "14")
+                                Text( "14")
                                     .foregroundColor(Color.white)
-                                Text(vm.reflection1 ?? "Nov")
+                                Text( "Nov")
                                     .foregroundColor(Color.white)
                             } .padding(.leading,4)
                                 
                         }
                        
                         VStack(alignment: .leading){
-                            Text(vm.reflection1 ?? "Suspended")
+                            Text("Suspended")
                             
-                            Text(vm.reflection1 ?? "you just completed i 0f 3 stages lest's finish it")
+                            Text( "you just completed i 0f 3 stages lest's finish it")
                                 .font(.system(size: 9))
                         }
                         .padding()

@@ -7,17 +7,26 @@
 
 import SwiftUI
 
+
+
+
 struct AddJournalView: View {
+    @ObservedObject var rainData : ObservableObjectRain
     @Environment(\.presentationMode) var presentationMode
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State private var showingSheet = false
     @State private var isPresented1 = false
     @State private var isPresented = false
     @State  var isLinkActive = false
+    @State var reflection = ["","","",""]
+    
     @Environment(\.managedObjectContext) var moc
+    
     let todayMonth = Date().formatDateMonth()
     let todayDay = Date().formatDay()
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
+    
+    
     var body: some View {
         ZStack{
             GeometryReader { h in
@@ -45,7 +54,7 @@ struct AddJournalView: View {
                     
                 }.padding()
                 VStack{
-                    NavigationLink(destination: FeelingView(), isActive: $isLinkActive)
+                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0]), isActive: $isLinkActive)
                     {
                             Button(action:{
                                 self.isLinkActive = true
@@ -60,7 +69,7 @@ struct AddJournalView: View {
                                 }.padding(.leading,h.size.width/7)
                             }
                     }
-                    NavigationLink(destination: Rain1View(), isActive: $isPresented1)
+                    NavigationLink(destination: JournalThoughtView(inputRain: $reflection[1]), isActive: $isPresented1)
                     {
                             Button(action:{
                                 self.isPresented1 = true
@@ -75,7 +84,7 @@ struct AddJournalView: View {
                             }
 
                     }
-                    NavigationLink(destination: Rain2View(), isActive: $isPresented)
+                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2]), isActive: $isPresented)
                     {
                             Button(action:{
                                 self.isPresented = true
@@ -98,11 +107,15 @@ struct AddJournalView: View {
         }
         .navigationTitle("New Journal")
         .navigationBarItems(trailing: Button(action: {
-            let rain = Reflection(context: moc)
-            rain.dayReflection = self.todayDay
-            rain.monthReflection = self.todayMonth
-            try? self.moc.save()
+//            let rain = Reflection(context: moc)
+////            rain.dayReflection = self.todayDay
+////            rain.monthReflection = self.todayMonth
+//            try? self.moc.save()
 
+            
+            let newData = RainModel(dateReflection: Date(), quotes: reflection[3], reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
+            rainData.save(rain: newData)
+        
             self.presentationMode.wrappedValue.dismiss()
         }, label: {
             Text("Save")
@@ -116,6 +129,6 @@ struct AddJournalView: View {
 
 struct AddJournalView_Previews: PreviewProvider {
     static var previews: some View {
-        AddJournalView()
+        AddJournalView(rainData: ObservableObjectRain())
     }
 }

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct JournalFeelingView: View {
+    @Binding var inputFeeling: String
     @Environment(\.managedObjectContext) var moc
     @State var currentValue = 0.0
     
     @Environment(\.presentationMode) var presentationMode
-    @State private var feeling = ""
+    @State public var feeling1 = ""
     var feelingRain = ["ANGRY","ANXIOUS","SAD","TIRED","RELAXED","CONTENT","HAPPY","EXCITED"]
     var body: some View {
         ZStack{
@@ -44,9 +45,9 @@ struct JournalFeelingView: View {
                     }.foregroundColor(Color.white)
                         .padding(.bottom)
                     Button{
-                        let rain = Reflection(context: moc)
-                        feeling = ("\(Int(currentValue))")
-//                        rain.feelingBefore = self.feeling
+//                        let rain = Reflection(context: moc)
+//                        feeling1 = ("\(feel)")
+                        inputFeeling = feel
     
 //                        try? self.moc.save()
                         self.presentationMode.wrappedValue.dismiss()
@@ -70,8 +71,8 @@ struct JournalFeelingView: View {
     }
 }
 
-struct JournalFeelingView_Previews: PreviewProvider {
-    static var previews: some View {
-        JournalFeelingView()
-    }
-}
+//struct JournalFeelingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        JournalFeelingView()
+//    }
+//}

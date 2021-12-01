@@ -13,12 +13,14 @@ struct JournalingView: View {
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
     @State  var isLinkActive1 = false
     @State var showingAdd = false
+    @StateObject var rainData = ObservableObjectRain()
+    
     let tes = [1,2,3,4,]
     var body: some View {
         NavigationView{
 
             ScrollView{
-                ForEach(tes, id:\.self){ rain in
+                ForEach(rainData.data, id:\.id){ rain in
                     VStack{
                         ZStack{
                        Rectangle()
@@ -36,16 +38,20 @@ struct JournalingView: View {
                                     .foregroundColor(Color.textFieldColor)
                                     .padding(.leading,0)
                                 VStack(alignment:.center){
-                                    Text( "14")
+                                    Text( "\(rain.dateReflection.formatDay())" ?? "14")
                                         .foregroundColor(Color.white)
-                                    Text( "Nov")
+                                    Text( "\(rain.dateReflection.formatDateMonth())" ?? "Nov")
                                         .foregroundColor(Color.white)
                                 } .padding(.leading,4)
                                     
                             }
                            
                             VStack(alignment: .leading){
-                                Text("Suspended")
+//                                if rainData.reflectionRain1.isEmpty || rainData.reflectionRain2.isEmpty || rainData.reflectionRain3.isEmpty{
+//
+//                                }
+                                
+                                Text("\(rain.reflection1 )" ?? "Suspended")
                                 
                                 Text( "you just completed i 0f 3 stages lest's finish it")
                                     .font(.system(size: 9))
@@ -57,14 +63,18 @@ struct JournalingView: View {
                         }
                         }
                     }.onTapGesture {
-                        print("haha")
+                      
+
                     }
                 }
-            }.navigationBarItems(leading:
+            }.onAppear(perform: {
+                rainData.read()
+            })
+            .navigationBarItems(leading:
                                     VStack{
                 HStack{
                     Spacer()
-                    NavigationLink(destination: Reflection2View(), isActive: $isLinkActive1)
+                    NavigationLink(destination: AddJournalView(rainData: rainData), isActive: $isLinkActive1)
                                         {
                                                 Button(action:{
                                                     self.isLinkActive1 = true
@@ -76,23 +86,11 @@ struct JournalingView: View {
                                                 }
                                         }
                 }
-                Text("RecentJoutnaling")
+                .navigationTitle("Recent Journaling")
               
             }.frame(width: UIScreen.main.bounds.width)
                 
             )
-//
-//            .navigationBarItems(trailing:  NavigationLink(destination: Reflection2View(), isActive: $isLinkActive1)
-//                                {
-//                                        Button(action:{
-//                                            self.isLinkActive1 = true
-//                                        }){
-//                                            ZStack{
-//                                               Image(systemName: "plus.square")
-//                                                    .foregroundColor(Color.black)
-//                                            }
-//                                        }
-//                                })
         }
     }
 }

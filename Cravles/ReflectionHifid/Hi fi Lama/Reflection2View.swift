@@ -100,8 +100,8 @@ struct Reflection2View: View {
         .navigationTitle("New Journal")
         .navigationBarItems(trailing: Button(action: {
             let rain = Reflection(context: moc)
-            rain.dayReflection = self.todayDay
-            rain.monthReflection = self.todayMonth
+//            rain.dayReflection = self.todayDay
+//            rain.monthReflection = self.todayMonth
             try? self.moc.save()
 
             self.presentationMode.wrappedValue.dismiss()
