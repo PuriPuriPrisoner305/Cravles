@@ -29,14 +29,14 @@ struct JournalQuotesView: View {
                                             .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
                                         Button(action : {
-                                            isPresented.toggle()
+                                            self.presentationMode.wrappedValue.dismiss()
                                         }){
                                             Image(systemName: "multiply")
                                                 .resizable()
                                                 .frame(width: 20, height: 20)
                                                 .tint(Color.white)
                                                 
-                                        }.fullScreenCover(isPresented: $isPresented, content: JournalingView.init)
+                                        }
                                     }
                                     .frame(width: 30, height: 30)
 
@@ -45,7 +45,6 @@ struct JournalQuotesView: View {
                                 .padding(.trailing, 20)
                 ZStack{
                     VStack{
-                        //                Text("\(randomQuotes)")
                         VStack(alignment:.leading){
                             Image("petikdua")
                                 .resizable()
@@ -62,22 +61,15 @@ struct JournalQuotesView: View {
                             .opacity(0.5)
                             .padding(10)
                         Button("Done") {
-//                            let rain = Reflection(context: moc)
-//                            rain.reflection3 = self.feeling
-    
-                            inputRain = ("\(randomQuotes)")
-                            isPresented.toggle()
-//                         Na
-                        }
-                        .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
-                        .font(.system(size: h.size.width/18, weight: .bold, design: .default))
-                            .background(Color.white)
-                            .cornerRadius(50)
-                            .foregroundColor(Color.pulsatingColor)
-                            .shadow(color: .black, radius: 4)
-                            .padding(.top,h.size.width/4)
-                        
-
+                            inputRain = randomQuotes
+                            self.presentationMode.wrappedValue.dismiss()
+                        }.frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
+                                                .font(.system(size: h.size.width/18, weight: .bold, design: .default))
+                                                    .background(Color.white)
+                                                    .cornerRadius(50)
+                                                    .foregroundColor(Color.pulsatingColor)
+                                                    .shadow(color: .black, radius: 4)
+                                                    .padding(.top,h.size.width/4)
                     }
                     
                 }

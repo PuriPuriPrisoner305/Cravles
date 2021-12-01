@@ -19,11 +19,8 @@ struct AddJournalView: View {
     @State private var isPresented = false
     @State  var isLinkActive = false
     @State var reflection = ["","","",""]
-    
     @Environment(\.managedObjectContext) var moc
-    
-    let todayMonth = Date().formatDateMonth()
-    let todayDay = Date().formatDay()
+    let todayDay = Date().formatDate()
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
     
     
@@ -31,12 +28,20 @@ struct AddJournalView: View {
         ZStack{
             GeometryReader { h in
                 VStack{
-                    
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .foregroundColor(Color.pulsatingColor)
-                        .frame(width: h.size.width/10, height: h.size.width/10)
-                        .padding(.top,h.size.width/7)
+                    if rainData.reflectionRain1.isEmpty{
+                        Image(systemName: "circlebadge")
+                            .resizable()
+                            .foregroundColor(Color.pulsatingColor)
+                            .frame(width: h.size.width/10, height: h.size.width/10)
+                            .padding(.top,h.size.width/7)
+                    } else {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .foregroundColor(Color.pulsatingColor)
+                            .frame(width: h.size.width/10, height: h.size.width/10)
+                            .padding(.top,h.size.width/7)
+                    }
+                   
                     Rectangle()
                         .frame(width: h.size.width/90, height: h.size.width/4, alignment: .leading)
                         .foregroundColor(Color.pulsatingColor)
@@ -105,7 +110,7 @@ struct AddJournalView: View {
             }
            
         }
-        .navigationTitle("New Journal")
+        .navigationBarTitle(Text("\(todayDay)").font(.title2), displayMode: .inline)
         .navigationBarItems(trailing: Button(action: {
 //            let rain = Reflection(context: moc)
 ////            rain.dayReflection = self.todayDay

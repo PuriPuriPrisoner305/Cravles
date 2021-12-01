@@ -53,7 +53,7 @@ struct JournalingView: View {
                                 
                                 Text("\(rain.reflection1 )" ?? "Suspended")
                                 
-                                Text( "you just completed i 0f 3 stages lest's finish it")
+                                Text( "\(rain.quotes )" ?? "you just completed i 0f 3 stages lest's finish it")
                                     .font(.system(size: 9))
                             }
                             .padding()

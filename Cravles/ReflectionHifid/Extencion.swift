@@ -20,7 +20,7 @@ extension Color {
 extension Date {
         func formatDate() -> String {
                 let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "d MMM yyyy, h:mm a"
+            dateFormatter.dateFormat = "dd, MMM yyyy"
             return dateFormatter.string(from: self)
         }
     func formatDay() -> String {

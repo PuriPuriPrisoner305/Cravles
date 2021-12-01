@@ -16,53 +16,40 @@ struct JournalThoughtView: View {
     @Environment(\.managedObjectContext) var moc
     var body: some View {
         ZStack{
-            Color.pulsatingColor
-                .ignoresSafeArea()
             GeometryReader{ h in
                 VStack{
-                    HStack{
-                        Text("What's on your mind?")
-                            .font(Font.system(size:h.size.width/20, design: .rounded))
-                            .foregroundColor(Color.white)
-                    }
-                    ZStack{
-                        TextEditor(text: $reflection)
-                            .frame(width:h.size.width/1.15, height: h.size.width)
-                            .cornerRadius(20)
-                            .padding(EdgeInsets(top: h.size.width/5, leading:h.size.width/15, bottom: 0, trailing:h.size.width/15))
-                            .foregroundColor(Color.black)
-                           
+                    ZStack(alignment: .topLeading) {
+
+                        TextEditor(text:  $reflection)
+                            .font(.custom("Helvetica", size: 24))
+                            .padding(.all)
                         if reflection.isEmpty {
                             Text("Type here")
-                                .padding(.top,h.size.width/8)
-                                .padding()
-                                .opacity(0.25)
-                                .frame(width:h.size.width/1.15, height: h.size.width, alignment: .topLeading)
-                                .cornerRadius(20)
-                                
-                                
+                                .font(.custom("Helvetica", size: 20))
+                                .padding(.all)
+                                .padding(.top,20)
+                                .foregroundColor(Color(UIColor.placeholderText))
                         }
+                        
                     }
-                        Button("Save") {
-//                            let rain = Reflection(context: moc)
-//                            rain.reflection1 = self.reflection
-//                            try? self.moc.save()
-//                            inputRain1.reflectionRain1 = reflection
-                            inputRain = reflection
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                        .disabled(reflection.isEmpty)
-                        .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
-                            .font(Font.system(.title2, design: .rounded))
-                            .background(Color.white)
-                            .cornerRadius(50)
-                            .foregroundColor(Color.pulsatingColor)
-                            .shadow(color: .black, radius: 4)
-                            .padding(.top,h.size.width/8)
-                   
+                    Button{
+                      inputRain = reflection
+                    self.presentationMode.wrappedValue.dismiss()
+
+                    }label: {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: h.size.width/1.5, height: h.size.width/9)
+                               .foregroundColor(Color.textFieldColor)
+                                .cornerRadius(100)
+                           Text("Save")
+                                .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                .foregroundColor(Color.white)
+                        }.padding(.all)
+                    }
                 }
             }
-        }
+        }.navigationBarTitle(Text("What's on your mind?").font(.title2), displayMode: .inline)
     }
 }
     
