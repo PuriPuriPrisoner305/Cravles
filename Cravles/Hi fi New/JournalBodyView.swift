@@ -11,7 +11,6 @@ struct JournalBodyView: View {
     @Binding var inputRain: String
     @Binding var quoteRain: String
 
-    @Binding var rootIsActive: Bool
     @State private var showModal = false
     var colors: [Color] = [Color.pulsatingColor]
     @Environment(\.presentationMode) var presentationMode
@@ -19,9 +18,13 @@ struct JournalBodyView: View {
     @Environment(\.managedObjectContext) var moc
     @State private var showingQuotes = false
     
-//    @ObservedObject var rainDataPass: ObservableObjectRain
+    @ObservedObject var rainDataPass: ObservableObjectRain
 //    @Binding var reflectionPass: [String]
     @State private var showJournalingView = false
+
+    @Binding var reflect: [String]
+
+    @Binding var shouldPopToRootView : Bool
     
     var body: some View {
         ZStack{
@@ -57,7 +60,7 @@ struct JournalBodyView: View {
 
                             self.showModal.toggle()
                         }.sheet(isPresented: $showModal) {
-                            JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain)
+                            JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain, reflection: $reflect, rainDataPass: rainDataPass, shouldPopToRootViewAgain: $shouldPopToRootView)
 
                         }
 //                        .sheet(isPresented: $showingQuotes) {

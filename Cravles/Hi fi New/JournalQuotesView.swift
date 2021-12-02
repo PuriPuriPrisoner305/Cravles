@@ -10,17 +10,16 @@ import SwiftUI
 struct JournalQuotesView: View {
     @Binding var inputRain: String
     @Environment(\.presentationMode) var presentationMode
-//    @ObservedObject var rainData : ObservableObjectRain
-//    @Binding var reflection : [String]
+
     @Binding var showModal: Bool
     @Binding var randomQuotes : String
     @Environment(\.managedObjectContext) var moc
     @State private var feeling = ""
-    @State var isActive = false
-    
-//    @ObservedObject var rainDataPass: ObservableObjectRain
-//    @Binding var reflectionPass: [String]
-//    @Binding var showNextScreen: Bool
+
+    @Binding var reflection : [String]
+    @ObservedObject var rainDataPass: ObservableObjectRain
+
+    @Binding var shouldPopToRootViewAgain: Bool
     
     var body: some View {
         
@@ -28,28 +27,27 @@ struct JournalQuotesView: View {
             VStack{
                 HStack {
                     Spacer()
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
-//                                        NavigationLink(destination: JournalingView(rainData: rainData), isActive: $isActive) {
-                                            Button(action : {
-//                                                let newData = RainModel(dateReflection: Date(), quotes: inputRain, reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
-//                                                rainData.save(rain: newData)
-                                            }){
-                                                Image(systemName: "multiply")
-                                                    .resizable()
-                                                    .frame(width: 20, height: 20)
-                                                    .tint(Color.white)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
-                                            }
-//                                        }
-                                    }
-                                    .frame(width: 30, height: 30)
+                        Button(action : {
+                            presentationMode.wrappedValue.dismiss()
+                        }){
+                            Image(systemName: "multiply")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .tint(Color.white)
 
-                                }
-                                .padding(.top, 20)
-                                .padding(.trailing, 20)
+                        }
+                    }
+                    .frame(width: 30, height: 30)
+
+                }
+                .padding(.top, 20)
+                .padding(.trailing, 20)
+
                 ZStack{
                     VStack{
                         VStack(alignment:.leading){
@@ -68,19 +66,25 @@ struct JournalQuotesView: View {
                             .foregroundColor(Color.white)
                             .opacity(0.5)
                             .padding(10)
-                        
-                        Button("Done") {
 
-                            self.showModal.toggle()
+                        Button(action: {
+                            let newData = RainModel(dateReflection: Date(), quotes: reflection[3], reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
+                            rainDataPass.save(rain: newData)
+                            presentationMode.wrappedValue.dismiss()
+                            self.shouldPopToRootViewAgain = false
+                            print(newData.dateReflection)
+                            print(newData.quotes)
+                            print(newData.reflection1)
+                            print(newData.reflection2)
+                            print(newData.reflection3)
+
+                        }) {
+                            Text("Done")
+                                .font(Font.system(.title3, design: .rounded))
+                                .fontWeight(.bold)
                         }
-                        .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
-                                                .font(.system(size: h.size.width/18, weight: .bold, design: .default))
-                                                    .background(Color.white)
-                                                    .cornerRadius(50)
-                                                    .foregroundColor(Color.pulsatingColor)
-                                                    .shadow(color: .black, radius: 4)
-                                                    .padding(.top,h.size.width/4)
-                                                    
+                        .buttonStyle(BlueButton())
+
                     }
                     
                 }

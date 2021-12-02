@@ -76,7 +76,7 @@ struct JournalingView: View {
                                     VStack{
                 HStack{
                     Spacer()
-                    NavigationLink(destination: AddJournalView(rainData: rainData), isActive: $isLinkActive1)
+                    NavigationLink(destination: AddJournalView(rainData: rainData, rootIsActive: $isLinkActive1), isActive: $isLinkActive1)
                                         {
                                                 Button(action:{
                                                     self.isLinkActive1 = true

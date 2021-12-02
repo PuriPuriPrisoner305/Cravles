@@ -24,7 +24,8 @@ struct AddJournalView: View {
     let todayDay = Date().formatDate()
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
     
-    
+    @Binding var rootIsActive : Bool
+
     var body: some View {
         ZStack{
             GeometryReader { h in
@@ -90,7 +91,7 @@ struct AddJournalView: View {
                             }
 
                     }
-                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], quoteRain: $reflection[3], rootIsActive: $isLinkActive), isActive: $isPresented)
+                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], quoteRain: $reflection[3], rainDataPass: rainData, reflect: $reflection, shouldPopToRootView: $rootIsActive), isActive: $isPresented)
                     {
                             Button(action:{
                                 self.isPresented = true
@@ -132,8 +133,8 @@ struct AddJournalView: View {
     }
 }
 
-struct AddJournalView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddJournalView(rainData: ObservableObjectRain())
-    }
-}
+//struct AddJournalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddJournalView(rainData: ObservableObjectRain())
+//    }
+//}
