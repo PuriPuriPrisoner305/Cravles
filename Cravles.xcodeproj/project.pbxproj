@@ -28,6 +28,14 @@
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
 		D918900D2753B550002E65F5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918900C2753B550002E65F5 /* SheetView.swift */; };
+		D953AB6D2759244A00EF57A1 /* JournalBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB672759244A00EF57A1 /* JournalBodyView.swift */; };
+		D953AB6E2759244A00EF57A1 /* JournalFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB682759244A00EF57A1 /* JournalFeelingView.swift */; };
+		D953AB6F2759244A00EF57A1 /* AddJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB692759244A00EF57A1 /* AddJournalView.swift */; };
+		D953AB702759244A00EF57A1 /* JournalQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB6A2759244A00EF57A1 /* JournalQuotesView.swift */; };
+		D953AB712759244A00EF57A1 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB6B2759244A00EF57A1 /* JournalingView.swift */; };
+		D953AB722759244A00EF57A1 /* JournalThoughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB6C2759244A00EF57A1 /* JournalThoughtView.swift */; };
+		D953AB742759245900EF57A1 /* ObservableObjectRain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB732759245900EF57A1 /* ObservableObjectRain.swift */; };
+		D953AB7727592B4700EF57A1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB7627592B4700EF57A1 /* ProfileView.swift */; };
 		D9A47CB02758624C003B8057 /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9A47CAF2758624C003B8057 /* Music.mp3 */; };
 		D9A47CB227586355003B8057 /* AudioBreathing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9A47CB127586355003B8057 /* AudioBreathing.mp3 */; };
 		D9A47CB627591913003B8057 /* BreatingExercise.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9A47CB527591913003B8057 /* BreatingExercise.m4a */; };
@@ -65,6 +73,14 @@
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
 		D918900C2753B550002E65F5 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		D953AB672759244A00EF57A1 /* JournalBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalBodyView.swift; sourceTree = "<group>"; };
+		D953AB682759244A00EF57A1 /* JournalFeelingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalFeelingView.swift; sourceTree = "<group>"; };
+		D953AB692759244A00EF57A1 /* AddJournalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJournalView.swift; sourceTree = "<group>"; };
+		D953AB6A2759244A00EF57A1 /* JournalQuotesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalQuotesView.swift; sourceTree = "<group>"; };
+		D953AB6B2759244A00EF57A1 /* JournalingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
+		D953AB6C2759244A00EF57A1 /* JournalThoughtView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalThoughtView.swift; sourceTree = "<group>"; };
+		D953AB732759245900EF57A1 /* ObservableObjectRain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableObjectRain.swift; sourceTree = "<group>"; };
+		D953AB7627592B4700EF57A1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D9A47CAF2758624C003B8057 /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
 		D9A47CB127586355003B8057 /* AudioBreathing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AudioBreathing.mp3; sourceTree = "<group>"; };
 		D9A47CB527591913003B8057 /* BreatingExercise.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BreatingExercise.m4a; sourceTree = "<group>"; };
@@ -93,6 +109,7 @@
 		224B584B2754DA480082088C /* ReflectionHifid */ = {
 			isa = PBXGroup;
 			children = (
+				D953AB662759243700EF57A1 /* Hi Fi Baru */,
 				224B58502754DA6B0082088C /* Hi fi Lama */,
 				224B584D2754DA610082088C /* Extencion.swift */,
 				224B584C2754DA610082088C /* Screen1View.swift */,
@@ -145,6 +162,7 @@
 				22A0D3BE274DF04800F77050 /* View */,
 				E0F73BA2274B583000AE10DC /* Model  */,
 				D9E48191274D54C9004189CF /* View */,
+				D953AB7527592B2B00EF57A1 /* View Profile */,
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
 				22D33183274B4E6A005B72FF /* ContentView.swift */,
 				D9A47CB527591913003B8057 /* BreatingExercise.m4a */,
@@ -164,6 +182,27 @@
 				22D33188274B4E6B005B72FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D953AB662759243700EF57A1 /* Hi Fi Baru */ = {
+			isa = PBXGroup;
+			children = (
+				D953AB692759244A00EF57A1 /* AddJournalView.swift */,
+				D953AB672759244A00EF57A1 /* JournalBodyView.swift */,
+				D953AB682759244A00EF57A1 /* JournalFeelingView.swift */,
+				D953AB6B2759244A00EF57A1 /* JournalingView.swift */,
+				D953AB6A2759244A00EF57A1 /* JournalQuotesView.swift */,
+				D953AB6C2759244A00EF57A1 /* JournalThoughtView.swift */,
+			);
+			path = "Hi Fi Baru";
+			sourceTree = "<group>";
+		};
+		D953AB7527592B2B00EF57A1 /* View Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D953AB7627592B4700EF57A1 /* ProfileView.swift */,
+			);
+			path = "View Profile";
 			sourceTree = "<group>";
 		};
 		D9E48190274D54B3004189CF /* ViewModel */ = {
@@ -195,6 +234,7 @@
 		E0F73BA2274B583000AE10DC /* Model  */ = {
 			isa = PBXGroup;
 			children = (
+				D953AB732759245900EF57A1 /* ObservableObjectRain.swift */,
 				E0F73BA3274B589900AE10DC /* ContentData.swift */,
 				D9E48194274D5AE9004189CF /* Audio.swift */,
 				D9E48198274FFC70004189CF /* Mood.swift */,
@@ -282,9 +322,14 @@
 				D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */,
 				224B584E2754DA610082088C /* Screen1View.swift in Sources */,
 				22A0D3BD274DF03800F77050 /* MainScreen.swift in Sources */,
+				D953AB6F2759244A00EF57A1 /* AddJournalView.swift in Sources */,
 				224B58592754DA810082088C /* FeelingView.swift in Sources */,
+				D953AB702759244A00EF57A1 /* JournalQuotesView.swift in Sources */,
+				D953AB6D2759244A00EF57A1 /* JournalBodyView.swift in Sources */,
 				220FC6E127573A0A006CD934 /* DeviceName.swift in Sources */,
+				D953AB722759244A00EF57A1 /* JournalThoughtView.swift in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
+				D953AB6E2759244A00EF57A1 /* JournalFeelingView.swift in Sources */,
 				224B58372754DA130082088C /* RainCoreData.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				D9E48199274FFC70004189CF /* Mood.swift in Sources */,
@@ -295,7 +340,10 @@
 				D9E48189274BA04D004189CF /* ExerciseGuideView.swift in Sources */,
 				227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */,
 				224B58392754DA130082088C /* CoreDataManager.swift in Sources */,
+				D953AB712759244A00EF57A1 /* JournalingView.swift in Sources */,
 				224B58562754DA800082088C /* Rain2View.swift in Sources */,
+				D953AB742759245900EF57A1 /* ObservableObjectRain.swift in Sources */,
+				D953AB7727592B4700EF57A1 /* ProfileView.swift in Sources */,
 				D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */,
 				D9E4818F274D54AA004189CF /* ExerciseVM.swift in Sources */,
 				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,

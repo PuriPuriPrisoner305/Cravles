@@ -29,7 +29,7 @@ struct ContentView: View {
 //                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
                 
-                MainScreen()
+                JournalingView()
                     .tabItem {
                         Image(systemName: "book")
                         Text("Journaling")
@@ -37,7 +37,7 @@ struct ContentView: View {
 //                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
                 
-                MainScreen()
+                ProfileView()
                     .tabItem {
                         Image(systemName: "person")
                         Text("Profile")

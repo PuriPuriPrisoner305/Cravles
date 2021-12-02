@@ -20,7 +20,7 @@ extension Color {
 extension Date {
         func formatDate() -> String {
                 let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "d MMM yyyy, h:mm a"
+            dateFormatter.dateFormat = "dd, MMM yyyy"
             return dateFormatter.string(from: self)
         }
     func formatDay() -> String {
@@ -42,56 +42,56 @@ extension Date {
     }
     
 }
-
-struct CustomCell: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Reflection.entity(), sortDescriptors:
-                    [NSSortDescriptor(keyPath: \Reflection.monthReflection, ascending: false)]) var rains: FetchedResults<Reflection>
-    @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
-    var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
-    @StateObject var vm = RainCoreData()
-//    @StateObject var vm = ReflectionViewModel()
-    var body: some View {
-        GeometryReader{ h in
-                VStack{
-                    ZStack{
-                   Rectangle()
-                            .frame(width:UIScreen.main.bounds.width-35, height: 100)
-                            .cornerRadius(10)
-                            .foregroundColor(Color.white)
-                            .padding()
-                            .shadow(radius: 5)
-                    HStack{
-                        
-                        ZStack(alignment:.center){
-                            Rectangle()
-                                .frame(width: UIScreen.main.bounds.width/6, height: UIScreen.main.bounds.width/5.5)
-                                .cornerRadius(5)
-                                .foregroundColor(Color.textFieldColor)
-                                .padding(.leading,0)
-                            VStack(alignment:.center){
-                                Text(vm.reflection1 ?? "14")
-                                    .foregroundColor(Color.white)
-                                Text(vm.reflection1 ?? "Nov")
-                                    .foregroundColor(Color.white)
-                            } .padding(.leading,4)
-                                
-                        }
-                       
-                        VStack(alignment: .leading){
-                            Text(vm.reflection1 ?? "Suspended")
-                            
-                            Text(vm.reflection1 ?? "you just completed i 0f 3 stages lest's finish it")
-                                .font(.system(size: 9))
-                        }
-                        .padding()
-                       
-                        Image(systemName: "minus.circle")
-                    
-                    }
-                    }
-                }
-        }
-    
-    }
-}
+//
+//struct CustomCell: View {
+//    @Environment(\.managedObjectContext) var moc
+//    @FetchRequest(entity: Reflection.entity(), sortDescriptors:
+//                    [NSSortDescriptor(keyPath: \Reflection.monthReflection, ascending: false)]) var rains: FetchedResults<Reflection>
+//    @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
+//    var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
+//    @StateObject var vm = RainCoreData()
+////    @StateObject var vm = ReflectionViewModel()
+//    var body: some View {
+//        GeometryReader{ h in
+//                VStack{
+//                    ZStack{
+//                   Rectangle()
+//                            .frame(width:UIScreen.main.bounds.width-35, height: 100)
+//                            .cornerRadius(10)
+//                            .foregroundColor(Color.white)
+//                            .padding()
+//                            .shadow(radius: 5)
+//                    HStack{
+//
+//                        ZStack(alignment:.center){
+//                            Rectangle()
+//                                .frame(width: UIScreen.main.bounds.width/6, height: UIScreen.main.bounds.width/5.5)
+//                                .cornerRadius(5)
+//                                .foregroundColor(Color.textFieldColor)
+//                                .padding(.leading,0)
+//                            VStack(alignment:.center){
+//                                Text(vm.reflection1 ?? "14")
+//                                    .foregroundColor(Color.white)
+//                                Text(vm.reflection1 ?? "Nov")
+//                                    .foregroundColor(Color.white)
+//                            } .padding(.leading,4)
+//
+//                        }
+//
+//                        VStack(alignment: .leading){
+//                            Text(vm.reflection1 ?? "Suspended")
+//
+//                            Text(vm.reflection1 ?? "you just completed i 0f 3 stages lest's finish it")
+//                                .font(.system(size: 9))
+//                        }
+//                        .padding()
+//
+//                        Image(systemName: "minus.circle")
+//
+//                    }
+//                    }
+//                }
+//        }
+//
+//    }
+//}
