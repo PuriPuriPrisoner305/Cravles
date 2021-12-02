@@ -10,7 +10,7 @@ import SwiftUI
 struct JournalFeelingView: View {
     @Binding var inputFeeling: String
     @Environment(\.managedObjectContext) var moc
-    @State var currentValue = 0.0
+    @State var currentValue = 3.0
     
     @Environment(\.presentationMode) var presentationMode
     @State public var feeling1 = ""
@@ -24,15 +24,18 @@ struct JournalFeelingView: View {
                 VStack{
                 Image("\(Int(currentValue))" + "a")
                         .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: h.size.width/1.5, height: h.size.width/2, alignment: .center)
                         .padding(.top,h.size.width/4)
                     let no = Int(currentValue)
                    var feel = feelingRain[no]
                     Text("\(feel)")
-                        .font(Font.system(size:h.size.width/20,weight: .bold, design: .rounded))
+                        .font(Font.system(.title3, design: .rounded))
+                                                .fontWeight(.bold)
+                                                .tracking(2)
                         .padding(.top,h.size.width/6)
                     HStack{
-                        Slider(value: $currentValue,in:0 ... 7)
+                        Slider(value: $currentValue,in:0 ... 7, step: 1)
                             .accentColor(.black)
                             .foregroundColor(Color.black)
                             .padding()

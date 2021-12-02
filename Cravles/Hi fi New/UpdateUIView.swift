@@ -1,16 +1,13 @@
 //
-//  AddJournalView.swift
+//  UpdateUIView.swift
 //  Cravles
 //
-//  Created by Indah Nurindo on 30/11/2564 BE.
+//  Created by Indah Nurindo on 02/12/2564 BE.
 //
 
 import SwiftUI
 
-
-
-
-struct AddJournalView: View {
+struct UpdateUIView: View {
     @ObservedObject var rainData : ObservableObjectRain
     @Environment(\.presentationMode) var presentationMode
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
@@ -127,9 +124,3 @@ struct AddJournalView: View {
             
     }
 }
-
-//struct AddJournalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddJournalView(rainData: ObservableObjectRain())
-//    }
-//}

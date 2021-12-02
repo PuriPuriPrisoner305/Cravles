@@ -96,5 +96,12 @@ class ObservableObjectRain: ObservableObject {
             
         }
     }
-
+    var isKosong: Bool {
+        
+        if reflectionRain1.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
 }

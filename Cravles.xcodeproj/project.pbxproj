@@ -37,6 +37,7 @@
 		D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */; };
 		D9E48199274FFC70004189CF /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48198274FFC70004189CF /* Mood.swift */; };
 		D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4819A27501009004189CF /* ExercisePreView.swift */; };
+		E00D37512759000100A369F2 /* UpdateUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D37502759000100A369F2 /* UpdateUIView.swift */; };
 		E0150D47275707630077F95E /* ObservableObjectRain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0150D46275707630077F95E /* ObservableObjectRain.swift */; };
 		E030C0B927561CC7000A2109 /* JournalQuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C0B827561CC7000A2109 /* JournalQuotesView.swift */; };
 		E0A31BEF2755DFBD004114C6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A31BEE2755DFBD004114C6 /* JournalingView.swift */; };
@@ -79,6 +80,7 @@
 		D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideVM.swift; sourceTree = "<group>"; };
 		D9E48198274FFC70004189CF /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		D9E4819A27501009004189CF /* ExercisePreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreView.swift; sourceTree = "<group>"; };
+		E00D37502759000100A369F2 /* UpdateUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpdateUIView.swift; path = "Cravles/Hi fi New/UpdateUIView.swift"; sourceTree = SOURCE_ROOT; };
 		E0150D46275707630077F95E /* ObservableObjectRain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectRain.swift; sourceTree = "<group>"; };
 		E030C0B827561CC7000A2109 /* JournalQuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalQuotesView.swift; sourceTree = "<group>"; };
 		E0A31BEE2755DFBD004114C6 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		E0175D0F2757DE04006251F7 /* UpdateRain */ = {
 			isa = PBXGroup;
 			children = (
+				E00D37502759000100A369F2 /* UpdateUIView.swift */,
 			);
 			path = UpdateRain;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				224B58592754DA810082088C /* FeelingView.swift in Sources */,
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				224B58372754DA130082088C /* RainCoreData.swift in Sources */,
+				E00D37512759000100A369F2 /* UpdateUIView.swift in Sources */,
 				E0A31BF32755E007004114C6 /* JournalFeelingView.swift in Sources */,
 				E0A31BF72755E048004114C6 /* JournalThoughtView.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,

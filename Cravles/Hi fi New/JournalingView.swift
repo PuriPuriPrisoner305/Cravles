@@ -13,6 +13,7 @@ struct JournalingView: View {
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
     @State  var isLinkActive1 = false
     @State var showingAdd = false
+    @State var isLinkActive2 = true
     @StateObject var rainData = ObservableObjectRain()
     
     let tes = [1,2,3,4,]
@@ -41,6 +42,7 @@ struct JournalingView: View {
                                     Text( "\(rain.dateReflection.formatDay())" ?? "14")
                                         .foregroundColor(Color.white)
                                     Text( "\(rain.dateReflection.formatDateMonth())" ?? "Nov")
+                                    
                                         .foregroundColor(Color.white)
                                 } .padding(.leading,4)
                                     
@@ -50,13 +52,14 @@ struct JournalingView: View {
 //                                if rainData.reflectionRain1.isEmpty || rainData.reflectionRain2.isEmpty || rainData.reflectionRain3.isEmpty{
 //
 //                                }
-                                
                                 Text("\(rain.reflection1)" ?? "Suspended")
-                                Text("\(rain.reflection2)" ?? "Ref 2")
-                                Text("\(rain.reflection3)" ?? "Ref 3")
+                                    .frame(width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.width/20, alignment: .topLeading)
+                                   
+                              
                                 
                                 Text( "\(rain.quotes )" ?? "you just completed i 0f 3 stages lest's finish it")
                                     .font(.system(size: 9))
+                                    .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
                             }
                             .padding()
 //                                Image(systemName: rains.isEmpty ? "checkmark.circle.fill":"minus.circle")
@@ -71,6 +74,7 @@ struct JournalingView: View {
                 }
             }.onAppear(perform: {
                 rainData.read()
+                print(isLinkActive1)
             })
             .navigationBarItems(leading:
                                     VStack{
@@ -79,7 +83,9 @@ struct JournalingView: View {
                     NavigationLink(destination: AddJournalView(rainData: rainData, rootIsActive: $isLinkActive1), isActive: $isLinkActive1)
                                         {
                                                 Button(action:{
+                                                    
                                                     self.isLinkActive1 = true
+                                                   
                                                 }){
                                                     ZStack{
                                                        Image(systemName: "plus.square")

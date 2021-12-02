@@ -66,24 +66,26 @@ struct JournalQuotesView: View {
                             .foregroundColor(Color.white)
                             .opacity(0.5)
                             .padding(10)
-
                         Button(action: {
+                           
                             let newData = RainModel(dateReflection: Date(), quotes: reflection[3], reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
                             rainDataPass.save(rain: newData)
-                            presentationMode.wrappedValue.dismiss()
-                            self.shouldPopToRootViewAgain = false
+//                            presentationMode.wrappedValue.dismiss()
                             print(newData.dateReflection)
                             print(newData.quotes)
                             print(newData.reflection1)
                             print(newData.reflection2)
                             print(newData.reflection3)
-
+                            self.shouldPopToRootViewAgain = false
+                            presentationMode.wrappedValue.dismiss()
+                           
                         }) {
                             Text("Done")
                                 .font(Font.system(.title3, design: .rounded))
                                 .fontWeight(.bold)
                         }
                         .buttonStyle(BlueButton())
+                        
 
                     }
                     
