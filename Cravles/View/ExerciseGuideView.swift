@@ -22,8 +22,8 @@ struct ExerciseGuideView: View {
     @State private var favoriteVoice = "Female"
     var voiceStyle = ["Female", "Male"]
 
-//    @State private var voiceLevel: Float = 1
-//    @State private var musicLevel: Float = 1
+    @State var voiceLevel: Float = 1
+    @State var musicLevel: Float = 0.3
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
@@ -68,7 +68,7 @@ struct ExerciseGuideView: View {
                                 .foregroundColor(Color.white)
                         }
                         .sheet(isPresented: $showingSheet) {
-                            SheetView(guideData: guideData)
+                            SheetView(guideData: guideData, voiceLevel: $voiceLevel, musicLevel: $musicLevel)
                         }
                     }
                     .frame(width: 30, height: 30)
