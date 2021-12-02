@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-let url = URL(fileURLWithPath: Bundle.main.path(forResource: "AudioBreathing", ofType: "mp3")!)
+let url = URL(fileURLWithPath: Bundle.main.path(forResource: "BreatingExercise", ofType: "m4a")!)
 let urlMusic = URL(fileURLWithPath: Bundle.main.path(forResource: "Music", ofType: "mp3")!)
 
 class ExerciseGuideVM: NSObject, ObservableObject {
@@ -26,7 +26,7 @@ class ExerciseGuideVM: NSObject, ObservableObject {
 
     func fetch() {
 
-        let voiceSound = Bundle.main.path(forResource: "AudioBreathing", ofType: "mp3")
+        let voiceSound = Bundle.main.path(forResource: "BreatingExercise", ofType: "m4a")
         audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: voiceSound!))
 
         let musicSound = Bundle.main.path(forResource: "Music", ofType: "mp3")

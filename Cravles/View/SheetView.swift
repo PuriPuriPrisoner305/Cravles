@@ -10,13 +10,13 @@ import SwiftUI
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
 
-    @StateObject var guideData: ExerciseGuideVM
+    @ObservedObject var guideData: ExerciseGuideVM
 
     @State var favoriteVoice: String = "Female"
     var voiceStyle = ["Female", "Male"]
 
-    @State var voiceLevel: Float = 1
-    @State var musicLevel: Float = 0.5
+    @Binding var voiceLevel: Float
+    @Binding var musicLevel: Float
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
@@ -129,9 +129,9 @@ struct SheetView: View {
     }
 }
 
-struct SheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        SheetView(guideData: ExerciseGuideVM())
-            .previewDevice("iPhone 12")
-    }
-}
+//struct SheetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SheetView(guideData: ExerciseGuideVM(voiceLevel: voiceLevel, musicLevel: musicLevel))
+//            .previewDevice("iPhone 12")
+//    }
+//}
