@@ -10,15 +10,17 @@ import SwiftUI
 struct JournalQuotesView: View {
     @Binding var inputRain: String
     @Environment(\.presentationMode) var presentationMode
-
-    @State var randomQuotes : String = ""
-    @State private var isPresented = false
+//    @ObservedObject var rainData : ObservableObjectRain
+//    @Binding var reflection : [String]
+    @Binding var showModal: Bool
+    @Binding var randomQuotes : String
     @Environment(\.managedObjectContext) var moc
     @State private var feeling = ""
+    @State var isActive = false
     
-    @ObservedObject var rainDataPass: ObservableObjectRain
-    @Binding var reflectionPass: [String]
-    @Binding var showNextScreen: Bool
+//    @ObservedObject var rainDataPass: ObservableObjectRain
+//    @Binding var reflectionPass: [String]
+//    @Binding var showNextScreen: Bool
     
     var body: some View {
         
@@ -30,15 +32,18 @@ struct JournalQuotesView: View {
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
-                                        Button(action : {
-                                            self.presentationMode.wrappedValue.dismiss()
-                                        }){
-                                            Image(systemName: "multiply")
-                                                .resizable()
-                                                .frame(width: 20, height: 20)
-                                                .tint(Color.white)
-                                                
-                                        }
+//                                        NavigationLink(destination: JournalingView(rainData: rainData), isActive: $isActive) {
+                                            Button(action : {
+//                                                let newData = RainModel(dateReflection: Date(), quotes: inputRain, reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
+//                                                rainData.save(rain: newData)
+                                            }){
+                                                Image(systemName: "multiply")
+                                                    .resizable()
+                                                    .frame(width: 20, height: 20)
+                                                    .tint(Color.white)
+
+                                            }
+//                                        }
                                     }
                                     .frame(width: 30, height: 30)
 
@@ -51,6 +56,7 @@ struct JournalQuotesView: View {
                             Image("petikdua")
                                 .resizable()
                                 .frame(width: h.size.width/7, height: h.size.width/10)
+
                                             Text("\(randomQuotes)")
                                 .font(.system(size: h.size.width/12, weight: .bold, design: .default))
                                                 .foregroundColor(Color.white)
@@ -64,16 +70,8 @@ struct JournalQuotesView: View {
                             .padding(10)
                         
                         Button("Done") {
-                            
-                            let newData = RainModel(dateReflection: Date(), quotes: reflectionPass[3], reflection1: reflectionPass[0], reflection2: reflectionPass[1], reflection3: reflectionPass[2])
-                            rainDataPass.save(rain: newData)
-                        
-                            inputRain = randomQuotes
-                            self.presentationMode.wrappedValue.dismiss()
-                            DispatchQueue.main.async {
-                                self.showNextScreen = true
-                            }
-                            
+
+                            self.showModal.toggle()
                         }
                         .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
                                                 .font(.system(size: h.size.width/18, weight: .bold, design: .default))

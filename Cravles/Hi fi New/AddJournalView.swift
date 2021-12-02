@@ -18,7 +18,7 @@ struct AddJournalView: View {
     @State private var isPresented1 = false
     @State private var isPresented = false
     @State private var isFullScreen = false
-    @State  var isLinkActive = false
+    @State var isLinkActive = false
     @State var reflection = ["","","",""]
     @Environment(\.managedObjectContext) var moc
     let todayDay = Date().formatDate()
@@ -60,7 +60,7 @@ struct AddJournalView: View {
                     
                 }.padding()
                 VStack{
-                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0], reflectionPass: $reflection, rainDataPass: rainData), isActive: $isLinkActive)
+                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0]), isActive: $isLinkActive)
                     {
                             Button(action:{
                                 self.isLinkActive = true
@@ -90,7 +90,7 @@ struct AddJournalView: View {
                             }
 
                     }
-                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], rainDataPass: rainData, reflectionPass: $reflection), isActive: $isPresented)
+                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], quoteRain: $reflection[3], rootIsActive: $isLinkActive), isActive: $isPresented)
                     {
                             Button(action:{
                                 self.isPresented = true
@@ -121,7 +121,6 @@ struct AddJournalView: View {
             
             let newData = RainModel(dateReflection: Date(), quotes: reflection[3], reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
             rainData.save(rain: newData)
-        
             self.presentationMode.wrappedValue.dismiss()
         }, label: {
             Text("Save")

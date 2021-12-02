@@ -9,15 +9,18 @@ import SwiftUI
 
 struct JournalBodyView: View {
     @Binding var inputRain: String
-    
+    @Binding var quoteRain: String
+
+    @Binding var rootIsActive: Bool
+    @State private var showModal = false
     var colors: [Color] = [Color.pulsatingColor]
     @Environment(\.presentationMode) var presentationMode
     @State private var reflection = ""
     @Environment(\.managedObjectContext) var moc
     @State private var showingQuotes = false
     
-    @ObservedObject var rainDataPass: ObservableObjectRain
-    @Binding var reflectionPass: [String]
+//    @ObservedObject var rainDataPass: ObservableObjectRain
+//    @Binding var reflectionPass: [String]
     @State private var showJournalingView = false
     
     var body: some View {
@@ -45,15 +48,25 @@ struct JournalBodyView: View {
 //                            rain.reflection2 = self.reflection
 //                            try? self.moc.save()
                             inputRain = reflection
-                            
-                            showingQuotes.toggle()
-                        }.sheet(isPresented: $showingQuotes) {
-                            let quotesList = ["quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller","quotes 2", "qoutes 3"]
+//                            showingQuotes.toggle()
+
+                            let quotesList = ["quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller","oghwleg3eieid", "agfagbwaege", "asfbuwbusekbgksegbsg", "sggnagbaelibag"]
                             let quotes = quotesList.randomElement()
-                            JournalQuotesView(inputRain: $inputRain,randomQuotes : quotes ?? "", rainDataPass: rainDataPass, reflectionPass: $reflectionPass, showNextScreen: $showJournalingView)
+                            quoteRain = quotes ?? ""
+
+
+                            self.showModal.toggle()
+                        }.sheet(isPresented: $showModal) {
+                            JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain)
+
+                        }
+//                        .sheet(isPresented: $showingQuotes) {
+//                            let quotesList = ["quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller","quotes 2", "qoutes 3"]
+//                            let quotes = quotesList.randomElement()
+//                            JournalQuotesView(inputRain: $inputRain,randomQuotes : quotes ?? "", showNextScreen: $showJournalingView)
                                
                            
-                        }
+//                        }
                         .disabled(reflection.isEmpty)
                         .frame(width: h.size.width/1.5, height: h.size.width/9, alignment: .center)
                             .font(Font.system(.title2, design: .rounded))
@@ -62,16 +75,21 @@ struct JournalBodyView: View {
                             .foregroundColor(Color.white)
                             .shadow(color: .black, radius: 4)
                             .padding(.all)
-                            .background(
-                                NavigationLink(destination: JournalingView(), isActive: $showJournalingView) { }
-                                    .navigationBarTitle("")
-                                    .navigationBarBackButtonHidden(true)
-                            )
+//                            .background(
+//                                NavigationLink(destination: JournalingView(), isActive: $showJournalingView) { }
+//                                    .navigationBarTitle("")
+//                                    .navigationBarBackButtonHidden(true)
+//                            )
                    
                 }
             }
         }.navigationBarTitle(Text("What's does your body feel?").font(.title2), displayMode: .inline)
     }
+
+//    func showQuote() {
+//
+////        JournalQuotesView(inputRain: $inputRain,randomQuotes : quotes ?? "", showNextScreen: $showJournalingView)
+//    }
 }
 
 //struct JournalBodyView_Previews: PreviewProvider {

@@ -51,7 +51,9 @@ struct JournalingView: View {
 //
 //                                }
                                 
-                                Text("\(rain.reflection1 )" ?? "Suspended")
+                                Text("\(rain.reflection1)" ?? "Suspended")
+                                Text("\(rain.reflection2)" ?? "Ref 2")
+                                Text("\(rain.reflection3)" ?? "Ref 3")
                                 
                                 Text( "\(rain.quotes )" ?? "you just completed i 0f 3 stages lest's finish it")
                                     .font(.system(size: 9))
