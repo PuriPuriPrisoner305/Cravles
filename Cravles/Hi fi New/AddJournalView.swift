@@ -60,7 +60,7 @@ struct AddJournalView: View {
                     
                 }.padding()
                 VStack{
-                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0]), isActive: $isLinkActive)
+                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0], reflectionPass: $reflection, rainDataPass: rainData), isActive: $isLinkActive)
                     {
                             Button(action:{
                                 self.isLinkActive = true
@@ -90,7 +90,7 @@ struct AddJournalView: View {
                             }
 
                     }
-                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2]), isActive: $isPresented)
+                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], rainDataPass: rainData, reflectionPass: $reflection), isActive: $isPresented)
                     {
                             Button(action:{
                                 self.isPresented = true

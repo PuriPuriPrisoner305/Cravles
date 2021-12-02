@@ -15,7 +15,13 @@ struct JournalQuotesView: View {
     @State private var isPresented = false
     @Environment(\.managedObjectContext) var moc
     @State private var feeling = ""
+    
+    @ObservedObject var rainDataPass: ObservableObjectRain
+    @Binding var reflectionPass: [String]
+    @Binding var showNextScreen: Bool
+    
     var body: some View {
+        
         GeometryReader{ h in
             VStack{
                 HStack {
@@ -56,8 +62,18 @@ struct JournalQuotesView: View {
                             .foregroundColor(Color.white)
                             .opacity(0.5)
                             .padding(10)
+                        
                         Button("Done") {
+                            
+                            let newData = RainModel(dateReflection: Date(), quotes: reflectionPass[3], reflection1: reflectionPass[0], reflection2: reflectionPass[1], reflection3: reflectionPass[2])
+                            rainDataPass.save(rain: newData)
+                        
                             inputRain = randomQuotes
+                            self.presentationMode.wrappedValue.dismiss()
+                            DispatchQueue.main.async {
+                                self.showNextScreen = true
+                            }
+                            
                         }
                         .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
                                                 .font(.system(size: h.size.width/18, weight: .bold, design: .default))
@@ -66,6 +82,7 @@ struct JournalQuotesView: View {
                                                     .foregroundColor(Color.pulsatingColor)
                                                     .shadow(color: .black, radius: 4)
                                                     .padding(.top,h.size.width/4)
+                                                    
                     }
                     
                 }

@@ -215,8 +215,8 @@
 				E0A31BEE2755DFBD004114C6 /* JournalingView.swift */,
 				E0A31BF02755DFE2004114C6 /* AddJournalView.swift */,
 				E0A31BF22755E007004114C6 /* JournalFeelingView.swift */,
-				E0A31BF42755E019004114C6 /* JournalBodyView.swift */,
 				E0A31BF62755E048004114C6 /* JournalThoughtView.swift */,
+				E0A31BF42755E019004114C6 /* JournalBodyView.swift */,
 				E030C0B827561CC7000A2109 /* JournalQuotesView.swift */,
 			);
 			path = "Hi fi New";

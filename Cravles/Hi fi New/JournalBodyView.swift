@@ -15,6 +15,11 @@ struct JournalBodyView: View {
     @State private var reflection = ""
     @Environment(\.managedObjectContext) var moc
     @State private var showingQuotes = false
+    
+    @ObservedObject var rainDataPass: ObservableObjectRain
+    @Binding var reflectionPass: [String]
+    @State private var showJournalingView = false
+    
     var body: some View {
         ZStack{
             GeometryReader{ h in
@@ -40,12 +45,12 @@ struct JournalBodyView: View {
 //                            rain.reflection2 = self.reflection
 //                            try? self.moc.save()
                             inputRain = reflection
-                        
+                            
                             showingQuotes.toggle()
                         }.sheet(isPresented: $showingQuotes) {
                             let quotesList = ["quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller","quotes 2", "qoutes 3"]
                             let quotes = quotesList.randomElement()
-                            JournalQuotesView(inputRain: $inputRain,randomQuotes : quotes ?? "")
+                            JournalQuotesView(inputRain: $inputRain,randomQuotes : quotes ?? "", rainDataPass: rainDataPass, reflectionPass: $reflectionPass, showNextScreen: $showJournalingView)
                                
                            
                         }
@@ -57,6 +62,11 @@ struct JournalBodyView: View {
                             .foregroundColor(Color.white)
                             .shadow(color: .black, radius: 4)
                             .padding(.all)
+                            .background(
+                                NavigationLink(destination: JournalingView(), isActive: $showJournalingView) { }
+                                    .navigationBarTitle("")
+                                    .navigationBarBackButtonHidden(true)
+                            )
                    
                 }
             }

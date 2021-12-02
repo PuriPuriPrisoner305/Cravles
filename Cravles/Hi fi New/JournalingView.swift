@@ -92,6 +92,8 @@ struct JournalingView: View {
                 
             )
         }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 
