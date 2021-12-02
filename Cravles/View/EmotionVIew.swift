@@ -49,13 +49,13 @@ struct EmotionVIew: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
 
-                    Text("Hi, John")
-                        .font(Font.system(.title, design: .rounded))
-                        .fontWeight(.medium)
+                    Text("Nice")
+                        .font(Font.system(.title, design: .default))
+                        .fontWeight(.bold)
                         .foregroundColor(Color.white)
 
-                    Text("How are you feeling?")
-                        .font(Font.system(.title3, design: .rounded))
+                    Text("How are you feeling right now?")
+                        .font(Font.system(.title3, design: .default))
                         .fontWeight(.regular)
                         .foregroundColor(Color.white)
 
@@ -65,6 +65,10 @@ struct EmotionVIew: View {
                         .frame(width: width, height: width)
 
                     Text("\(data[Int(moodSlider)].mood)")
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
+                        .tracking(2)
+                        .foregroundColor(Color.white)
 
                     Slider(value: $moodSlider, in: 0...7, step: 1)
                         .padding(40)
@@ -76,8 +80,8 @@ struct EmotionVIew: View {
                         }) {
                             Text("Continue")
                                 .font(Font.system(.title3, design: .rounded))
-                                .fontWeight(.medium)
-                                .frame(width: width - 20 , alignment: .center)
+                                .fontWeight(.bold)
+                                .frame(width: geo.size.width * 0.7, alignment: .center)
                         }
                         .buttonStyle(BlueButton())
                     }

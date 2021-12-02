@@ -15,7 +15,7 @@ struct ExerciseView: View {
     
     @State var isLinkActive = false
 
-    @State var moodSlider : Double = 2.0
+    @State var moodSlider : Double = 1.0
 
     var data = Mood.moods
 
@@ -72,14 +72,16 @@ struct ExerciseView: View {
                     .padding(.trailing, 20)
 
                     Text("Hi, John")
-                        .font(Font.system(.title, design: .rounded))
-                        .fontWeight(.medium)
+                        .font(Font.system(.title, design: .default))
+                        .fontWeight(.bold)
                         .foregroundColor(Color.white)
+//                        .padding(.horizontal)
 
                     Text("How are you feeling?")
-                        .font(Font.system(.title3, design: .rounded))
+                        .font(Font.system(.title3, design: .default))
                         .fontWeight(.regular)
                         .foregroundColor(Color.white)
+//                        .padding(.horizontal)
 
                     Image(uiImage: data[Int(moodSlider)].moodImg)
                         .resizable()
@@ -87,6 +89,10 @@ struct ExerciseView: View {
                         .frame(width: width, height: width)
 
                     Text("\(data[Int(moodSlider)].mood)")
+                        .font(Font.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
+                        .tracking(2)
+                        .foregroundColor(Color.white)
 
                     Slider(value: $moodSlider, in: 0...7, step: 1)
                         .padding(40)
@@ -98,8 +104,8 @@ struct ExerciseView: View {
                         }) {
                             Text("Continue")
                                 .font(Font.system(.title3, design: .rounded))
-                                .fontWeight(.medium)
-                                .frame(width: width - 20 , alignment: .center)
+                                .fontWeight(.bold)
+                                .frame(width: geo.size.width * 0.7, alignment: .center)
                         }
                         .buttonStyle(BlueButton())
                     }
@@ -129,9 +135,11 @@ struct BlueButton: ButtonStyle {
         configuration.label
             .padding()
             .background(Color.white)
-            .foregroundColor(Color(red: 253/255, green: 153/255, blue: 140/255))
+            .foregroundColor(Color(red: 0.91, green: 0.42, blue: 0.34))
             .cornerRadius(25)
             .shadow(radius: 5)
+//            .padding(.trailing, 20)
+//            .padding(.leading, 20)
     }
 }
 

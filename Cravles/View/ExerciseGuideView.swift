@@ -144,13 +144,13 @@ struct ExerciseGuideView: View {
                     .rotationEffect(.init(degrees: 0))
                 }
 
-                Text("Take a deep breath")
-                    .font(Font.system(.title, design: .default))
-                    .fontWeight(.bold)
-//                    .padding(.bottom, 20)
-                    .foregroundColor(Color.white)
-                    .padding(.top, 20)
-                    .padding(.bottom, 60)
+//                Text("Take a deep breath")
+//                    .font(Font.system(.title, design: .default))
+//                    .fontWeight(.bold)
+////                    .padding(.bottom, 20)
+//                    .foregroundColor(Color.white)
+//                    .padding(.top, 20)
+//                    .padding(.bottom, 60)
 
                 HStack {
                     Button(action: {
@@ -173,14 +173,7 @@ struct ExerciseGuideView: View {
                             .clipShape(Circle())
                     }
 
-                    Button(action: {
-                        let increase = guideData.audioPlayer.currentTime + 10
-//                        let inc = guideData.musicPlayer.currentTime + 10
-                        if increase < guideData.audioPlayer.duration {
-                            guideData.audioPlayer.currentTime = increase
-                            guideData.musicPlayer.currentTime = guideData.musicPlayer.currentTime
-                        }
-                    }) {
+                    Button(action: guideData.increaseTenSec) {
                         Image(systemName: "goforward.10")
                             .font(.title)
                             .foregroundColor(.white)
@@ -188,6 +181,7 @@ struct ExerciseGuideView: View {
                             .clipShape(Circle())
                     }
                 }
+                .padding(.top, 60)
                 .padding(.bottom, 20)
 
                 ZStack (alignment: .leading) {
@@ -207,18 +201,20 @@ struct ExerciseGuideView: View {
                         Capsule()
                             .fill(Color.white)
                             .frame(width: guideData.line, height: 4)
-                            .gesture(DragGesture().onChanged({ value in
-                                let x = value.location.x
+                            .gesture(DragGesture().onChanged(guideData.onChangedSlider(value: )))
+//                            .gesture(DragGesture()
+//                                .onChanged({ value in
+//                                let x = value.location.x
 //                                guideData.line = x
-                                let screen = UIScreen.main.bounds.width
-                                let percent = x / screen
-                                guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
+////                                let screen = UIScreen.main.bounds.width
+////                                let percent = x / screen
+////                                guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
 //                            }).onEnded({ value in
 //                                let x = value.location.x
 //                                let screen = UIScreen.main.bounds.width
 //                                let percent = x / screen
 //                                guideData.audioPlayer.currentTime = Double(percent) * guideData.audioPlayer.duration
-                            }))
+//                            }))
 
 
 
@@ -255,14 +251,6 @@ struct ExerciseGuideView: View {
         .fullScreenCover(isPresented: $guideData.activated) {
             EmotionVIew()
         }
-        
-//        .navigationBarItems(leading: Button(action : {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }){
-//            Image(systemName: "chevron.backward.square.fill")
-//                .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
-//                .tint(Color.white)
-//        })
 
     }
 

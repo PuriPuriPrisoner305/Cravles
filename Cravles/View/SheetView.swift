@@ -16,7 +16,7 @@ struct SheetView: View {
     var voiceStyle = ["Female", "Male"]
 
     @State var voiceLevel: Float = 1
-    @State var musicLevel: Float = 1
+    @State var musicLevel: Float = 0.5
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
@@ -37,7 +37,6 @@ struct SheetView: View {
                         }){
                             Image(systemName: "xmark")
                                 .tint(Color.white)
-    //                            .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
                         }
                     }
                     .frame(width: 30, height: 30)
@@ -49,41 +48,43 @@ struct SheetView: View {
                     Text("Adjust the volume here,")
                         .font(Font.system(.title, design: .default))
                         .fontWeight(.bold)
-//                        .padding(.horizontal)
                         .multilineTextAlignment(.leading)
 
                     Text("to make you more comfortable")
                         .font(Font.system(.body, design: .default))
                         .fontWeight(.medium)
-//                        .padding(.horizontal)
-    //                    .padding(.leading)
+
                 }
                 .foregroundColor(Color.white)
                 .frame(width: geo.size.width - 20, height: geo.size.height * 0.12, alignment: .leading)
                 .padding(.leading, 20)
 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(red: 1, green: 0.7, blue: 0.64))
-                        .frame(height: geo.size.height * 0.28)
-//                        .shadow(radius: 10)
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .fill(Color(red: 1, green: 0.7, blue: 0.64))
+//                        .frame(height: geo.size.height * 0.28)
+////                        .shadow(radius: 10)
+//
+//
+//
+//                }
+//    //                .frame(width: geo.size.width*0.80)
+//                .padding(20)
+                VStack {
 
+                    HStack {
 
-                    VStack {
+                        Image(systemName: "mic.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 25)
+                            .padding(.leading, 10)
 
-                        HStack {
+                        Text("Voice")
 
-                            Image(systemName: "mic.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 25)
-                                .padding(.leading, 10)
+                        Spacer()
 
-                            Text("Voice")
-
-                            Spacer()
-
-                            }
+                        }
 //
 //                            Picker("What is your favorite voice?", selection: $favoriteVoice) {
 //                                ForEach(voiceStyle, id: \.self) {
@@ -94,36 +95,32 @@ struct SheetView: View {
 //                            .padding(.horizontal)
 //                        }
 
-    //                    Text("Value: \(favoriteVoice)")
+//                    Text("Value: \(favoriteVoice)")
 //                        Text("\(voiceLevel, specifier: "%.1f") Voice")
 
-                        Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
-                            guideData.audioPlayer.volume = voiceLevel
-                        }
-
-                        HStack {
-
-                            Image(systemName: "music.note")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 25)
-                                .padding(.leading, 10)
-
-                            Text("Music")
-                            Spacer()
-                        }
-
-                        Slider(value: $musicLevel, in: 0...1).onChange(of: musicLevel) { n in
-                            guideData.musicPlayer.volume = musicLevel
-                        }
-
+                    Slider(value: $voiceLevel, in: 0...1).onChange(of: voiceLevel) { n in
+                        guideData.audioPlayer.volume = voiceLevel
                     }
-                    .foregroundColor(Color.white)
-                    .tint(Color.white)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
+
+                    HStack {
+
+                        Image(systemName: "music.note")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 25)
+                            .padding(.leading, 10)
+
+                        Text("Music")
+                        Spacer()
+                    }
+
+                    Slider(value: $musicLevel, in: 0...1).onChange(of: musicLevel) { n in
+                        guideData.musicPlayer.volume = musicLevel
+                    }
+
                 }
-    //                .frame(width: geo.size.width*0.80)
+                .foregroundColor(Color.white)
+                .tint(Color.white)
                 .padding(20)
 
             }

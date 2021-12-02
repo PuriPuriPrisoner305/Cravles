@@ -40,11 +40,11 @@ struct ExercisePreView: View {
                 .padding(.trailing, 20)
 
                 Text("It's ok! \n Let's do some breathing exercise with me to help calm your mind")
-                    .font(Font.system(.title, design: .rounded))
-                    .fontWeight(.medium)
+                    .font(Font.system(.title2, design: .default))
+                    .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
-                    .frame(height: geo.size.height * 0.6)
+                    .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.6)
 
 //                Spacer(minLength: 0)
 
@@ -54,8 +54,8 @@ struct ExercisePreView: View {
                     }) {
                         Text("Continue")
                             .font(Font.system(.title3, design: .rounded))
-                            .fontWeight(.medium)
-                            .frame(width: width - 20, alignment: .center)
+                            .fontWeight(.bold)
+                            .frame(width: geo.size.width * 0.7, alignment: .center)
                     }
                     .buttonStyle(BlueButton())
                 }

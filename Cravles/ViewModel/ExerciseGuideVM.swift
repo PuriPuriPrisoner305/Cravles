@@ -8,12 +8,13 @@
 import SwiftUI
 import AVFoundation
 
-let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ambient", ofType: "m4a")!)
+let url = URL(fileURLWithPath: Bundle.main.path(forResource: "AudioBreathing", ofType: "mp3")!)
+let urlMusic = URL(fileURLWithPath: Bundle.main.path(forResource: "Music", ofType: "mp3")!)
 
 class ExerciseGuideVM: NSObject, ObservableObject {
 
     @Published var audioPlayer = try! AVAudioPlayer(contentsOf: url)
-    @Published var musicPlayer: AVAudioPlayer!
+    @Published var musicPlayer = try! AVAudioPlayer(contentsOf: urlMusic)
 
     @Published var isPlaying = false
 
@@ -25,10 +26,10 @@ class ExerciseGuideVM: NSObject, ObservableObject {
 
     func fetch() {
 
-        let voiceSound = Bundle.main.path(forResource: "ambient", ofType: "m4a")
+        let voiceSound = Bundle.main.path(forResource: "AudioBreathing", ofType: "mp3")
         audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: voiceSound!))
 
-        let musicSound = Bundle.main.path(forResource: "Open", ofType: "m4a")
+        let musicSound = Bundle.main.path(forResource: "Music", ofType: "mp3")
         musicPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: musicSound!))
         
     }
@@ -42,6 +43,7 @@ class ExerciseGuideVM: NSObject, ObservableObject {
             audioPlayer.delegate = self
             audioPlayer.play()
             musicPlayer.play()
+            musicPlayer.numberOfLoops = -1
         }
 
         isPlaying = audioPlayer.isPlaying
@@ -73,6 +75,17 @@ class ExerciseGuideVM: NSObject, ObservableObject {
         }
     }
 
+    func onChangedSlider(value: DragGesture.Value) {
+        let x = value.location.x
+        let screen = UIScreen.main.bounds.width
+        let percent = x / screen
+        audioPlayer.currentTime = Double(percent) * audioPlayer.duration
+
+        audioPlayer.play()
+        musicPlayer.play()
+        withAnimation(Animation.linear(duration: 0.1)) { self.line = Double(line) }
+    }
+
     func updateTimer() {
         let currentTime = audioPlayer.currentTime
         let total = audioPlayer.duration
@@ -96,12 +109,23 @@ class ExerciseGuideVM: NSObject, ObservableObject {
             self.line = screen * CGFloat(value)
         }
     }
+
+    func increaseTenSec() {
+
+            let incAudio = audioPlayer.currentTime + 10
+            let incMusic = musicPlayer.currentTime + 10
+            if incAudio < audioPlayer.duration {
+                audioPlayer.currentTime = incAudio
+            }
+
+    }
 }
 
 extension ExerciseGuideVM: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
         isPlaying = false
+        musicPlayer.stop()
             print(isPlaying)
         activated = true
         }
