@@ -201,9 +201,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E0175D0F2757DE04006251F7 /* UpdateRain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UpdateRain;
+			sourceTree = "<group>";
+		};
 		E0A31BED2755DF6B004114C6 /* Hi fi New */ = {
 			isa = PBXGroup;
 			children = (
+				E0175D0F2757DE04006251F7 /* UpdateRain */,
 				E0A31BEE2755DFBD004114C6 /* JournalingView.swift */,
 				E0A31BF02755DFE2004114C6 /* AddJournalView.swift */,
 				E0A31BF22755E007004114C6 /* JournalFeelingView.swift */,

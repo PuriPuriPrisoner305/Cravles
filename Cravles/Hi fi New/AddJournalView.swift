@@ -17,6 +17,7 @@ struct AddJournalView: View {
     @State private var showingSheet = false
     @State private var isPresented1 = false
     @State private var isPresented = false
+    @State private var isFullScreen = false
     @State  var isLinkActive = false
     @State var reflection = ["","","",""]
     @Environment(\.managedObjectContext) var moc

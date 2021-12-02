@@ -9,14 +9,10 @@ import SwiftUI
 
 struct JournalQuotesView: View {
     @Binding var inputRain: String
-    
     @Environment(\.presentationMode) var presentationMode
-//    let quotesList = ["quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller","quotes 2", "qoutes 3"]
+
     @State var randomQuotes : String = ""
     @State private var isPresented = false
-//    init(randomQuotes: String) {
-//        self.randomQuotes = quotesList.randomElement()!
-//    }
     @Environment(\.managedObjectContext) var moc
     @State private var feeling = ""
     var body: some View {
@@ -62,8 +58,8 @@ struct JournalQuotesView: View {
                             .padding(10)
                         Button("Done") {
                             inputRain = randomQuotes
-                            self.presentationMode.wrappedValue.dismiss()
-                        }.frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
+                        }
+                        .frame(width: h.size.width/2, height: h.size.width/7, alignment: .center)
                                                 .font(.system(size: h.size.width/18, weight: .bold, design: .default))
                                                     .background(Color.white)
                                                     .cornerRadius(50)

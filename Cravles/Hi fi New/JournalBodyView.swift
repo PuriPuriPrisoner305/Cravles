@@ -42,7 +42,6 @@ struct JournalBodyView: View {
                             inputRain = reflection
                         
                             showingQuotes.toggle()
-                            self.presentationMode.wrappedValue.dismiss()
                         }.sheet(isPresented: $showingQuotes) {
                             let quotesList = ["quotes 1 when you feel sad, it's okay. it's not the end of the world. -Mac Miller","quotes 2", "qoutes 3"]
                             let quotes = quotesList.randomElement()
