@@ -107,6 +107,7 @@ struct JournalingView: View {
 
         }
         .navigationBarHidden(true)
+        .preferredColorScheme(.light)
 
     }
 }
