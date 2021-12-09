@@ -28,6 +28,7 @@
 		22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318A274B4E6B005B72FF /* Persistence.swift */; };
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
 		D918900D2753B550002E65F5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918900C2753B550002E65F5 /* SheetView.swift */; };
+		D94C5C8E2761B4CE00F4981F /* MainScreenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94C5C8D2761B4CE00F4981F /* MainScreenRow.swift */; };
 		D953AB6D2759244A00EF57A1 /* JournalBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB672759244A00EF57A1 /* JournalBodyView.swift */; };
 		D953AB6E2759244A00EF57A1 /* JournalFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB682759244A00EF57A1 /* JournalFeelingView.swift */; };
 		D953AB6F2759244A00EF57A1 /* AddJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB692759244A00EF57A1 /* AddJournalView.swift */; };
@@ -73,6 +74,7 @@
 		22D3318A274B4E6B005B72FF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
 		D918900C2753B550002E65F5 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		D94C5C8D2761B4CE00F4981F /* MainScreenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRow.swift; sourceTree = "<group>"; };
 		D953AB672759244A00EF57A1 /* JournalBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalBodyView.swift; sourceTree = "<group>"; };
 		D953AB682759244A00EF57A1 /* JournalFeelingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalFeelingView.swift; sourceTree = "<group>"; };
 		D953AB692759244A00EF57A1 /* AddJournalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJournalView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				22A0D3BC274DF03800F77050 /* MainScreen.swift */,
 				22B2CA522752026800710E78 /* SummaryView.swift */,
+				D94C5C8D2761B4CE00F4981F /* MainScreenRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				D9E4818F274D54AA004189CF /* ExerciseVM.swift in Sources */,
 				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,
 				224B585A2754DA810082088C /* Reflection2View.swift in Sources */,
+				D94C5C8E2761B4CE00F4981F /* MainScreenRow.swift in Sources */,
 				22B2CA532752026800710E78 /* SummaryView.swift in Sources */,
 				22D33182274B4E6A005B72FF /* CravlesApp.swift in Sources */,
 				D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */,

@@ -20,7 +20,7 @@ struct ContentView: View {
         NavigationView {
             
             TabView {
-                MainScreen()
+                MainScreen(audioData: Audio.audios[0])
                     .tabItem {
                         Image(systemName: "leaf.circle")
                         Text("Exercise")

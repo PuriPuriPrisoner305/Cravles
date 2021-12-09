@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainScreen: View {
     var deviceName = DeviceName()
+    var audioData : Audio
 //    var colors: [Color] = [Color.pulsatingColor]
     var body: some View {
         VStack{
@@ -37,88 +38,95 @@ struct MainScreen: View {
                             .fontWeight(.semibold)
                             .padding(.leading, 22)
                             .frame(width: geo.size.width, alignment: .leading)
-                            
-                        
-                        // Exercise
-                        VStack(spacing: 20){
-                            
-                            NavigationLink(destination: ExerciseView()) {
-                                HStack(spacing: 10){
-                                    Image("breathee")
-                                        .resizable()
-                                        .frame(width: 90, height: 100)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text("Breathing")
-                                            .font(.body)
-                                            .fontWeight(.medium)
-                                            .foregroundColor(Color.black)
 
-                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                            .multilineTextAlignment(.leading)
-                                        
-                                        VStack(alignment: .leading){
-                                            Text("Estimated time")
-                                            Text("03.00 min")
-                                        }
-                                        .font(.footnote)
-                                        .foregroundColor(.gray)
-                                        .padding(.top, 5)
-                                
-
-                                    }
-                                    
+                        VStack {
+                            ForEach(Audio.audios) { audio in
+                                NavigationLink(destination: ExerciseView()) {
+                                    MainScreenRow(audioData: audioData)
                                 }
-                                .padding(20)
-                                .frame(width: geo.size.width - 50)
-                                .background(Color.white
-                                    .shadow(radius: 10)
-
-                                )
                             }
-                                
-                            NavigationLink(destination: EmotionVIew()) {
-                                HStack(spacing: 10){
-                                    Image("breathee")
-                                        .resizable()
-                                        .frame(width: 90, height: 100)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text("Breathing")
-                                            .font(.body)
-                                            .fontWeight(.medium)
-                                            .foregroundColor(Color.black)
-
-                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                            .multilineTextAlignment(.leading)
-                                        
-                                        VStack(alignment: .leading){
-                                            Text("Estimated time")
-                                            Text("03.00 min")
-                                        }
-                                        .font(.footnote)
-                                        .foregroundColor(.gray)
-                                        .padding(.top, 5)
-                                
-
-                                    }
-                                    
-                                }
-                                .padding(20)
-                                .frame(width: geo.size.width - 50)
-                                .background(Color.white
-                                    .shadow(radius: 10)
-
-                                )
-                            }
-                           
-
                         }
-                        .frame(width: geo.size.width)
+
+//                        // Exercise
+//                        VStack(spacing: 20){
+//
+//                            NavigationLink(destination: ExerciseView()) {
+//                                HStack(spacing: 10){
+//                                    Image("breathee")
+//                                        .resizable()
+//                                        .frame(width: 90, height: 100)
+//
+//                                    VStack(alignment: .leading){
+//                                        Text("Breathing")
+//                                            .font(.body)
+//                                            .fontWeight(.medium)
+//                                            .foregroundColor(Color.black)
+//
+//                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
+//                                            .font(.caption)
+//                                            .foregroundColor(.gray)
+//                                            .multilineTextAlignment(.leading)
+//
+//                                        VStack(alignment: .leading){
+//                                            Text("Estimated time")
+//                                            Text("03.00 min")
+//                                        }
+//                                        .font(.footnote)
+//                                        .foregroundColor(.gray)
+//                                        .padding(.top, 5)
+//
+//
+//                                    }
+//
+//                                }
+//                                .padding(20)
+//                                .frame(width: geo.size.width - 50)
+//                                .background(Color.white
+//                                    .shadow(radius: 10)
+//
+//                                )
+//                            }
+//
+//                            NavigationLink(destination: EmotionVIew()) {
+//                                HStack(spacing: 10){
+//                                    Image("breathee")
+//                                        .resizable()
+//                                        .frame(width: 90, height: 100)
+//
+//                                    VStack(alignment: .leading){
+//                                        Text("Breathing")
+//                                            .font(.body)
+//                                            .fontWeight(.medium)
+//                                            .foregroundColor(Color.black)
+//
+//                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
+//                                            .font(.caption)
+//                                            .foregroundColor(.gray)
+//                                            .multilineTextAlignment(.leading)
+//
+//                                        VStack(alignment: .leading){
+//                                            Text("Estimated time")
+//                                            Text("03.00 min")
+//                                        }
+//                                        .font(.footnote)
+//                                        .foregroundColor(.gray)
+//                                        .padding(.top, 5)
+//
+//
+//                                    }
+//
+//                                }
+//                                .padding(20)
+//                                .frame(width: geo.size.width - 50)
+//                                .background(Color.white
+//                                    .shadow(radius: 10)
+//
+//                                )
+//                            }
+//
+//
+//                        }
+//                        .frame(width: geo.size.width)
                         
                         
 
@@ -151,7 +159,7 @@ struct MainScreen: View {
 
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreen()
+        MainScreen(audioData: Audio.audios[0])
     }
 }
 
