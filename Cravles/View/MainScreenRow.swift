@@ -10,40 +10,51 @@ import SwiftUI
 struct MainScreenRow: View {
     var audioData : Audio
     var body: some View {
-        VStack {
-            HStack(spacing: 10){
-                Image(uiImage: audioData.artwork)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 120)
+        GeometryReader { geo in
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+                    .shadow(radius: 5)
 
-                VStack(alignment: .leading){
-                    Text(audioData.title)
-                        .font(.body)
-                        .fontWeight(.medium)
-                        .padding(.bottom, 5)
-                        .foregroundColor(Color.black)
+                VStack {
+                    HStack {
+                        Image(uiImage: audioData.artwork)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 125)
 
-                    Text(audioData.exerciseDesc)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.leading)
+                        VStack(alignment: .leading){
+                            Text(audioData.title)
+                                .font(.body)
+                                .fontWeight(.medium)
+                                .padding(.bottom, 5)
+                                .foregroundColor(Color.black)
 
-                    VStack(alignment: .leading){
-                        Text("Estimated time")
-                        Text("\(audioData.exerciseDuration) min")
+                            Text(audioData.exerciseDesc)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.leading)
+
+                            VStack(alignment: .leading){
+                                Text("Estimated time")
+                                Text("\(audioData.exerciseDuration) min")
+                            }
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .padding(.top, 5)
+                        }
+
                     }
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-                    .padding(.top, 5)
+                    .padding(16)
+//                    .background(Color.white
+//                        .shadow(radius: 10)
+//                    )
                 }
-
             }
+            .frame(width: geo.size.width * 0.90, height: 150, alignment: .center)
             .padding(20)
-            .background(Color.white
-                .shadow(radius: 10)
-            )
         }
+
     }
 
 }

@@ -75,32 +75,38 @@ struct ExerciseView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
 
-                    Text("Hi, \(deviceName.deviceName)")
-                        .font(Font.system(.title, design: .default))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.white)
-//                        .padding(.horizontal)
+                    ZStack {
+                        Image(uiImage: data[Int(moodSlider)].moodImg)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: geo.size.width)
 
-                    Text("How are you feeling?")
-                        .font(Font.system(.title3, design: .default))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color.white)
-//                        .padding(.horizontal)
+                        VStack {
+                            Text("Hi, \(deviceName.deviceName)")
+                                .font(Font.system(.title, design: .default))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+        //                        .padding(.horizontal)
 
-                    Image(uiImage: data[Int(moodSlider)].moodImg)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: width, height: width)
+                            Text("How are you feeling?")
+                                .font(Font.system(.title3, design: .default))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.white)
+        //                        .padding(.horizontal)
+                            Spacer()
+                        }
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height * 1/2)
 
                     Text("\(data[Int(moodSlider)].mood)")
                         .font(Font.system(.title3, design: .rounded))
                         .fontWeight(.bold)
                         .tracking(2)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.black)
 
                     Slider(value: $moodSlider, in: 0...7, step: 1)
                         .padding(40)
-                        .tint(Color.white)
+                        .tint(Color.black)
 
                     NavigationLink(destination: ExercisePreView(audioData: audioData), isActive: $isLinkActive) {
                         Button(action: {
@@ -119,8 +125,6 @@ struct ExerciseView: View {
 
                     Spacer(minLength: 0)
                 }
-                .background(Color(red: 253/255, green: 153/255, blue: 140/255))
-
                 .navigationBarHidden(true)
 //                .navigationBarItems(leading: Button(action : {
 //                    self.presentationMode.wrappedValue.dismiss()
@@ -129,6 +133,13 @@ struct ExerciseView: View {
 //                        .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
 //                        .tint(Color.white)
 //                })
+
+                .background{
+                    VStack {
+                        Color(red: 253/255, green: 153/255, blue: 140/255)
+                        Color.white
+                    }
+                }
 
             }
         

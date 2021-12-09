@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Relaxed.png",
+      "filename" : "relaxed.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Relaxed@2x.png",
+      "filename" : "relaxed@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Relaxed@3x.png",
+      "filename" : "relaxed@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

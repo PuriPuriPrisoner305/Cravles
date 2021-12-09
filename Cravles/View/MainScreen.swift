@@ -29,29 +29,36 @@ struct MainScreen: View {
                             .padding(.leading, 25)
                             .frame(width: geo.size.width, alignment: .leading)
                     }
-                    .frame(width: geo.size.width, height: geo.size.height * (1/3), alignment: .leading)
+                    .frame(width: geo.size.width, height: geo.size.height * (0.9/3), alignment: .leading)
                     
                     //Bagian Putih
                     VStack(alignment: .leading){
                         Text("Exercise for you")
                             .font(.title3)
                             .fontWeight(.semibold)
+                            .padding(.top, 20)
                             .padding(.leading, 22)
                             .frame(width: geo.size.width, alignment: .leading)
 
-                        VStack {
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.5))
+                            .frame(height: 2)
+                            .padding(.horizontal, 20)
+
+
+//                        VStack {
                             //Exercise
                             ForEach(Audio.audios) { audio in
                                 NavigationLink(destination: ExerciseView(audioData: audio)) {
                                     MainScreenRow(audioData: audio)
                                 }
                             }
-                        }
+//                        }
                         
                         
                     }
                     .padding(.bottom, 120)
-                    .frame(width: geo.size.width, height: geo.size.height * (2/3), alignment: .leading)
+                    .frame(width: geo.size.width, height: geo.size.height * (2.1/3), alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(radius:20, corners: [.topLeft, .topRight])
                     
