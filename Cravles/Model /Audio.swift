@@ -19,7 +19,7 @@ struct Audio : Identifiable, Hashable {
     var typeAudio : String
 
     static let audios: [Audio] = [
-        Audio(id: 0, title: "Breathing", exerciseDesc: "Focus your attention on your breathing and the way it feels on each inhale and exhale", exerciseDuration: "01:12", artwork: UIImage(systemName: "gear")!, titleAudio: "BreathingExercise", typeAudio: "m4a"),
+        Audio(id: 0, title: "Breathing", exerciseDesc: "Focus your attention on your breathing and the way it feels on each inhale and exhale", exerciseDuration: "01:12", artwork: UIImage(systemName: "gear")!, titleAudio: "BreatingExercise", typeAudio: "m4a"),
         Audio(id: 1, title: "Sitting Mindfulness", exerciseDesc: "Sitting mindfulness", exerciseDuration: "12:00", artwork: UIImage(systemName: "leaf")!, titleAudio: "AudioBreathing", typeAudio: "mp3")
     ]
 }

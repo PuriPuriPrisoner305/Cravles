@@ -245,7 +245,7 @@ struct ExerciseGuideView: View {
 
         }
         .background(Color(red: 253/255, green: 153/255, blue: 140/255))
-        .onAppear(perform: guideData.fetch)
+        .onAppear(perform: {guideData.fetch(sound: audioData.titleAudio, type: audioData.typeAudio)})
         .onReceive(timer) { _ in
             guideData.updateSliderTimer()
         }
