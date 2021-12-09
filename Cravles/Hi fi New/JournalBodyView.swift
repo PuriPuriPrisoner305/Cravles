@@ -21,6 +21,7 @@ struct JournalBodyView: View {
     @ObservedObject var rainDataPass: ObservableObjectRain
 //    @Binding var reflectionPass: [String]
     @State private var showJournalingView = false
+    
 
     @Binding var reflect: [String]
 
@@ -45,11 +46,8 @@ struct JournalBodyView: View {
                         
                     }
                         Button("Save") {
-//                            inputRain2.reflectionRain2 = reflection
                             
-//                            let rain = Reflection(context: moc)
-//                            rain.reflection2 = self.reflection
-//                            try? self.moc.save()
+                shouldPopToRootView = false
                             inputRain = reflection
 //                            showingQuotes.toggle()
                             let quotesList = ["Set your goals high, and don’t stop till you get there.-Bo Jackson", "Start where you are. Use what you have. Do what you can. — Arthur Ashe", "Start where you are. Use what you have. Do what you can. — Arthur Ashe","Let us make our future now, and let us make our dreams tomorrow’s reality. – Malala Yousafzai","Just one small positive thought in the morning can change your whole day. — Dalai Lama","When you change your thoughts, remember to also change your world.—Norman Vincent Peale","The best way out is always through. ―Robert Frost", "Your life only gets better when you get better.- Brian Tracy", "Calm mind brings inner strength and self-confidence, so that’s very important for good health. — Dalai Lama", "Believe you can and you’re halfway there. Theodore Roosevelt","If I cannot do great things, I can do small things in a great way. – Martin Luther King Jr.","Boredom, anger, sadness, or fear are not ‘yours,’ not personal. They are conditions of the human mind. They come and go. Nothing that comes and goes is you. -Eckhart Tolle","When you feel sad, it’s okay. It’s not the end of the world. -Mac Miller","We generate fears while we sit. We overcome them by action.” – Dr. Henry Link","We generate fears while we sit. We overcome them by action.” – Dr. Henry Link","You cannot always control what goes on outside. But you can always control what goes on inside. — Wayne Dyer"]
@@ -58,7 +56,8 @@ struct JournalBodyView: View {
 
 
                             self.showModal.toggle()
-                        }.sheet(isPresented: $showModal) {
+                        }
+                        .sheet(isPresented: $showModal) {
                             JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain, reflection: $reflect, rainDataPass: rainDataPass, shouldPopToRootViewAgain: $shouldPopToRootView)
 
                         }

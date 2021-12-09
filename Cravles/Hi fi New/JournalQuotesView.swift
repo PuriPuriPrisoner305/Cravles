@@ -67,7 +67,6 @@ struct JournalQuotesView: View {
                             .opacity(0.5)
                             .padding(10)
                         Button(action: {
-                           
                             let newData = RainModel(dateReflection: Date(), quotes: reflection[3], reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])
                             rainDataPass.save(rain: newData)
 //                            presentationMode.wrappedValue.dismiss()
@@ -77,7 +76,12 @@ struct JournalQuotesView: View {
                             print(newData.reflection2)
                             print(newData.reflection3)
                             self.shouldPopToRootViewAgain = false
-                            presentationMode.wrappedValue.dismiss()
+                            self.showModal = false 
+                            
+                            
+                           
+                            
+                           
                            
                         }) {
                             Text("Done")

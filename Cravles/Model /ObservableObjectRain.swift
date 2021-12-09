@@ -50,6 +50,7 @@ class ObservableObjectRain: ObservableObject {
                     let ref3 = res.value(forKey: "reflection3") as! String
                     let d = RainModel(id: id, dateReflection: date, quotes: quotes, reflection1: ref1, reflection2: ref2, reflection3: ref3)
                     data.append(d)
+                    print("\(ref1)")
                 }
             }
             
@@ -71,7 +72,11 @@ class ObservableObjectRain: ObservableObject {
         entity.setValue(rain.reflection1, forKey: "reflection1")
         entity.setValue(rain.reflection2, forKey: "reflection2")
         entity.setValue(rain.reflection3, forKey: "reflection3")
-        
+        do {
+            try? context.save()
+        } catch {
+            
+        }
         read()
         
     }

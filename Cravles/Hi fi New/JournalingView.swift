@@ -13,9 +13,8 @@ struct JournalingView: View {
     var colors: [Color] = [Color.pulsatingColor, Color.textFieldColor]
     @State  var isLinkActive1 = false
     @State var showingAdd = false
-    @State var isLinkActive2 = true
+    @State var isLinkActive2 = false
     @StateObject var rainData = ObservableObjectRain()
-    
     let tes = [1,2,3,4,]
     var body: some View {
         NavigationView{
@@ -68,8 +67,8 @@ struct JournalingView: View {
                         }
                         }
                     }.onTapGesture {
-                      
-
+                       
+                       
                     }
                 }
             }.onAppear(perform: {
@@ -85,7 +84,7 @@ struct JournalingView: View {
                                                 Button(action:{
                                                     
                                                     self.isLinkActive1 = true
-                                                   
+                                                    
                                                 }){
                                                     ZStack{
                                                        Image(systemName: "plus.square")
