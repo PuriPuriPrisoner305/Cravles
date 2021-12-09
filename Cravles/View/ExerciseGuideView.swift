@@ -28,6 +28,8 @@ struct ExerciseGuideView: View {
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()
 
+    var audioData: Audio
+
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -49,7 +51,7 @@ struct ExerciseGuideView: View {
 
                     Spacer()
 
-                    Text("Breathing Mindfulness")
+                    Text(audioData.title)
                         .foregroundColor(Color.white)
                         .font(Font.system(.title3, design: .rounded))
                         .fontWeight(.bold)
@@ -258,6 +260,6 @@ struct ExerciseGuideView: View {
 
 struct ExerciseGuideView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseGuideView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ExerciseGuideView(audioData: Audio.audios[0]).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

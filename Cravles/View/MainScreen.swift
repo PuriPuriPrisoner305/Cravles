@@ -41,8 +41,8 @@ struct MainScreen: View {
 
                         VStack {
                             ForEach(Audio.audios) { audio in
-                                NavigationLink(destination: ExerciseView()) {
-                                    MainScreenRow(audioData: audioData)
+                                NavigationLink(destination: ExerciseView(audioData: audio)) {
+                                    MainScreenRow(audioData: audio)
                                 }
                             }
                         }

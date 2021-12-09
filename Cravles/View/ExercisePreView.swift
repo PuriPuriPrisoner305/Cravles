@@ -15,6 +15,8 @@ struct ExercisePreView: View {
 
     @State var isLinkActive = false
 
+    var audioData: Audio
+
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -39,7 +41,7 @@ struct ExercisePreView: View {
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
 
-                Text("It's ok! \n Let's do some breathing exercise with me to help calm your mind")
+                Text("It's ok! \n Let's do some \(audioData.title) with me to help calm your mind")
                     .font(Font.system(.title2, design: .default))
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
@@ -48,9 +50,10 @@ struct ExercisePreView: View {
 
 //                Spacer(minLength: 0)
 
-                NavigationLink(destination: ExerciseGuideView(), isActive: $isLinkActive) {
+                NavigationLink(destination: ExerciseGuideView(audioData: audioData), isActive: $isLinkActive) {
                     Button(action: {
                         self.isLinkActive = true
+                        print(audioData)
                     }) {
                         Text("Continue")
                             .font(Font.system(.title3, design: .rounded))
@@ -79,6 +82,6 @@ struct ExercisePreView: View {
 
 struct ExercisePreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisePreView()
+        ExercisePreView(audioData: Audio.audios[0])
     }
 }

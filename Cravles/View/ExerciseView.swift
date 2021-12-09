@@ -19,6 +19,8 @@ struct ExerciseView: View {
 
     var data = Mood.moods
 
+    var audioData: Audio
+
     var body: some View {
 //        NavigationView {
             GeometryReader { geo in
@@ -98,9 +100,10 @@ struct ExerciseView: View {
                         .padding(40)
                         .tint(Color.white)
 
-                    NavigationLink(destination: ExercisePreView(), isActive: $isLinkActive) {
+                    NavigationLink(destination: ExercisePreView(audioData: audioData), isActive: $isLinkActive) {
                         Button(action: {
                             self.isLinkActive = true
+                            print(audioData)
                         }) {
                             Text("Continue")
                                 .font(Font.system(.title3, design: .rounded))
@@ -145,6 +148,6 @@ struct BlueButton: ButtonStyle {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ExerciseView(audioData: Audio.audios[0]).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
