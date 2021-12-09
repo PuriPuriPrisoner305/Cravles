@@ -21,6 +21,8 @@ struct ExerciseView: View {
 
     var audioData: Audio
 
+    var deviceName = DeviceName()
+
     var body: some View {
 //        NavigationView {
             GeometryReader { geo in
@@ -73,7 +75,7 @@ struct ExerciseView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
 
-                    Text("Hi, John")
+                    Text("Hi, \(deviceName.deviceName)")
                         .font(Font.system(.title, design: .default))
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)

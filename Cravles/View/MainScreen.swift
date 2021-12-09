@@ -40,96 +40,13 @@ struct MainScreen: View {
                             .frame(width: geo.size.width, alignment: .leading)
 
                         VStack {
+                            //Exercise
                             ForEach(Audio.audios) { audio in
                                 NavigationLink(destination: ExerciseView(audioData: audio)) {
                                     MainScreenRow(audioData: audio)
                                 }
                             }
                         }
-
-//                        // Exercise
-//                        VStack(spacing: 20){
-//
-//                            NavigationLink(destination: ExerciseView()) {
-//                                HStack(spacing: 10){
-//                                    Image("breathee")
-//                                        .resizable()
-//                                        .frame(width: 90, height: 100)
-//
-//                                    VStack(alignment: .leading){
-//                                        Text("Breathing")
-//                                            .font(.body)
-//                                            .fontWeight(.medium)
-//                                            .foregroundColor(Color.black)
-//
-//                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
-//                                            .font(.caption)
-//                                            .foregroundColor(.gray)
-//                                            .multilineTextAlignment(.leading)
-//
-//                                        VStack(alignment: .leading){
-//                                            Text("Estimated time")
-//                                            Text("03.00 min")
-//                                        }
-//                                        .font(.footnote)
-//                                        .foregroundColor(.gray)
-//                                        .padding(.top, 5)
-//
-//
-//                                    }
-//
-//                                }
-//                                .padding(20)
-//                                .frame(width: geo.size.width - 50)
-//                                .background(Color.white
-//                                    .shadow(radius: 10)
-//
-//                                )
-//                            }
-//
-//                            NavigationLink(destination: EmotionVIew()) {
-//                                HStack(spacing: 10){
-//                                    Image("breathee")
-//                                        .resizable()
-//                                        .frame(width: 90, height: 100)
-//
-//                                    VStack(alignment: .leading){
-//                                        Text("Breathing")
-//                                            .font(.body)
-//                                            .fontWeight(.medium)
-//                                            .foregroundColor(Color.black)
-//
-//                                        Text("Focus your attention on your breathing and the way it feels on each inhale and exhale")
-//                                            .font(.caption)
-//                                            .foregroundColor(.gray)
-//                                            .multilineTextAlignment(.leading)
-//
-//                                        VStack(alignment: .leading){
-//                                            Text("Estimated time")
-//                                            Text("03.00 min")
-//                                        }
-//                                        .font(.footnote)
-//                                        .foregroundColor(.gray)
-//                                        .padding(.top, 5)
-//
-//
-//                                    }
-//
-//                                }
-//                                .padding(20)
-//                                .frame(width: geo.size.width - 50)
-//                                .background(Color.white
-//                                    .shadow(radius: 10)
-//
-//                                )
-//                            }
-//
-//
-//                        }
-//                        .frame(width: geo.size.width)
-                        
-                        
-
                         
                         
                     }
