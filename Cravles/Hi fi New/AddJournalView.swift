@@ -102,9 +102,24 @@ struct AddJournalView: View {
                                             .resizable()
                                             .frame(width: h.size.width/1.2, height: h.size.width/2.8, alignment: .center)
                                             .padding(.top,h.size.width/10)
-                                                                  Text("Journal your feeling")
-                                                                      .foregroundColor(Color.black)
-                                }.padding(.leading,h.size.width/7)
+                                            .padding(.leading,h.size.width/7)
+                                    HStack{
+                                        VStack(alignment:.leading){
+                                            Text("Journal your feeling")
+                                                .foregroundColor(Color.black)
+                                                .font(Font.system(size:18,weight: .bold, design: .rounded))
+                                            Text("how are you feeling?")
+                                                .foregroundColor(Color.gray)
+                                                .font(Font.system(size:18, design: .rounded))
+                                        }
+
+                                    }
+                                   Text(">")
+                                        .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                        .foregroundColor(Color.pulsatingColor)
+                                        .padding(.leading,h.size.width-90)
+                                                                
+                                }
                             }
                     }
                     ZStack{
@@ -113,18 +128,33 @@ struct AddJournalView: View {
                               
                                         ZStack{
                                           Rectangle()
-                                                .background(Color.gray)
+                                                .foregroundColor(Color.framedisable)
                                                 .opacity(0.5)
                                                 .frame(width: h.size.width/1.4, height: h.size.width/4.5, alignment: .center)
                                                 .cornerRadius(10)
                                                 .shadow(color: Color.gray, radius: 5, x: -10, y: 10)
                                                 .opacity(0.5)
-                                                    
-                                            Text("Journal you thought")
-                                                                              .foregroundColor(Color.black)
+                                            
+                                            HStack{
+                                                VStack(alignment:.leading){
+                                                    Text("Journal your thought")
+                                                        .foregroundColor(Color.gray)
+                                                        .font(Font.system(size:17,weight: .bold, design: .rounded))
+                                                    Text("write what you think here?")
+                                                        .foregroundColor(Color.gray)
+                                                        .font(Font.system(size:17, design: .rounded))
+                                                }
+
+                                            }
+                                           Text(">")
+                                                .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                                .foregroundColor(Color.gray)
+                                                .padding(.leading,h.size.width-160)
+                                        
                                             
                                         }.padding(.leading,h.size.width/7)
-                                .padding(.bottom, h.size.width/6)
+                                .padding(.bottom, h.size.width/10)
+                                .padding(.top, h.size.width/30)
                         } else {
                             NavigationLink(destination: JournalThoughtView(inputRain: $reflection[1], anim11: $anim2), isActive: $isPresented1)
                             {
@@ -134,10 +164,26 @@ struct AddJournalView: View {
                                         ZStack{
                                             Image("RectStepJournaling")
                                                     .resizable()
-                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.7, alignment: .center)
-                                            Text("Journal you thought")
-                                                                              .foregroundColor(Color.black)
-                                        }.padding(.leading,h.size.width/7)
+                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.8, alignment: .center)
+                                                    .padding(.top,h.size.width/20)
+                                                    .padding(.leading,h.size.width/7)
+                                            HStack{
+                                                VStack(alignment:.leading){
+                                                    Text("Journal your thought")
+                                                        .foregroundColor(Color.black)
+                                                        .font(Font.system(size:18,weight: .bold, design: .rounded))
+                                                    Text("write what you think here")
+                                                        .foregroundColor(Color.gray)
+                                                        .font(Font.system(size:18, design: .rounded))
+                                                }
+
+                                            }
+                                           Text(">")
+                                                .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                                .foregroundColor(Color.pulsatingColor)
+                                                .padding(.leading,h.size.width-90)
+                                                                        
+                                        }
                                        
                                     }
 
@@ -147,17 +193,29 @@ struct AddJournalView: View {
                     ZStack{
                         if anim2 == false {
                             ZStack{
-                              Rectangle()
-                                    .background(Color.gray)
-                                    .opacity(0.5)
-                                    .frame(width: h.size.width/1.4, height: h.size.width/4.5, alignment: .center)
-                                    .cornerRadius(10)
-                                    .shadow(color: Color.gray, radius: 5, x: -10, y: 10)
-                                    .opacity(0.5)
-                                        
-                                        
-                                Text("Journal your body feeling")
-                                                                  .foregroundColor(Color.black)
+                                Rectangle()
+                                      .foregroundColor(Color.framedisable)
+                                      .opacity(0.5)
+                                      .frame(width: h.size.width/1.4, height: h.size.width/4.5, alignment: .center)
+                                      .cornerRadius(10)
+                                      .shadow(color: Color.gray, radius: 5, x: -10, y: 10)
+                                      .opacity(0.5)
+                                  
+                                  HStack{
+                                      VStack(alignment:.leading){
+                                          Text("Journal your body feeling")
+                                              .foregroundColor(Color.gray)
+                                              .font(Font.system(size:17,weight: .bold, design: .rounded))
+                                          Text("write is your body feeling?")
+                                              .foregroundColor(Color.gray)
+                                              .font(Font.system(size:17, design: .rounded))
+                                      }
+
+                                  }
+                                 Text(">")
+                                      .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                      .foregroundColor(Color.gray)
+                                      .padding(.leading,h.size.width-160)
                                 
                             }.padding(.leading,h.size.width/7)
                                 
@@ -171,10 +229,24 @@ struct AddJournalView: View {
                                         ZStack{
                                             Image("RectStepJournaling")
                                                     .resizable()
-                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.7, alignment: .center)
-                                            
-                                            Text("Journal your body feeling")
-                                                                              .foregroundColor(Color.black)
+                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.8, alignment: .center)
+                                                  
+                                                    
+                                            HStack{
+                                                VStack{
+                                                    Text("Journal your body feeling")
+                                                        .foregroundColor(Color.black)
+                                                        .font(Font.system(size:18,weight: .bold, design: .rounded))
+                                                    Text("write is your body feeling?")
+                                                        .foregroundColor(Color.gray)
+                                                        .font(Font.system(size:18, design: .rounded))
+                                                }.padding(.top,0)
+
+                                            }
+                                           Text(">")
+                                                .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                                .foregroundColor(Color.pulsatingColor)
+                                                .padding(.leading,h.size.width-160)
                                         }.padding(.leading,h.size.width/7)
                                     }
                                 

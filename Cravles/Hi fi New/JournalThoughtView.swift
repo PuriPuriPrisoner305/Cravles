@@ -48,7 +48,7 @@ struct JournalThoughtView: View {
                                 .font(Font.system(size:20,weight: .bold, design: .rounded))
                                 .foregroundColor(Color.white)
                         }.padding(.all)
-                    }
+                    } .disabled(reflection.isEmpty)
                 }
             }
         }.navigationBarTitle(Text("What's on your mind?").font(.title2), displayMode: .inline)

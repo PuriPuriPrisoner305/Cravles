@@ -56,7 +56,7 @@ struct JournalBodyView: View {
 
 
                             self.showModal.toggle()
-                        }
+                        } .disabled(reflect.isEmpty)
                         .sheet(isPresented: $showModal) {
                             JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain, reflection: $reflect, rainDataPass: rainDataPass, shouldPopToRootViewAgain: $shouldPopToRootView, anim11: $anim11)
 
@@ -68,7 +68,7 @@ struct JournalBodyView: View {
                                
                            
 //                        }
-                        .disabled(reflection.isEmpty)
+                       
                         .frame(width: h.size.width/1.5, height: h.size.width/9, alignment: .center)
                             .font(Font.system(.title2, design: .rounded))
                             .background(Color.pulsatingColor)

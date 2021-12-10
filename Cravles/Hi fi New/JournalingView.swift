@@ -98,7 +98,7 @@ struct JournalingView: View {
                                 }
                                 else if rain.reflection3.isEmpty && rain.reflection1.isEmpty && rain.reflection2.isEmpty{
                                     Text("you just completed 0 0f 3 stages lest's finish it")
-                                        .font(.system(size: 9))
+                                        .font(Font.system(size:17,weight: .bold, design: .rounded))
                                         .foregroundColor(Color.black)
                                         .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
                                 }

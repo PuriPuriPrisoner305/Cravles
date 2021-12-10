@@ -16,6 +16,10 @@ extension Color {
     
     static let pulsatingColor = Color.rgb(r: 235, g: 153, b: 140).opacity(1)
     static let textFieldColor = Color.rgb(r: 220, g: 138, b: 124).opacity(1)
+    static let textH1 = Color.rgb(r: 220, g: 138, b: 124).opacity(1)
+    static let textcapt = Color.rgb(r: 144, g: 144, b: 146).opacity(1)
+    static let frameadd = Color.rgb(r: 199, g: 199, b: 100).opacity(1)
+    static let framedisable = Color.rgb(r: 238, g: 238, b: 224).opacity(1)
 }
 extension Date {
         func formatDate() -> String {

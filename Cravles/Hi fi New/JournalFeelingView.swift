@@ -23,18 +23,18 @@ struct JournalFeelingView: View {
         ZStack{
             GeometryReader{h in
                 VStack{
-                Image("\(Int(currentValue))" + "a")
+                Image("\(Int(currentValue))")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: h.size.width/1.5, height: h.size.width/2, alignment: .center)
-                        .padding(.top,h.size.width/4)
-                    let no = Int(currentValue)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: h.size.width, height: h.size.width, alignment: .center)
+                        .edgesIgnoringSafeArea(.vertical)
+                                        let no = Int(currentValue)
                    var feel = feelingRain[no]
                     Text("\(feel)")
                         .font(Font.system(.title3, design: .rounded))
                                                 .fontWeight(.bold)
                                                 .tracking(2)
-                        .padding(.top,h.size.width/6)
+                        .padding(.top,10)
                     HStack{
                         Slider(value: $currentValue,in:0 ... 7, step: 1)
                             .accentColor(.black)
@@ -64,7 +64,7 @@ struct JournalFeelingView: View {
                                 .foregroundColor(Color.white)
                         }
                     }
-                    .disabled(currentValue == 0.0)
+                    .disabled(currentValue == nil)
                     
                         
                 }
