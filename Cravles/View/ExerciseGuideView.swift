@@ -36,22 +36,22 @@ struct ExerciseGuideView: View {
 
                 HStack {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
                         Button(action : {
                             self.presentationMode.wrappedValue.dismiss()
                         }){
                             Image(systemName: "chevron.left")
-                                .tint(Color.white)
-    //                            .foregroundColor(Color(red: 1, green: 0.7, blue: 0.64))
+                                .font(Font.system(.title2))
+                                .tint(Color.black)
                         }
                     }
                     .frame(width: 30, height: 30)
 
                     Spacer()
 
-                    Text(audioData.title)
+                    Text(audioData.title2)
                         .foregroundColor(Color.black)
                         .font(Font.system(.title3, design: .rounded))
                         .fontWeight(.bold)
@@ -60,14 +60,15 @@ struct ExerciseGuideView: View {
 
                     ZStack {
 
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
                         Button{
                             showingSheet.toggle()
                         } label: {
-                            Image(systemName: "gear")
-                                .foregroundColor(Color.white)
+                            Image(systemName: "gearshape.fill")
+                                .font(Font.system(.title2))
+                                .tint(Color.black)
                         }
                         .sheet(isPresented: $showingSheet) {
                             SheetView(guideData: guideData, voiceLevel: $voiceLevel, musicLevel: $musicLevel)
@@ -75,8 +76,8 @@ struct ExerciseGuideView: View {
                     }
                     .frame(width: 30, height: 30)
                 }
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
 
                 Spacer()
 

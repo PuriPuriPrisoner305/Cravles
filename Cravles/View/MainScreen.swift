@@ -11,6 +11,9 @@ struct MainScreen: View {
     var deviceName = DeviceName()
     var audioData : Audio
 //    var colors: [Color] = [Color.pulsatingColor]
+
+    @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
+
     var body: some View {
         VStack{
             GeometryReader { geo in
@@ -34,7 +37,7 @@ struct MainScreen: View {
                     //Bagian Putih
                     VStack(alignment: .leading){
                         Text("Exercise for you")
-                            .font(.title3)
+                            .font(Font.system(.title3, design: .rounded))
                             .fontWeight(.semibold)
                             .padding(.top, 20)
                             .padding(.leading, 22)
@@ -46,18 +49,18 @@ struct MainScreen: View {
                             .padding(.horizontal, 20)
 
 
-//                        VStack {
-                            //Exercise
-                            ForEach(Audio.audios) { audio in
-                                NavigationLink(destination: ExerciseView(audioData: audio)) {
-                                    MainScreenRow(audioData: audio)
-                                }
+                        //Exercise
+                        ForEach(Audio.audios) { audio in
+                            NavigationLink(destination: ExerciseView(audioData: audio)) {
+                                MainScreenRow(audioData: audio)
                             }
-//                        }
+                        }
+
+                        Spacer(minLength: width - 40)
                         
                         
                     }
-                    .padding(.bottom, 120)
+//                    .padding(.bottom, 160)
                     .frame(width: geo.size.width, height: geo.size.height * (2.1/3), alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(radius:20, corners: [.topLeft, .topRight])

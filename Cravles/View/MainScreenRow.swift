@@ -14,7 +14,7 @@ struct MainScreenRow: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.white)
-                    .shadow(radius: 5)
+                    .shadow(radius: 3)
 
                 VStack {
                     HStack {
@@ -25,13 +25,13 @@ struct MainScreenRow: View {
 
                         VStack(alignment: .leading){
                             Text(audioData.title)
-                                .font(.body)
-                                .fontWeight(.medium)
+                                .font(Font.system(.body, design: .rounded))
+                                .fontWeight(.bold)
                                 .padding(.bottom, 5)
                                 .foregroundColor(Color.black)
 
                             Text(audioData.exerciseDesc)
-                                .font(.caption)
+                                .font(Font.system(.caption, design: .rounded))
                                 .foregroundColor(.gray)
                                 .multilineTextAlignment(.leading)
 
@@ -39,7 +39,7 @@ struct MainScreenRow: View {
                                 Text("Estimated time")
                                 Text("\(audioData.exerciseDuration) min")
                             }
-                            .font(.footnote)
+                            .font(Font.system(.footnote, design: .rounded))
                             .foregroundColor(.gray)
                             .padding(.top, 5)
                         }

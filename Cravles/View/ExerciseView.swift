@@ -31,52 +31,26 @@ struct ExerciseView: View {
                     Rectangle()
                         .fill(Color.clear)
                         .frame(height: geo.size.height * 0.04)
-//                    HStack {
-//                            Image(systemName: "arrow.left")
-//                                .frame(width: 30)
-//                            .onTapGesture(count: 1, perform: {
-////                                self.mode.wrappedValue.dismiss()
-//                            })
-//                        Spacer()
-//                        Image(systemName: "command")
-//                            .frame(width: 30)
-//                        Spacer()
-//                        Image(systemName: "arrow.right")
-//                            .frame(width: 30)
-//                            .onTapGesture(count: 1, perform: {
-//                                self.isLinkActive = true
-//                            })
-//
-//                        NavigationLink(
-//                            destination: ExercisePreView()
-//                                .navigationBarHidden(true),
-//                            isActive: $isLinkActive,
-//                            label: {
-//                                //no label
-//                            })
-//                    }
-//                    .padding([.leading,.trailing], 8)
-//                    .frame(width: geo.size.width)
-//                    .font(.system(size: 22))
+
 
                     HStack {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
                             Button(action : {
                                 self.presentationMode.wrappedValue.dismiss()
                             }){
                                 Image(systemName: "chevron.left")
-                                    .tint(Color.white)
+                                    .font(Font.system(.title2))
+                                    .tint(Color.black)
                             }
                         }
                         .frame(width: 30, height: 30)
 
                         Spacer()
                     }
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+                    .padding(.leading, 10)
 
                     ZStack {
                         Image(uiImage: data[Int(moodSlider)].moodImg)

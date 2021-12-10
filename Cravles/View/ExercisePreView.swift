@@ -27,25 +27,25 @@ struct ExercisePreView: View {
 
                 HStack {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .fill(Color(red: 1, green: 0.7, blue: 0.64))
 
                         Button(action : {
                             self.presentationMode.wrappedValue.dismiss()
                         }){
                             Image(systemName: "chevron.left")
-                                .tint(Color.white)
+                                .font(Font.system(.title2))
+                                .tint(Color.black)
                         }
                     }
                     .frame(width: 30, height: 30)
 
                     Spacer()
                 }
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .padding(.leading, 10)
 
-                Text("It's ok! \n Let's do some \(audioData.title) with me to help calm your mind")
-                    .font(Font.system(.title2, design: .default))
+                Text("It's ok! \n Let's do some \(audioData.title2.lowercased()) with me to help calm your mind")
+                    .font(Font.system(.title2, design: .rounded))
                     .fontWeight(.bold)
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)

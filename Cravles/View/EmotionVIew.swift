@@ -38,20 +38,20 @@ struct EmotionVIew: View {
                         ZStack {
 //                            RoundedRectangle(cornerRadius: 10)
 //                                .fill(Color(red: 1, green: 0.7, blue: 0.64))
-//
-//                            Button(action : {
-//                                self.presentationMode.wrappedValue.dismiss()
-//                            }){
-//                                Image(systemName: "chevron.left")
-//                                    .tint(Color.white)
-//                            }
+
+                            Button(action : {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }){
+                                Image(systemName: "chevron.left")
+                                    .font(Font.system(.title2))
+                                    .tint(Color.black)
+                            }
                         }
                         .frame(width: 30, height: 30)
 
                         Spacer()
                     }
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+                    .padding(.leading, 10)
 
                     ZStack {
                         Image(uiImage: data[Int(moodSlider)].moodImg)
@@ -66,7 +66,7 @@ struct EmotionVIew: View {
                                 .foregroundColor(Color.white)
         //                        .padding(.horizontal)
 
-                            Text("How are you feeling?")
+                            Text("How are you feeling right now?")
                                 .font(Font.system(.title3, design: .default))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color.white)
