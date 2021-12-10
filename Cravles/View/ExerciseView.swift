@@ -28,6 +28,9 @@ struct ExerciseView: View {
             GeometryReader { geo in
                 VStack (spacing: 20) {
 
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(height: geo.size.height * 0.05)
 //                    HStack {
 //                            Image(systemName: "arrow.left")
 //                                .frame(width: 30)
@@ -103,9 +106,11 @@ struct ExerciseView: View {
                         .fontWeight(.bold)
                         .tracking(2)
                         .foregroundColor(Color.black)
+                        .padding(.top, 40)
 
                     Slider(value: $moodSlider, in: 0...7, step: 1)
-                        .padding(40)
+                        .padding(.bottom, 40)
+                        .padding(.horizontal, 40)
                         .tint(Color.black)
 
                     NavigationLink(destination: ExercisePreView(audioData: audioData), isActive: $isLinkActive) {
@@ -126,6 +131,11 @@ struct ExerciseView: View {
                     Spacer(minLength: 0)
                 }
                 .navigationBarHidden(true)
+                .background(
+                    VStack{
+                        Color.pulsatingColor
+                        Color.white
+                    }).edgesIgnoringSafeArea(.vertical)
 //                .navigationBarItems(leading: Button(action : {
 //                    self.presentationMode.wrappedValue.dismiss()
 //                }){
@@ -134,15 +144,9 @@ struct ExerciseView: View {
 //                        .tint(Color.white)
 //                })
 
-                .background{
-                    VStack {
-                        Color(red: 253/255, green: 153/255, blue: 140/255)
-                        Color.white
-                    }
-                }
 
             }
-        
+
     }
 }
 
@@ -150,8 +154,8 @@ struct BlueButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color.white)
-            .foregroundColor(Color(red: 0.91, green: 0.42, blue: 0.34))
+            .background(Color.pulsatingColor)
+            .foregroundColor(Color.white)
             .cornerRadius(25)
             .shadow(radius: 5)
 //            .padding(.trailing, 20)
