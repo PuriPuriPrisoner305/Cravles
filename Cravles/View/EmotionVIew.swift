@@ -15,7 +15,7 @@ struct EmotionVIew: View {
     
     @State var isLinkActive = false
 
-    @State var moodSlider : Double = 2.0
+    @State var moodSlider : Double = 4.0
 
     var data = Mood.moods
 
@@ -24,11 +24,15 @@ struct EmotionVIew: View {
             GeometryReader { geo in
                 VStack (spacing: 20) {
 
-                    HStack {
-                    }
-                    .padding([.leading,.trailing], 8)
-                    .frame(width: geo.size.width)
-                    .font(.system(size: 22))
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(height: geo.size.height * 0.04)
+
+//                    HStack {
+//                    }
+//                    .padding([.leading,.trailing], 8)
+//                    .frame(width: geo.size.width)
+//                    .font(.system(size: 22))
 
                     HStack {
                         ZStack {
@@ -49,36 +53,46 @@ struct EmotionVIew: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
 
-                    Text("Nice")
-                        .font(Font.system(.title, design: .default))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.white)
+                    ZStack {
+                        Image(uiImage: data[Int(moodSlider)].moodImg)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: geo.size.width)
 
-                    Text("How are you feeling right now?")
-                        .font(Font.system(.title3, design: .default))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color.white)
+                        VStack {
+                            Text("Nice")
+                                .font(Font.system(.title, design: .default))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+        //                        .padding(.horizontal)
 
-                    Image(uiImage: data[Int(moodSlider)].moodImg)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: width, height: width)
+                            Text("How are you feeling?")
+                                .font(Font.system(.title3, design: .default))
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.white)
+        //                        .padding(.horizontal)
+                            Spacer()
+                        }
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height * 1/2)
 
                     Text("\(data[Int(moodSlider)].mood)")
                         .font(Font.system(.title3, design: .rounded))
                         .fontWeight(.bold)
                         .tracking(2)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.black)
+                        .padding(.top, 40)
 
                     Slider(value: $moodSlider, in: 0...7, step: 1)
-                        .padding(40)
-                        .tint(Color.white)
+                        .padding(.bottom, 40)
+                        .padding(.horizontal, 40)
+                        .tint(Color.black)
 
                     NavigationLink(destination: ContentView(), isActive: $isLinkActive) {
                         Button(action: {
                             self.isLinkActive = true
                         }) {
-                            Text("Continue")
+                            Text("Done")
                                 .font(Font.system(.title3, design: .rounded))
                                 .fontWeight(.bold)
                                 .frame(width: geo.size.width * 0.7, alignment: .center)
@@ -90,7 +104,11 @@ struct EmotionVIew: View {
 
                     Spacer(minLength: 0)
                 }
-                .background(Color(red: 253/255, green: 153/255, blue: 140/255))
+                .background(
+                    VStack{
+                        Color.pulsatingColor
+                        Color.white
+                    }).edgesIgnoringSafeArea(.vertical)
 
                 .navigationBarHidden(true)
 //                .navigationBarItems(leading: Button(action : {

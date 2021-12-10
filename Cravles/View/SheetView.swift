@@ -125,7 +125,7 @@ struct SheetView: View {
 
             }
         }
-        .background(Color(red: 253/255, green: 153/255, blue: 140/255))
+        .background(Color.pulsatingColor)
     }
 }
 

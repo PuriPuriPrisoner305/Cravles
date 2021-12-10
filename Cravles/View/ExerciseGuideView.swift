@@ -52,7 +52,7 @@ struct ExerciseGuideView: View {
                     Spacer()
 
                     Text(audioData.title)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.black)
                         .font(Font.system(.title3, design: .rounded))
                         .fontWeight(.bold)
 
@@ -86,20 +86,20 @@ struct ExerciseGuideView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: width * 1.3, height: width * 1.3)
                         .clipShape(Circle())
-                        .foregroundColor(Color.white.opacity(0.4))
+                        .foregroundColor(Color.pulsatingColor.opacity(0.4))
 
 
                     Circle()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: width * 1.15, height: width * 1.15)
                         .clipShape(Circle())
-                        .foregroundColor(Color.white.opacity(0.7))
+                        .foregroundColor(Color.pulsatingColor.opacity(0.7))
 
                     Circle()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: width, height: width)
                         .clipShape(Circle())
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.pulsatingColor)
 
                     ZStack {
 
@@ -107,17 +107,17 @@ struct ExerciseGuideView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: width / 3, height: width / 3)
-                            .foregroundColor(Color(red: 0.86, green: 0.49, blue: 0.43))
+                            .foregroundColor(Color.white)
 
                         //Circle kanan leaf
                         Circle()
-                            .fill(Color(red: 0.88, green: 0.69, blue: 0.66))
+                            .fill(Color.white)
                             .frame(width: 10, height: 10)
                             .offset(x: (width - 30) / 2)
 
                         //Circle atas leaf
                         Circle()
-                            .fill(Color(red: 0.86, green: 0.49, blue: 0.43))
+                            .fill(Color.white)
 //                            .fill(Color.blue)
                             .frame(width: 10, height: 10)
                             .offset(y: (width - 30) / -2)
@@ -126,7 +126,7 @@ struct ExerciseGuideView: View {
                         Circle()
                             .trim(from: 0, to: 0.75)
 //                            .trim(from: 0, to: CGFloat(guideData.angle) / 360)
-                            .stroke(Color(red: 220/255, green: 139/255, blue: 124/255), lineWidth: 2)
+                            .stroke(Color.white, lineWidth: 2)
                             .frame(width: width - 30, height: width - 30)
 
 //                        //Slider circle
@@ -161,7 +161,7 @@ struct ExerciseGuideView: View {
                     }) {
                         Image(systemName: "gobackward.10")
                             .font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.black)
                             .padding(20)
                             .clipShape(Circle())
                     }
@@ -169,16 +169,16 @@ struct ExerciseGuideView: View {
                     Button(action: guideData.play) {
                         Image(systemName: guideData.isPlaying ? "pause.fill" : "play.fill")
                             .font(.title)
-                            .foregroundColor(Color(red: 253/255, green: 153/255, blue: 140/255))
+                            .foregroundColor(Color.white)
                             .padding(20)
-                            .background(Color.white)
+                            .background(Color.black)
                             .clipShape(Circle())
                     }
 
                     Button(action: guideData.increaseTenSec) {
                         Image(systemName: "goforward.10")
                             .font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.black)
                             .padding(20)
                             .clipShape(Circle())
                     }
@@ -189,19 +189,19 @@ struct ExerciseGuideView: View {
                 ZStack (alignment: .leading) {
 
                     Capsule()
-                        .fill(Color.white.opacity(0.5))
+                        .fill(Color.black)
                         .frame(height: 4)
 
                     ZStack {
 
                         //Slider circle
                         Circle()
-                            .fill(Color.white)
+                            .fill(Color.black)
                             .frame(width: 15, height: 15)
                             .offset(x: guideData.line / 2)
 
                         Capsule()
-                            .fill(Color.white)
+                            .fill(Color.black)
                             .frame(width: guideData.line, height: 4)
                             .gesture(DragGesture().onChanged(guideData.onChangedSlider(value: )))
 //                            .gesture(DragGesture()
@@ -236,7 +236,7 @@ struct ExerciseGuideView: View {
                         .font(Font.system(.body, design: .rounded))
 //                        .fontWeight(.medium)
                 }
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.black)
                 .padding(.horizontal, 20)
 
                 Spacer()
@@ -244,7 +244,7 @@ struct ExerciseGuideView: View {
             }
 
         }
-        .background(Color(red: 253/255, green: 153/255, blue: 140/255))
+        .background(Color.white)
         .onAppear(perform: {guideData.fetch(sound: audioData.titleAudio, type: audioData.typeAudio)})
         .onReceive(timer) { _ in
             guideData.updateSliderTimer()

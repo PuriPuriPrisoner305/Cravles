@@ -30,7 +30,7 @@ struct ExerciseView: View {
 
                     Rectangle()
                         .fill(Color.clear)
-                        .frame(height: geo.size.height * 0.05)
+                        .frame(height: geo.size.height * 0.04)
 //                    HStack {
 //                            Image(systemName: "arrow.left")
 //                                .frame(width: 30)

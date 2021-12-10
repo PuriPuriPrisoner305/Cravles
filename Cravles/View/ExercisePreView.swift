@@ -21,6 +21,9 @@ struct ExercisePreView: View {
         GeometryReader { geo in
             VStack {
 //                Spacer(minLength: 0)
+                Rectangle()
+                    .fill(Color.clear)
+                    .frame(height: geo.size.height * 0.05)
 
                 HStack {
                     ZStack {
@@ -44,7 +47,7 @@ struct ExercisePreView: View {
                 Text("It's ok! \n Let's do some \(audioData.title) with me to help calm your mind")
                     .font(Font.system(.title2, design: .default))
                     .fontWeight(.bold)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
                     .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.6)
 
@@ -62,7 +65,7 @@ struct ExercisePreView: View {
                     }
                     .buttonStyle(BlueButton())
                 }
-                .frame(height: geo.size.height * 0.25)
+                .frame(height: geo.size.height * 0.24)
 //                Spacer(minLength: 0)
             }
             .navigationBarHidden(true)
@@ -76,7 +79,8 @@ struct ExercisePreView: View {
 
 //            .frame(width: geo.size.width, height: geo.size.height)
         }
-        .background(Color(red: 253/255, green: 153/255, blue: 140/255))
+        .background(Color.white)
+        .edgesIgnoringSafeArea(.vertical)
     }
 }
 
