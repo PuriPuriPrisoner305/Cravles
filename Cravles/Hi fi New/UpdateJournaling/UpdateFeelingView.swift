@@ -8,7 +8,6 @@
 //import SwiftUI
 //
 //struct UpdateFeelingView: View {
-//    @Environment(\.managedObjectContext) var moc
 //    @State private var feeling: String = ""
 //    @State var currentValue = 0.0
 //    @Environment(\.presentationMode) var presentationMode
@@ -16,8 +15,8 @@
 //    var feelingRain = ["ANGRY","ANXIOUS","SAD","TIRED","RELAXED","CONTENT","HAPPY","EXCITED"]
 ////    @Binding var reflectionPass: [String]
 ////    @ObservedObject var rainDataPass: ObservableObjectRain
-//    
-//    var assetId: NSManagedObjectID
+//
+//    @State var assetId: NSManagedObjectID
 //    var reflectino: Reflection
 //    var body: some View {
 //        ZStack{
@@ -33,9 +32,9 @@
 //                            currentValue = h
 //                        }
 //                    }
-//                   
-//                    
-//                    var currentValue = 
+//
+//
+//                    var currentValue =
 //                    Text("\(self.reflection)" ?? "\(feelingRain[0])")
 //                        .font(Font.system(.title3, design: .rounded))
 //                                                .fontWeight(.bold)
@@ -71,8 +70,8 @@
 //                        }
 //                    }
 //                    .disabled(currentValue == 0.0)
-//                    
-//                        
+//
+//
 //                }
 //            }
 //        }.navigationBarTitle(Text("How are you feeling?").font(.title2), displayMode: .inline)

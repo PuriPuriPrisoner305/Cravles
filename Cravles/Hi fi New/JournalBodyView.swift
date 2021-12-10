@@ -24,7 +24,7 @@ struct JournalBodyView: View {
     
 
     @Binding var reflect: [String]
-
+    @Binding var anim11 : Bool
     @Binding var shouldPopToRootView : Bool
     
     var body: some View {
@@ -58,7 +58,7 @@ struct JournalBodyView: View {
                             self.showModal.toggle()
                         }
                         .sheet(isPresented: $showModal) {
-                            JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain, reflection: $reflect, rainDataPass: rainDataPass, shouldPopToRootViewAgain: $shouldPopToRootView)
+                            JournalQuotesView(inputRain: $inputRain, showModal: $showModal, randomQuotes: $quoteRain, reflection: $reflect, rainDataPass: rainDataPass, shouldPopToRootViewAgain: $shouldPopToRootView, anim11: $anim11)
 
                         }
 //                        .sheet(isPresented: $showingQuotes) {

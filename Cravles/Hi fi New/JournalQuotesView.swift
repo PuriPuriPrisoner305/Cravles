@@ -20,7 +20,7 @@ struct JournalQuotesView: View {
     @ObservedObject var rainDataPass: ObservableObjectRain
 
     @Binding var shouldPopToRootViewAgain: Bool
-    
+    @Binding var anim11 : Bool
     var body: some View {
         
         GeometryReader{ h in
@@ -76,7 +76,8 @@ struct JournalQuotesView: View {
                             print(newData.reflection2)
                             print(newData.reflection3)
                             self.shouldPopToRootViewAgain = false
-                            self.showModal = false 
+                            self.showModal = false
+                            anim11 = true
                             
                             
                            

@@ -17,6 +17,7 @@ struct JournalFeelingView: View {
     var feelingRain = ["ANGRY","ANXIOUS","SAD","TIRED","RELAXED","CONTENT","HAPPY","EXCITED"]
 //    @Binding var reflectionPass: [String]
 //    @ObservedObject var rainDataPass: ObservableObjectRain
+    @Binding var anim11 : Bool
     
     var body: some View {
         ZStack{
@@ -45,11 +46,13 @@ struct JournalFeelingView: View {
 //                        let rain = Reflection(context: moc)
 //                        feeling1 = ("\(feel)")
                         inputFeeling = feel
+                        anim11 = true
 //                        let newData = RainModel(dateReflection: Date(), quotes: reflectionPass[3], reflection1: feel, reflection2: "", reflection3: "")
 //                        rainDataPass.save(rain: newData)
     
 //                        try? self.moc.save()
                         self.presentationMode.wrappedValue.dismiss()
+                        
                     }label: {
                         ZStack{
                             Rectangle()

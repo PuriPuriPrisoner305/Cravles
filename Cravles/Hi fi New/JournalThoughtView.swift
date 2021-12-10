@@ -14,6 +14,7 @@ struct JournalThoughtView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var reflection = ""
     @Environment(\.managedObjectContext) var moc
+    @Binding var anim11 : Bool
     var body: some View {
         ZStack{
             GeometryReader{ h in
@@ -35,6 +36,7 @@ struct JournalThoughtView: View {
                     Button{
                       inputRain = reflection
                     self.presentationMode.wrappedValue.dismiss()
+                        anim11 = true
 
                     }label: {
                         ZStack{

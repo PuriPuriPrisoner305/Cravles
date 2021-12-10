@@ -18,6 +18,9 @@ struct AddJournalView: View {
     @State private var isPresented1 = false
     @State private var isPresented = false
     @State private var isFullScreen = false
+    @State private var anim1 = false
+    @State private var anim2 = false
+    @State private var anim3 = false
     @State var isLinkActive = false
     @State var reflection = ["","","",""]
     @Environment(\.managedObjectContext) var moc
@@ -30,10 +33,10 @@ struct AddJournalView: View {
         ZStack{
             GeometryReader { h in
                 VStack{
-                    if rainData.reflectionRain1.isEmpty{
+                    if anim1 == false{
                         Image(systemName: "circlebadge")
                             .resizable()
-                            .foregroundColor(Color.pulsatingColor)
+                            .foregroundColor(Color.gray)
                             .frame(width: h.size.width/10, height: h.size.width/10)
                             .padding(.top,h.size.width/7)
                     } else {
@@ -43,25 +46,53 @@ struct AddJournalView: View {
                             .frame(width: h.size.width/10, height: h.size.width/10)
                             .padding(.top,h.size.width/7)
                     }
+                    if anim1 == false{
+                        Rectangle()
+                            .frame(width: h.size.width/98, height: h.size.width/4, alignment: .leading)
+                            .foregroundColor(Color.gray)
+                    } else {
+                        Rectangle()
+                            .frame(width: h.size.width/98, height: h.size.width/4, alignment: .leading)
+                            .foregroundColor(Color.pulsatingColor)
+                    }
+                    if anim2 == false {
+                        Image(systemName: "circlebadge")
+                            .resizable()
+                            .frame(width: h.size.width/10, height: h.size.width/10)
+                            .foregroundColor(Color.gray)
+                    } else {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .frame(width: h.size.width/10, height: h.size.width/10)
+                            .foregroundColor(Color.pulsatingColor)
+                    }
+                    
                    
-                    Rectangle()
-                        .frame(width: h.size.width/90, height: h.size.width/4, alignment: .leading)
-                        .foregroundColor(Color.pulsatingColor)
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .frame(width: h.size.width/10, height: h.size.width/10)
-                        .foregroundColor(Color.pulsatingColor)
-                    Rectangle()
-                        .frame(width: h.size.width/90, height: h.size.width/4, alignment: .leading)
-                        .foregroundColor(Color.pulsatingColor)
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .frame(width: h.size.width/10, height: h.size.width/10)
-                        .foregroundColor(Color.pulsatingColor)
+                    if anim3 == false {
+                        Rectangle()
+                            .frame(width: h.size.width/90, height: h.size.width/4, alignment: .leading)
+                            .foregroundColor(Color.gray)
+                    } else {
+                        Rectangle()
+                            .frame(width: h.size.width/90, height: h.size.width/4, alignment: .leading)
+                            .foregroundColor(Color.pulsatingColor)
+                    }
+                    if anim3 == false {
+                        Image(systemName: "circlebadge")
+                            .resizable()
+                            .frame(width: h.size.width/10, height: h.size.width/10)
+                            .foregroundColor(Color.gray)
+                    } else {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .frame(width: h.size.width/10, height: h.size.width/10)
+                            .foregroundColor(Color.pulsatingColor)
+                    }
+                  
                     
                 }.padding()
                 VStack{
-                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0]), isActive: $isLinkActive)
+                    NavigationLink(destination: JournalFeelingView(inputFeeling: $reflection[0], anim11: $anim1), isActive: $isLinkActive)
                     {
                             Button(action:{
                                 self.isLinkActive = true
@@ -76,43 +107,87 @@ struct AddJournalView: View {
                                 }.padding(.leading,h.size.width/7)
                             }
                     }
-                    NavigationLink(destination: JournalThoughtView(inputRain: $reflection[1]), isActive: $isPresented1)
-                    {
-                            Button(action:{
-                                self.isPresented1 = true
-                            }){
-                                ZStack{
-                                    Image("RectStepJournaling")
-                                            .resizable()
-                                            .frame(width: h.size.width/1.2, height: h.size.width/2.7, alignment: .center)
-                                    Text("Journal you thought")
-                                                                      .foregroundColor(Color.black)
-                                }.padding(.leading,h.size.width/7)
-                            }
-
-                    }
-                    NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], quoteRain: $reflection[3], rainDataPass: rainData, reflect: $reflection, shouldPopToRootView: $rootIsActive), isActive: $isPresented)
-                    {
-                            Button(action:{
-                                self.isPresented = true
-                            }){
-                                ZStack{
-                                    Image("RectStepJournaling")
-                                            .resizable()
-                                            .frame(width: h.size.width/1.2, height: h.size.width/2.7, alignment: .center)
-                                    
-                                    Text("Journal your body feeling")
-                                                                      .foregroundColor(Color.black)
-                                }.padding(.leading,h.size.width/7)
-                            }
+                    ZStack{
                         
+                        if anim1 == false {
+                              
+                                        ZStack{
+                                          Rectangle()
+                                                .background(Color.gray)
+                                                .opacity(0.5)
+                                                .frame(width: h.size.width/1.4, height: h.size.width/4.5, alignment: .center)
+                                                .cornerRadius(10)
+                                                .shadow(color: Color.gray, radius: 5, x: -10, y: 10)
+                                                .opacity(0.5)
+                                                    
+                                            Text("Journal you thought")
+                                                                              .foregroundColor(Color.black)
+                                            
+                                        }.padding(.leading,h.size.width/7)
+                                .padding(.bottom, h.size.width/6)
+                        } else {
+                            NavigationLink(destination: JournalThoughtView(inputRain: $reflection[1], anim11: $anim2), isActive: $isPresented1)
+                            {
+                                    Button(action:{
+                                        self.isPresented1 = true
+                                    }){
+                                        ZStack{
+                                            Image("RectStepJournaling")
+                                                    .resizable()
+                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.7, alignment: .center)
+                                            Text("Journal you thought")
+                                                                              .foregroundColor(Color.black)
+                                        }.padding(.leading,h.size.width/7)
+                                       
+                                    }
+
+                            }
+                        }
                     }
+                    ZStack{
+                        if anim2 == false {
+                            ZStack{
+                              Rectangle()
+                                    .background(Color.gray)
+                                    .opacity(0.5)
+                                    .frame(width: h.size.width/1.4, height: h.size.width/4.5, alignment: .center)
+                                    .cornerRadius(10)
+                                    .shadow(color: Color.gray, radius: 5, x: -10, y: 10)
+                                    .opacity(0.5)
+                                        
+                                        
+                                Text("Journal your body feeling")
+                                                                  .foregroundColor(Color.black)
+                                
+                            }.padding(.leading,h.size.width/7)
+                                
+                            
+                        } else {
+                            NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], quoteRain: $reflection[3], rainDataPass: rainData, reflect: $reflection, anim11: $anim3, shouldPopToRootView: $rootIsActive), isActive: $isPresented)
+                            {
+                                    Button(action:{
+                                        self.isPresented = true
+                                    }){
+                                        ZStack{
+                                            Image("RectStepJournaling")
+                                                    .resizable()
+                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.7, alignment: .center)
+                                            
+                                            Text("Journal your body feeling")
+                                                                              .foregroundColor(Color.black)
+                                        }.padding(.leading,h.size.width/7)
+                                    }
+                                
+                            }
+                        }
+                    }
+                  
                 }
                 
             }
            
         }
-        .navigationBarTitle(Text("\(todayDay)").font(.title2), displayMode: .inline)
+        .navigationBarTitle(Text("New Journal").font(.title2), displayMode: .inline)
         .navigationBarItems(trailing: Button(action: {
             
             let newData = RainModel(dateReflection: Date(), quotes: reflection[3], reflection1: reflection[0], reflection2: reflection[1], reflection3: reflection[2])

@@ -17,6 +17,9 @@ struct RainModel{
     var reflection2 :String = ""
     var reflection3 : String = ""
 }
+struct Rain1{
+    var feeling : String = ""
+}
 
 class ObservableObjectRain: ObservableObject {
     @Published var dateRain: Date = Date()
@@ -27,6 +30,7 @@ class ObservableObjectRain: ObservableObject {
         
     @Published var data : [RainModel] = [RainModel]()
     @Published var currentData = RainModel()
+    static let shared = ObservableObjectRain()
     init() {
         read()
     }
@@ -74,14 +78,17 @@ class ObservableObjectRain: ObservableObject {
         entity.setValue(rain.reflection3, forKey: "reflection3")
         do {
             try? context.save()
+            if context.hasChanges{
+                ObservableObjectRain.shared.updateReflection1(feeling: "TIRED", rain: rain)
+            }
         } catch {
-            
+            print("Error")
         }
         read()
         
     }
     
-    func update(id:NSManagedObjectID,key:String,value:String){
+    func update(id:NSManagedObjectID,key:String,value:String, reflection1: Rain1){
         let persistent  = PersistenceController.shared
         let context  = persistent.container.viewContext
         do{
@@ -89,6 +96,17 @@ class ObservableObjectRain: ObservableObject {
             obj.setValue(value, forKey: key)
         }catch{
             
+        }
+    }
+    func updateReflection1(feeling: String, rain: RainModel){
+        let persistent  = PersistenceController.shared
+        let context  = persistent.container.viewContext
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "Reflection1", into: context)
+        entity.setValue(feeling, forKey: "feeling")
+        do {
+            try? context.save()
+        } catch {
+            print("error")
         }
     }
     func delete(id:NSManagedObjectID){

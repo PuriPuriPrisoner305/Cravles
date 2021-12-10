@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct JournalingView: View {
     @Environment(\.managedObjectContext) var moc
@@ -15,62 +16,122 @@ struct JournalingView: View {
     @State var showingAdd = false
     @State var isLinkActive2 = false
     @StateObject var rainData = ObservableObjectRain()
+    @State var isID = ""
     let tes = [1,2,3,4,]
     var body: some View {
         NavigationView{
 
             ScrollView{
                 ForEach(rainData.data, id:\.id){ rain in
+//                    NavigationLink(destination: UpdateView(feelingRain1: $isID)){
                     VStack{
+                        
                         ZStack{
-                       Rectangle()
-                                .frame(width:UIScreen.main.bounds.width-30, height: 100)
-                                .cornerRadius(10)
-                                .foregroundColor(Color.white)
-                                .padding(8)
-                                .shadow(radius: 5)
-                        HStack{
-                            
-                            ZStack(alignment:.center){
+                            if rain.reflection2.isEmpty && rain.reflection3.isEmpty{
                                 Rectangle()
-                                    .frame(width: UIScreen.main.bounds.width/6, height: UIScreen.main.bounds.width/5.5)
-                                    .cornerRadius(5)
-                                    .foregroundColor(Color.textFieldColor)
-                                    .padding(.leading,0)
-                                VStack(alignment:.center){
-                                    Text( "\(rain.dateReflection.formatDay())" ?? "14")
-                                        .foregroundColor(Color.white)
-                                    Text( "\(rain.dateReflection.formatDateMonth())" ?? "Nov")
-                                    
-                                        .foregroundColor(Color.white)
-                                } .padding(.leading,4)
-                                    
+                                         .frame(width:UIScreen.main.bounds.width-30, height: 100)
+                                         .cornerRadius(10)
+                                         .foregroundColor(Color.pulsatingColor)
+                                         .padding(8)
+                                         .shadow(radius: 5)
+                            } else {
+                                Rectangle()
+                                         .frame(width:UIScreen.main.bounds.width-30, height: 100)
+                                         .cornerRadius(10)
+                                         .foregroundColor(Color.white)
+                                         .padding(8)
+                                         .shadow(radius: 5)
                             }
+                     
+                        HStack{
+                            if rain.reflection2.isEmpty && rain.reflection3.isEmpty{
+                                ZStack(alignment:.center){
+                                    Rectangle()
+                                        .frame(width: UIScreen.main.bounds.width/6, height: UIScreen.main.bounds.width/5.5)
+                                        .cornerRadius(5)
+                                        .foregroundColor(Color.white)
+                                        .padding(.leading,0)
+                               
+                                        VStack(alignment:.center){
+                                            Text( "\(rain.dateReflection.formatDay())" ?? "14")
+                                                .foregroundColor(Color.black)
+                                            Text( "\(rain.dateReflection.formatDateMonth())" ?? "Nov")
+                                            
+                                                .foregroundColor(Color.black)
+                                        } .padding(.leading,4)
+                        
+                                }
+                            } else {
+                                ZStack(alignment:.center){
+                                    Rectangle()
+                                        .frame(width: UIScreen.main.bounds.width/6, height: UIScreen.main.bounds.width/5.5)
+                                        .cornerRadius(5)
+                                        .foregroundColor(Color.textFieldColor)
+                                        .padding(.leading,0)
+                                    VStack(alignment:.center){
+                                        Text( "\(rain.dateReflection.formatDay())" ?? "14")
+                                            .foregroundColor(Color.white)
+                                        Text( "\(rain.dateReflection.formatDateMonth())" ?? "Nov")
+                                        
+                                            .foregroundColor(Color.white)
+                                    } .padding(.leading,4)
+                                        
+                                }
+                            }
+                          
                            
                             VStack(alignment: .leading){
 //                                if rainData.reflectionRain1.isEmpty || rainData.reflectionRain2.isEmpty || rainData.reflectionRain3.isEmpty{
 //
 //                                }
-                                Text("\(rain.reflection1)" ?? "Suspended")
-                                    .frame(width: UIScreen.main.bounds.width/4, height: UIScreen.main.bounds.width/20, alignment: .topLeading)
+                                if rain.reflection2.isEmpty && rain.reflection3.isEmpty {
+                                    Text("you just completed 1 0f 3 stages lest's finish it")
+                                        .font(.system(size: 9))
+                                        .foregroundColor(Color.black)
+                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
+                                }
+                                else if rain.reflection3 == nil{
+                                    Text("you just completed 2 0f 3 stages lest's finish it")
+                                        .font(.system(size: 9))
+                                        .foregroundColor(Color.black)
+                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
+                                }
+                                else if rain.reflection3.isEmpty && rain.reflection1.isEmpty && rain.reflection2.isEmpty{
+                                    Text("you just completed 0 0f 3 stages lest's finish it")
+                                        .font(.system(size: 9))
+                                        .foregroundColor(Color.black)
+                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
+                                }
+                                else {
+                                    Text( "\(rain.quotes )")
+                                        .font(.system(size: 9))
+                                        .foregroundColor(Color.black)
+                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
                                    
-                              
+                                   
+                                }
                                 
-                                Text( "\(rain.quotes )" ?? "you just completed i 0f 3 stages lest's finish it")
-                                    .font(.system(size: 9))
-                                    .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
+                                
+                                    
                             }
                             .padding()
-//                                Image(systemName: rains.isEmpty ? "checkmark.circle.fill":"minus.circle")
+                            if rain.reflection2.isEmpty && rain.reflection3.isEmpty{
+                                Image(systemName: "circle.fill")
+                                    .foregroundColor(Color.white)
+                            } else {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(Color.pulsatingColor)
+                               
+                            }
                             
-                        
+                                
+                                
                         }
                         }
-                    }.onTapGesture {
-                       
-                       
                     }
+//                    }
                 }
+                
             }.onAppear(perform: {
                 rainData.read()
                 print(isLinkActive1)
@@ -87,7 +148,7 @@ struct JournalingView: View {
                                                     
                                                 }){
                                                     ZStack{
-                                                       Image(systemName: "plus.square")
+                                                       Image(systemName: "plus")
                                                             .foregroundColor(Color.black)
                                                     }
                                                 }
