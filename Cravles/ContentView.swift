@@ -17,7 +17,7 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     var body: some View {
-        NavigationView {
+     
             
             TabView {
                 MainScreen()
@@ -47,7 +47,7 @@ struct ContentView: View {
 
             }
             .accentColor(Color.pulsatingColor)
-        }
+
 
     }
 
