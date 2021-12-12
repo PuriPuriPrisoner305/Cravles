@@ -33,7 +33,6 @@
 		22D3318E274B4E6B005B72FF /* Cravles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D3318C274B4E6B005B72FF /* Cravles.xcdatamodeld */; };
 		D918900D2753B550002E65F5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918900C2753B550002E65F5 /* SheetView.swift */; };
 		D94C5C8E2761B4CE00F4981F /* MainScreenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94C5C8D2761B4CE00F4981F /* MainScreenRow.swift */; };
-		D953AB7727592B4700EF57A1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953AB7627592B4700EF57A1 /* ProfileView.swift */; };
 		D9A47CB627591913003B8057 /* BreatingExercise.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D9A47CB527591913003B8057 /* BreatingExercise.m4a */; };
 		D9E48187274B53EF004189CF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48186274B53EF004189CF /* ExerciseView.swift */; };
 		D9E48189274BA04D004189CF /* ExerciseGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48188274BA04D004189CF /* ExerciseGuideView.swift */; };
@@ -74,7 +73,6 @@
 		22D3318D274B4E6B005B72FF /* Cravles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cravles.xcdatamodel; sourceTree = "<group>"; };
 		D918900C2753B550002E65F5 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		D94C5C8D2761B4CE00F4981F /* MainScreenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRow.swift; sourceTree = "<group>"; };
-		D953AB7627592B4700EF57A1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D9A47CB527591913003B8057 /* BreatingExercise.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BreatingExercise.m4a; sourceTree = "<group>"; };
 		D9E48186274B53EF004189CF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		D9E48188274BA04D004189CF /* ExerciseGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideView.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				22A0D3BE274DF04800F77050 /* View */,
 				E0F73BA2274B583000AE10DC /* Model  */,
 				D9E48191274D54C9004189CF /* View */,
-				D953AB7527592B2B00EF57A1 /* View Profile */,
 				22D33181274B4E6A005B72FF /* CravlesApp.swift */,
 				22D33183274B4E6A005B72FF /* ContentView.swift */,
 				2202E0B82765D19000E6771E /* AudioBreathing.mp3 */,
@@ -175,14 +172,6 @@
 				22D33188274B4E6B005B72FF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D953AB7527592B2B00EF57A1 /* View Profile */ = {
-			isa = PBXGroup;
-			children = (
-				D953AB7627592B4700EF57A1 /* ProfileView.swift */,
-			);
-			path = "View Profile";
 			sourceTree = "<group>";
 		};
 		D9E48190274D54B3004189CF /* ViewModel */ = {
@@ -316,7 +305,6 @@
 				D9E48189274BA04D004189CF /* ExerciseGuideView.swift in Sources */,
 				227CF2392752561D00BF8F9E /* EmotionVIew.swift in Sources */,
 				224B58392754DA130082088C /* CoreDataManager.swift in Sources */,
-				D953AB7727592B4700EF57A1 /* ProfileView.swift in Sources */,
 				D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */,
 				D9E4818F274D54AA004189CF /* ExerciseVM.swift in Sources */,
 				D9E48193274D574D004189CF /* ExercisePlayView.swift in Sources */,
@@ -455,7 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Cravles/Preview Content\"";
 				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				ENABLE_PREVIEWS = YES;
@@ -484,7 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Cravles/Preview Content\"";
 				DEVELOPMENT_TEAM = 8WWR82GRZD;
 				ENABLE_PREVIEWS = YES;

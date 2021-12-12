@@ -29,7 +29,7 @@ struct JournalFeelingView: View {
                         .frame(width: h.size.width, height: h.size.width, alignment: .center)
                         .edgesIgnoringSafeArea(.vertical)
                                         let no = Int(currentValue)
-                   var feel = feelingRain[no]
+                    let feel = feelingRain[no]
                     Text("\(feel)")
                         .font(Font.system(.title3, design: .rounded))
                                                 .fontWeight(.bold)
