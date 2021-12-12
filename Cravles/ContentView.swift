@@ -36,7 +36,7 @@ struct ContentView: View {
 //                    .frame(width: .infinity, height: .infinity)
                     .ignoresSafeArea()
                 
-                ProfileView()
+                Text("Coming Soon")
                     .tabItem {
                         Image(systemName: "person")
                         Text("Profile")
