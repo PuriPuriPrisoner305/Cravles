@@ -23,7 +23,7 @@ struct ExerciseGuideView: View {
     var voiceStyle = ["Female", "Male"]
 
     @State var voiceLevel: Float = 1
-    @State var musicLevel: Float = 0.3
+    @State var musicLevel: Float = 1
 
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
     @State var timer = Timer.publish(every: 0.1, on: .current, in: .default).autoconnect()

@@ -15,6 +15,7 @@ struct MainScreen: View {
     @State var width : CGFloat = UIScreen.main.bounds.height < 750 ? 130 : 230
 
     var body: some View {
+        
         VStack{
             GeometryReader { geo in
                 VStack{
