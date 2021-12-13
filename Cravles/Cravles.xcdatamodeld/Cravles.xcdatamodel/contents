@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
@@ -9,9 +9,15 @@
         <attribute name="reflection1" optional="YES" attributeType="String"/>
         <attribute name="reflection2" optional="YES" attributeType="String"/>
         <attribute name="reflection3" optional="YES" attributeType="String"/>
+        <relationship name="editrelcetion1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reflection1" inverseName="reflection" inverseEntity="Reflection1"/>
+    </entity>
+    <entity name="Reflection1" representedClassName="Reflection1" syncable="YES" codeGenerationType="class">
+        <attribute name="feeling" optional="YES" attributeType="String"/>
+        <relationship name="reflection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reflection" inverseName="editrelcetion1" inverseEntity="Reflection"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="Reflection" positionX="-63" positionY="-9" width="128" height="104"/>
+        <element name="Reflection" positionX="-63" positionY="-9" width="128" height="119"/>
+        <element name="Reflection1" positionX="-63" positionY="27" width="128" height="59"/>
     </elements>
 </model>

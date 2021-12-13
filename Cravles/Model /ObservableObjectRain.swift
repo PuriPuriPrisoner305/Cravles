@@ -39,8 +39,6 @@ class ObservableObjectRain: ObservableObject {
         let persistent  = PersistenceController.shared
         let context  = persistent.container.viewContext
         let fetchreq = NSFetchRequest<NSFetchRequestResult>(entityName: "Reflection")
-        
-        data = []
         do{
             let results = try context.fetch(fetchreq)
             

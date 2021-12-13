@@ -136,6 +136,18 @@ struct BlueButton: ButtonStyle {
 //            .padding(.leading, 20)
     }
 }
+struct WhiteButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color.white)
+            .foregroundColor(Color.pulsatingColor)
+            .cornerRadius(25)
+            .shadow(radius: 5)
+//            .padding(.trailing, 20)
+//            .padding(.leading, 20)
+    }
+}
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {

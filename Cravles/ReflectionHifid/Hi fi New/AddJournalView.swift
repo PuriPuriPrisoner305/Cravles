@@ -68,7 +68,7 @@ struct AddJournalView: View {
                     }
                     
                    
-                    if anim3 == false {
+                    if anim2 == false {
                         Rectangle()
                             .frame(width: h.size.width/90, height: h.size.width/4, alignment: .leading)
                             .foregroundColor(Color.gray)
@@ -98,11 +98,9 @@ struct AddJournalView: View {
                                 self.isLinkActive = true
                             }){
                                 ZStack{
-                                    Image("RectStepJournaling")
-                                            .resizable()
-                                            .frame(width: h.size.width/1.2, height: h.size.width/2.8, alignment: .center)
-                                            .padding(.top,h.size.width/10)
-                                            .padding(.leading,h.size.width/7)
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.white)
+                                        .shadow(radius: 3)
                                     HStack{
                                         VStack(alignment:.leading){
                                             Text("Journal your feeling")
@@ -117,24 +115,23 @@ struct AddJournalView: View {
                                    Text(">")
                                         .font(Font.system(size:20,weight: .bold, design: .rounded))
                                         .foregroundColor(Color.pulsatingColor)
-                                        .padding(.leading,h.size.width-90)
+                                        .padding(.leading,h.size.width-150)
                                                                 
-                                }
+                                }.frame(width: h.size.width/1.4, height: h.size.width/4, alignment: .center)
+                                   
                             }
-                    }
+                    }.padding(.top,h.size.width/7)
                     ZStack{
-                        
+                        if anim1 == true {
                             NavigationLink(destination: JournalThoughtView(inputRain: $reflection[1], anim11: $anim2), isActive: $isPresented1)
                             {
                                     Button(action:{
                                         self.isPresented1 = true
                                     }){
                                         ZStack{
-                                            Image("RectStepJournaling")
-                                                    .resizable()
-                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.8, alignment: .center)
-                                                    .padding(.top,0)
-                                                    .padding(.leading,h.size.width/7)
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.white)
+                                                .shadow(radius: 3)
                                             HStack{
                                                 VStack(alignment:.leading){
                                                     Text("Journal your thought")
@@ -149,26 +146,53 @@ struct AddJournalView: View {
                                            Text(">")
                                                 .font(Font.system(size:20,weight: .bold, design: .rounded))
                                                 .foregroundColor(Color.pulsatingColor)
-                                                .padding(.leading,h.size.width-90)
+                                                .padding(.leading,h.size.width-150)
                                                                         
-                                        }
+                                        }.frame(width: h.size.width/1.4, height: h.size.width/4, alignment: .center)
+                                          
                                        
                                     }
 
                             }
+                        } else {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.gray)
+                                    .shadow(radius: 3)
+                                    .opacity(0.7)
+                                HStack{
+                                    VStack(alignment:.leading){
+                                        Text("Journal your thought")
+                                            .foregroundColor(Color.textcapt)
+                                            .font(Font.system(size:18,weight: .bold, design: .rounded))
+                                        Text("write what you think here")
+                                            .foregroundColor(Color.textcapt)
+                                            .font(Font.system(size:18, design: .rounded))
+                                    }
+
+                                }
+                               Text(">")
+                                    .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                    .foregroundColor(Color.textcapt)
+                                    .padding(.leading,h.size.width-150)
+                                                            
+                            }.frame(width: h.size.width/1.4, height: h.size.width/4, alignment: .center)
+                            
                         }
+                        
+                           
+                    }.padding(.top,h.size.width/9)
                     ZStack{
+                        if anim2 == true {
                             NavigationLink(destination: JournalBodyView(inputRain: $reflection[2], quoteRain: $reflection[3], rainDataPass: rainData, reflect: $reflection, anim11: $anim3, shouldPopToRootView: $rootIsActive), isActive: $isPresented)
                             {
                                     Button(action:{
                                         self.isPresented = true
                                     }){
                                         ZStack{
-                                            Image("RectStepJournaling")
-                                                    .resizable()
-                                                    .frame(width: h.size.width/1.2, height: h.size.width/2.8, alignment: .center)
-                                                    .padding(.top,0)
-                                                    .padding(.leading,h.size.width/7)
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.white)
+                                                .shadow(radius: 3)
                                             HStack{
                                                 VStack(alignment:.leading){
                                                     Text("Journal your body feeling")
@@ -185,14 +209,41 @@ struct AddJournalView: View {
                                                 .foregroundColor(Color.pulsatingColor)
                                                 .padding(.leading,h.size.width-90)
                                                                         
-                                        }
+                                        }.frame(width: h.size.width/1.4, height: h.size.width/4, alignment: .center)
+                                            
                                       
                                     }
                                 
                             }
-                    }
+                        } else {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.gray)
+                                    .shadow(radius: 3)
+                                    .opacity(0.7)
+                                HStack{
+                                    VStack(alignment:.leading){
+                                        Text("Journal your body feeling")
+                                            .foregroundColor(Color.textcapt)
+                                            .font(Font.system(size:18,weight: .bold, design: .rounded))
+                                        Text("what is your body feeling?")
+                                            .foregroundColor(Color.textcapt)
+                                            .font(Font.system(size:18, design: .rounded))
+                                    }
+
+                                }
+                               Text(">")
+                                    .font(Font.system(size:20,weight: .bold, design: .rounded))
+                                    .foregroundColor(Color.textcapt)
+                                    .padding(.leading,h.size.width-150)
+                                                            
+                            }.frame(width: h.size.width/1.4, height: h.size.width/4, alignment: .center)
+                                
+                        }
+                           
+                    }.padding(.top,h.size.width/9)
                   
-                }
+                }.padding(.leading,h.size.width/5)
                 
             }
            
@@ -206,7 +257,9 @@ struct AddJournalView: View {
         }, label: {
             Text("Save")
                 .buttonStyle(BlueButton())
-        }))
+                
+        }
+                                            ))
            
         
             

@@ -54,11 +54,12 @@ struct JournalQuotesView: View {
                             Image("petikdua")
                                 .resizable()
                                 .frame(width: h.size.width/7, height: h.size.width/10)
+                                .padding(.leading, 10)
 
                                             Text("\(randomQuotes)")
                                 .font(.system(size: h.size.width/12, weight: .bold, design: .default))
                                                 .foregroundColor(Color.white)
-                                                .padding(.top,h.size.width/20)
+                                                .padding(.top,h.size.width/30)
                                                 .padding()
                         }.padding(.top,h.size.width/2.3)
                                         Rectangle()
@@ -77,20 +78,17 @@ struct JournalQuotesView: View {
                             print(newData.reflection3)
                             self.shouldPopToRootViewAgain = false
                             self.showModal = false
-                            anim11 = true
-                            
-                            
                            
-                            
                            
                            
                         }) {
                             Text("Done")
                                 .font(Font.system(.title3, design: .rounded))
                                 .fontWeight(.bold)
+                                .frame(width: h.size.width * 0.7, alignment: .center)
                         }
-                        .buttonStyle(BlueButton())
-                        
+                        .buttonStyle(WhiteButton())
+                        .padding(.top,h.size.width/7)
 
                     }
                     

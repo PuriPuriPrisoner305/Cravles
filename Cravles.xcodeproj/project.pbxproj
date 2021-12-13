@@ -42,6 +42,8 @@
 		D9E48197274F3E39004189CF /* ExerciseGuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */; };
 		D9E48199274FFC70004189CF /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E48198274FFC70004189CF /* Mood.swift */; };
 		D9E4819B27501009004189CF /* ExercisePreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E4819A27501009004189CF /* ExercisePreView.swift */; };
+		E03621A727676D7D006B84D7 /* UpdateJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03621A627676D7D006B84D7 /* UpdateJournalView.swift */; };
+		E03621A9276772C8006B84D7 /* UpdateFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03621A8276772C8006B84D7 /* UpdateFeelingView.swift */; };
 		E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F73BA3274B589900AE10DC /* ContentData.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		D9E48196274F3E39004189CF /* ExerciseGuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseGuideVM.swift; sourceTree = "<group>"; };
 		D9E48198274FFC70004189CF /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		D9E4819A27501009004189CF /* ExercisePreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreView.swift; sourceTree = "<group>"; };
+		E03621A627676D7D006B84D7 /* UpdateJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateJournalView.swift; sourceTree = "<group>"; };
+		E03621A8276772C8006B84D7 /* UpdateFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFeelingView.swift; sourceTree = "<group>"; };
 		E0F73BA3274B589900AE10DC /* ContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +103,7 @@
 		2202E0A92765C7F800E6771E /* Hi fi New */ = {
 			isa = PBXGroup;
 			children = (
+				E03621A527676D64006B84D7 /* Update */,
 				2202E0AD2765C80600E6771E /* AddJournalView.swift */,
 				2202E0AC2765C80500E6771E /* JournalBodyView.swift */,
 				2202E0AB2765C80500E6771E /* JournalFeelingView.swift */,
@@ -200,6 +205,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E03621A527676D64006B84D7 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				E03621A627676D7D006B84D7 /* UpdateJournalView.swift */,
+				E03621A8276772C8006B84D7 /* UpdateFeelingView.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
 		E0F73BA2274B583000AE10DC /* Model  */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,7 +308,9 @@
 				E0F73BA4274B589900AE10DC /* ContentData.swift in Sources */,
 				224B58372754DA130082088C /* RainCoreData.swift in Sources */,
 				2202E0B52765C80600E6771E /* JournalQuotesView.swift in Sources */,
+				E03621A9276772C8006B84D7 /* UpdateFeelingView.swift in Sources */,
 				2202E0B22765C80600E6771E /* JournalBodyView.swift in Sources */,
+				E03621A727676D7D006B84D7 /* UpdateJournalView.swift in Sources */,
 				22D3318B274B4E6B005B72FF /* Persistence.swift in Sources */,
 				2202E0A72765C7C900E6771E /* ObservableObjectRain.swift in Sources */,
 				2202E0A42765C7B700E6771E /* Screen1View.swift in Sources */,
@@ -445,7 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Cravles/Preview Content\"";
-				DEVELOPMENT_TEAM = 8WWR82GRZD;
+				DEVELOPMENT_TEAM = 93VTU92YDK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -474,7 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Cravles/Preview Content\"";
-				DEVELOPMENT_TEAM = 8WWR82GRZD;
+				DEVELOPMENT_TEAM = 93VTU92YDK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

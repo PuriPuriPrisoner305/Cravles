@@ -16,7 +16,7 @@ struct JournalingView: View {
     @State var showingAdd = false
     @State var isLinkActive2 = false
     @StateObject var rainData = ObservableObjectRain()
-    @State var isID = ""
+//    var reflection : Reflection
     let tes = [1,2,3,4,]
     var body: some View {
 //        NavigationView{
@@ -60,7 +60,7 @@ struct JournalingView: View {
             
             ScrollView{
                 ForEach(rainData.data, id:\.id){ rain in
-//                    NavigationLink(destination: UpdateView(feelingRain1: $isID)){
+//                    NavigationLink(destination: UpdateJournalView(feelingRain1: reflection)){
                     VStack{
                         
                         ZStack{
@@ -121,27 +121,31 @@ struct JournalingView: View {
 //                                if rainData.reflectionRain1.isEmpty || rainData.reflectionRain2.isEmpty || rainData.reflectionRain3.isEmpty{
 //
 //                                }
-                                if rain.reflection2.isEmpty && rain.reflection3.isEmpty {
-                                    Text("you just completed 1 0f 3 stages lest's finish it")
-                                        .font(.system(size: 9))
-                                        .foregroundColor(Color.black)
-                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
-                                }
-                                else if rain.reflection3 == nil{
-                                    Text("you just completed 2 0f 3 stages lest's finish it")
-                                        .font(.system(size: 9))
-                                        .foregroundColor(Color.black)
-                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
-                                }
-                                else if rain.reflection3.isEmpty && rain.reflection1.isEmpty && rain.reflection2.isEmpty{
+                                if rain.reflection3.isEmpty && rain.reflection1.isEmpty && rain.reflection2.isEmpty{
+                                    
                                     Text("you just completed 0 0f 3 stages lest's finish it")
-                                        .font(Font.system(size:17,weight: .bold, design: .rounded))
+                                        .font(.system(size: 10))
                                         .foregroundColor(Color.black)
                                         .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
                                 }
+                                else if rain.reflection2.isEmpty && rain.reflection3.isEmpty {
+                                    Spacer()
+                                    Text("you just completed 1 0f 3 stages lest's finish it")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(Color.black)
+                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .center)
+                                        .padding(.top,10)
+                                }
+                                if rain.reflection3 == nil{
+                                    Text("you just completed 2 0f 3 stages lest's finish it")
+                                        .font(.system(size: 10))
+                                        .foregroundColor(Color.black)
+                                        .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
+                                }
+                               
                                 else {
                                     Text( "\(rain.quotes )")
-                                        .font(.system(size: 9))
+                                        .font(.system(size: 10))
                                         .foregroundColor(Color.black)
                                         .frame(width: UIScreen.main.bounds.width/1.9, height: UIScreen.main.bounds.width/10, alignment: .topLeading)
                                    
@@ -205,8 +209,8 @@ struct JournalingView: View {
     }
 }
 
-struct JournalingView_Previews: PreviewProvider {
-    static var previews: some View {
-        JournalingView()
-    }
-}
+//struct JournalingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        JournalingView()
+//    }
+//}
